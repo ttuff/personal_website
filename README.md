@@ -1,50 +1,36 @@
-# Research Project Template
+# drtuff.com
 
-This repository is a **minimal template for research and data science projects** that combine code, documentation, and a project website.
+Static reconstruction of [drtuff.com](https://www.drtuff.com), migrated from Squarespace for deployment on GitHub Pages.
 
-It includes:
+The live Squarespace site remains the source of truth until DNS is moved. Its public HTML, sitemap, robots rules, CSS, page inventory, design measurements, and original-resolution first-party assets are preserved under `migration/` and `assets/`.
 
-* a clean project structure (`src`, `data`, `docs`, `tests`, etc.)
-* a documentation website built with **MkDocs + Material**
-* automatic deployment to **GitHub Pages** using GitHub Actions
-* development history files (changelog, roadmap, dev log)
-* an `AGENTS.md` file with guidance for AI coding agents
+## Build and validate
 
-The website is built from the `docs/` folder and automatically deployed when changes are pushed.
-
----
-
-# Enable the Website
-
-After creating a repository from this template you must enable GitHub Pages once.
-
-1. Go to **Settings → Pages**
-2. Under **Build and deployment**, choose
-   **Source: GitHub Actions**
-
-The site will then deploy automatically on push.
-
-Your site will appear at:
-
-```
-https://<your-username>.github.io/<repository-name>/
+```bash
+python3 scripts/validate_site.py
 ```
 
----
+The build is written to `site/`. Preview it locally with:
 
-# Preview Locally
-
-```
-pip install mkdocs mkdocs-material
-mkdocs serve
+```bash
+python3 -m http.server 8000 --directory site
 ```
 
-Then open:
+Then open `http://127.0.0.1:8000`.
 
-```
-http://127.0.0.1:8000
-```
+## Deployment
 
----
+Pushes to `main` run `.github/workflows/pages.yml`, validate the build, and deploy `site/` to GitHub Pages. Configure the repository’s Pages source as **GitHub Actions**.
 
-Use **"Use this template"** on GitHub to start a new project.
+The expected project URL is `https://ttuff.github.io/personal_website/`.
+
+No `CNAME` is included. Keep the custom domain on Squarespace until the GitHub Pages version has passed visual and functional review.
+
+## Migration records
+
+- `migration/site_inventory.json` — machine-readable page/content inventory
+- `migration/site_inventory.md` — human-readable page summary
+- `migration/asset_manifest.csv` — recovered asset provenance and file metadata
+- `migration/design_inventory.md` — measured live-site design system
+- `migration/migration_report.md` — scope, differences, and remaining manual work
+- `migration/source/` — preserved raw source material
