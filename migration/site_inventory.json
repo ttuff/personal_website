@@ -1,0 +1,3120 @@
+{
+  "source": "https://www.drtuff.com",
+  "captured_from": "Squarespace public HTML and sitemap",
+  "navigation": [
+    {
+      "position": 1,
+      "label": "My Science",
+      "url": "/my-science"
+    },
+    {
+      "position": 2,
+      "label": "My CV",
+      "url": "/my-cv"
+    },
+    {
+      "position": 3,
+      "label": "Contact me",
+      "url": "/contact-me"
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.drtuff.com/home",
+      "slug": "home",
+      "title": "Dr. Tuff",
+      "navigation_position": null,
+      "page_hierarchy": [
+        "site",
+        "home"
+      ],
+      "headings": [
+        {
+          "level": "h1",
+          "text": "An ecologist with a physics problem"
+        },
+        {
+          "level": "h2",
+          "text": "Hi, I’m Ty! And I think for a living."
+        },
+        {
+          "level": "h3",
+          "text": "My science:"
+        },
+        {
+          "level": "h2",
+          "text": "What can the relative motion between multiple ecological components teach us about how nature works?"
+        },
+        {
+          "level": "h3",
+          "text": "Curious about this work?"
+        },
+        {
+          "level": "h2",
+          "text": "Here are a few of my talks:"
+        },
+        {
+          "level": "h1",
+          "text": "Do you have a physics problem too?"
+        },
+        {
+          "level": "h2",
+          "text": "Follow me on a trail around the internet!"
+        },
+        {
+          "level": "h2",
+          "text": "Quick Links"
+        },
+        {
+          "level": "h3",
+          "text": "HOME"
+        },
+        {
+          "level": "h3",
+          "text": "My Science"
+        },
+        {
+          "level": "h3",
+          "text": "My CV"
+        },
+        {
+          "level": "h3",
+          "text": "Contact Me"
+        }
+      ],
+      "textual_content": [
+        {
+          "type": "p",
+          "text": "I think about how to describe nature using concepts from math and physics. I specialize in adding spatial movement to ecological and evolutionary processes, and I’m especially fascinated by the idea of relative motion—i.e. the spatial patterns that emerge when we consider how different parts of the natural world move in different directions or at different speeds relative to each other."
+        },
+        {
+          "type": "p",
+          "text": "I test these ideas using a mix of theory, simulations, and highly replicated experiments with an emphasis on testing mathematical theory using experimental data. Over the last ten years as a scientist, I have shown that motion is a powerful ecological mechanism that alters how natural systems operate. I have also shown that taking account of relative motion in our mathematical models can unlock secrets about the ways ecological and evolutionary processes operate."
+        },
+        {
+          "type": "p",
+          "text": "At the Environmental Data Science Innovation and Inclusion Lab (ESIIL), I hold multiple leadership roles, including serving on the executive board, where I contribute to high-level decision-making. I lead the cyberinfrastructure team, overseeing the design and implementation of the center's open data platform, OASIS (Open Analytics and Synthesis Infrastructure for Science). OASIS integrates GitHub templates, Docker containers, and NSF cloud infrastructure to support cutting-edge scientific research. Additionally, I lead the Working Groups, which are the primary scientific outputs of the center. In this role, I recruit Principal Investigators (PIs), support proposal development, advise on scientific directions, train groups on utilizing our cyberinfrastructure, and develop custom infrastructure tailored to each group's needs. These responsibilities position me as a key contributor to the advancement of Environmental Data Science."
+        },
+        {
+          "type": "p",
+          "text": "Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science"
+        },
+        {
+          "type": "p",
+          "text": "© Ty Tuff 2020. All Rights Reserved. Site designed & built by Impact Media Lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1535722894771-BDD3FPTYSDA8DV5IRQ4H/133858_10150163475154937_6095482_o.jpg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2048x1365",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1535739913381-IGV8OAZW30PCAQMH1IMQ/GIF+of+3+geese+in+flight",
+          "alt": "",
+          "title": "",
+          "dimensions": "498x441",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1535722717185-I4W4CLEHIE3V1JI1NDPW/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.058.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1535722627712-1DZ1PQ60WVEMN1311RM4/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.012.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1535722594533-5DX1N1IHCVQQSBFY8YAQ/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.016.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1535745894831-09DYHQITH6S20D7IST2B/Gif+of+a+colorful+planet+Earth+in+rotation",
+          "alt": "",
+          "title": "",
+          "dimensions": "545x545",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1536195784772-AAYESTSJ51WT1OVX1RK2/1*jcFtz7d_BdKSJ8Wfg39Ddw.jpg",
+          "alt": "",
+          "title": "",
+          "dimensions": "1835x1087",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263192693-EY7FRCV8M1ZOAQYS09VQ/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263192693-EY7FRCV8M1ZOAQYS09VQ/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263191519-ZW7V0JKSY5NCE2YGEBF7/GH+logo-01.png",
+          "alt": "Github",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263191519-ZW7V0JKSY5NCE2YGEBF7/GH+logo-01.png",
+          "alt": "Github",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263191588-881EMU2KKU1RA2OKP53B/GS_logo-01.png",
+          "alt": "Google Scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263191588-881EMU2KKU1RA2OKP53B/GS_logo-01.png",
+          "alt": "Google Scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538759421467-QKY9SWES9YZ73VQC2BYI/Ty_logo_WHITE.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x718",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        }
+      ],
+      "image_captions": [],
+      "links": [
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "",
+          "url": "https://www.drtuff.com/search"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "Learn more",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "Let's connect!",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "H - intro",
+          "url": "https://www.drtuff.com/home#h-intro"
+        },
+        {
+          "text": "H - About me",
+          "url": "https://www.drtuff.com/home#h-about-me"
+        },
+        {
+          "text": "H - Relativity in action",
+          "url": "https://www.drtuff.com/home#h-relativity-in-action"
+        },
+        {
+          "text": "H - Talks",
+          "url": "https://www.drtuff.com/home#h-talks"
+        },
+        {
+          "text": "H - closer",
+          "url": "https://www.drtuff.com/home#h-closer"
+        },
+        {
+          "text": "H - social media",
+          "url": "https://www.drtuff.com/home#h-social-media"
+        },
+        {
+          "text": "7209381454",
+          "url": "tel:7209381454"
+        },
+        {
+          "text": "ty.tuff@colorado.edu",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "HOME",
+          "url": "https://www.drtuff.com/home"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact Me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Impact Media Lab",
+          "url": "https://www.impactmedialab.com/"
+        }
+      ],
+      "downloadable_files": [],
+      "galleries": [],
+      "embedded_content": [
+        {
+          "type": "div",
+          "url": "https://vimeo.com/288286209"
+        }
+      ],
+      "layout_structure": [
+        {
+          "id": "h-intro",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b893936032be47e603b17dc"
+        },
+        {
+          "id": "h-about-me",
+          "classes": "Index-page",
+          "collection_id": "5b893eb6898583866a533f9f"
+        },
+        {
+          "id": "h-relativity-in-action",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b895d640e2e72e04694a974"
+        },
+        {
+          "id": "h-talks",
+          "classes": "Index-page",
+          "collection_id": "5be05dec70a6addc773107d8"
+        },
+        {
+          "id": "h-closer",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b8997b74fa51ac38ae1b6aa"
+        },
+        {
+          "id": "h-social-media",
+          "classes": "Index-page",
+          "collection_id": "5b8988fe575d1fcb79afcbb3"
+        }
+      ],
+      "relevant_css_classes": [
+        "Index-page",
+        "Index-page--has-image"
+      ],
+      "metadata": {
+        "viewport": "initial-scale=1",
+        "og:site_name": "Dr. Tuff",
+        "og:title": "Dr. Tuff",
+        "og:url": "https://www.drtuff.com",
+        "og:type": "website",
+        "og:description": "Welcome to the website of Dr. Ty Tuff, an ecologist with a physics problem. Learn more about his work applying relative motion to ecology and evolution. Expertise includes spatial ecology, quantitative thinking, theory, micrcosm experimental design, and data visualization.",
+        "og:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "og:image:width": "532",
+        "og:image:height": "569",
+        "name": "Dr. Tuff",
+        "url": "https://www.drtuff.com",
+        "description": "Welcome to the website of Dr. Ty Tuff, an ecologist with a physics problem. Learn more about his work applying relative motion to ecology and evolution. Expertise includes spatial ecology, quantitative thinking, theory, micrcosm experimental design, and data visualization.",
+        "thumbnailUrl": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:title": "Dr. Tuff",
+        "twitter:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:url": "https://www.drtuff.com",
+        "twitter:card": "summary",
+        "twitter:description": "Welcome to the website of Dr. Ty Tuff, an ecologist with a physics problem. Learn more about his work applying relative motion to ecology and evolution. Expertise includes spatial ecology, quantitative thinking, theory, micrcosm experimental design, and data visualization."
+      },
+      "archived_html": "migration/source/pages/home.html"
+    },
+    {
+      "url": "https://www.drtuff.com/my-science",
+      "slug": "my-science",
+      "title": "My Science — Dr. Tuff",
+      "navigation_position": 2,
+      "page_hierarchy": [
+        "site",
+        "my-science"
+      ],
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Relative motion as an ecological and evolutionary mechanism"
+        },
+        {
+          "level": "h2",
+          "text": "Once upon a time,"
+        },
+        {
+          "level": "h1",
+          "text": "what else might we be misunderstanding because of a limited spatial perspective?"
+        },
+        {
+          "level": "h2",
+          "text": "Let’s explore an example."
+        },
+        {
+          "level": "h3",
+          "text": "My approach to discovery:"
+        },
+        {
+          "level": "h2",
+          "text": "I believe science works best when we integrate 3 tools:"
+        },
+        {
+          "level": "h1",
+          "text": "Current Projects"
+        },
+        {
+          "level": "h2",
+          "text": "Transport networks as an emergent property of relative motion."
+        },
+        {
+          "level": "h2",
+          "text": "Ecological transport networks for urban planners"
+        },
+        {
+          "level": "h2",
+          "text": "Identifying transport networks in ecological data"
+        },
+        {
+          "level": "h2",
+          "text": "Tracking individual movement in engraved spaces"
+        },
+        {
+          "level": "h3",
+          "text": "Future Research Directions"
+        },
+        {
+          "level": "h2",
+          "text": "I am launching a modern spatial ecology lab developing three flagship projects:"
+        },
+        {
+          "level": "h1",
+          "text": "On-going Experiments"
+        },
+        {
+          "level": "h2",
+          "text": "Can assisted migration save moving populations from extinction?"
+        },
+        {
+          "level": "h2",
+          "text": "3 types of rescue to help species adapt to change"
+        },
+        {
+          "level": "h2",
+          "text": "Migratory birds don’t move, we do."
+        },
+        {
+          "level": "h2",
+          "text": "Quantitative approaches to sleuthing human history"
+        },
+        {
+          "level": "h2",
+          "text": "Quick Links"
+        },
+        {
+          "level": "h3",
+          "text": "HOME"
+        },
+        {
+          "level": "h3",
+          "text": "My Science"
+        },
+        {
+          "level": "h3",
+          "text": "My CV"
+        },
+        {
+          "level": "h3",
+          "text": "Contact Me"
+        }
+      ],
+      "textual_content": [
+        {
+          "type": "p",
+          "text": "The Rostocker Pfeilstorch, found in 1822, demonstrated that birds migrated rather than hibernating or changing form in winter. Image: Wikipedia."
+        },
+        {
+          "type": "figcaption",
+          "text": "The Rostocker Pfeilstorch, found in 1822, demonstrated that birds migrated rather than hibernating or changing form in winter. Image: Wikipedia."
+        },
+        {
+          "type": "p",
+          "text": "the study of animal migration was as rich with lore as Greek mythology. People thought that migrating birds hibernated at the bottom of lakes over the winter months or bloomed from flowers each spring. Some believed that birds flew to the moon to stay warm, while still others suggested they turned into mice."
+        },
+        {
+          "type": "p",
+          "text": "Theories surrounding the origins of seasonal birds accumulated rapidly, until a fateful day in 1822, when a white stork crash landed outside of Rostock, Germany with a hand-carved arrow piercing its neck. Researchers tracked the arrow’s origin to a single tribe in central Africa, who had made the arrow from a local wood and shot the bird months before. This African arrow in the neck of a German migrating stork was the beginning of an entirely new way of thinking."
+        },
+        {
+          "type": "p",
+          "text": "This famous stork, known as Rostocker Pfeilstorch (now stuffed and on display at the University of Rostock), inspired the development of bird banding and animal telemetry, which radically accelerated our understanding of global movement and the connections between ecology and geography. Over time, scientists came to realize that space was its own ecological mechanism and that migration provided the valuable function of stitching geographic space together."
+        },
+        {
+          "type": "p",
+          "text": "For me, this story underscores just how important it is to consider space, time, and the movement connecting them when studying patterns in the natural world. It was impossible to understand the notion of bird migration until we scaled up our thinking to include travel to far-away places. I can’t help but wonder…"
+        },
+        {
+          "type": "p",
+          "text": "It is easy to forget that we are living on a moving surface (i.e. a rotating planet!) and that our understanding of the natural world is affected by the movement of the world beneath us. This short video of Mario demonstrates this principle nicely. At the beginning of the video, it appears easy to measure the distance that Mario is jumping up and down. But when the background stops moving (and we realize that Mario is actually moving in a circle), we learn that the linear measurements we took at the beginning of the video are actually incomplete."
+        },
+        {
+          "type": "p",
+          "text": "Theory"
+        },
+        {
+          "type": "p",
+          "text": "Finding mathematical tools that are able to mechanistically describe the way emergent properties form in nature. I have a fondness for geometry, which plays nicely with the math of Einstein’s theory of relativity."
+        },
+        {
+          "type": "figcaption",
+          "text": "Theory Finding mathematical tools that are able to mechanistically describe the way emergent properties form in nature. I have a fondness for geometry, which plays nicely with the math of Einstein’s theory of relativity."
+        },
+        {
+          "type": "p",
+          "text": "Simulation"
+        },
+        {
+          "type": "p",
+          "text": "Explore the universe of outcomes possible from the simple set of rules laid out in the theory. Watching models behave under many different conditions points me to the best situations for drawing experimental contrasts."
+        },
+        {
+          "type": "figcaption",
+          "text": "Simulation Explore the universe of outcomes possible from the simple set of rules laid out in the theory. Watching models behave under many different conditions points me to the best situations for drawing experimental contrasts."
+        },
+        {
+          "type": "p",
+          "text": "Experiment"
+        },
+        {
+          "type": "p",
+          "text": "Design microcosms to mimic the mathematical equations and look for places where experimental results are disagreeing with theory or where I can show contrasts between competing candidate mechanisms."
+        },
+        {
+          "type": "figcaption",
+          "text": "Experiment Design microcosms to mimic the mathematical equations and look for places where experimental results are disagreeing with theory or where I can show contrasts between competing candidate mechanisms."
+        },
+        {
+          "type": "p",
+          "text": "Transport systems move mass and energy along transport networks. These systems emerge as fractal geographic shapes in systems where internal objects are organized according to relative movement speeds (e.g. like cities). I am adopting lessons learned from studying these emergent patterns in urban environments and applying them to our thinking about management and future planning."
+        },
+        {
+          "type": "p",
+          "text": "My efforts to demonstrate this mechanism to the scientific community will play out over the three acts described below:"
+        },
+        {
+          "type": "p",
+          "text": "Question: Is it better to design urban conservation corridors as dendritic fractals rather than nearest-neighbor webs?"
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: Corridors designed as fractal transportation networks will function better than webs because transport systems (the mechanism here) allow all of the individuals in the system to all concurrently move the mass and energy they need to persist."
+        },
+        {
+          "type": "p",
+          "text": "Methods: Modeling different flow systems through urban environments using different models for transport networks and fitting those models to animal movement data."
+        },
+        {
+          "type": "p",
+          "text": "Question: Individuals spatially segregate in space so that there are areas with fast movement and slow movement that relate to each other according to the fractal relationships described in the UPTN project."
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: We can identify transport networks in natural systems using movement data to identify areas with fast and slow movement regimes that relate to eachother spatially according to fractal scaling rules."
+        },
+        {
+          "type": "p",
+          "text": "Methods: Use Movebank data to identify transport networks using entropy measures of individual movement trajectories."
+        },
+        {
+          "type": "p",
+          "text": "Question: Can we experimentally isolate transport networks as the mechanism of fractal emergent design in spatial movement?"
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: We should be able to demonstrate the emergence of fractals via engraved spaces by allowing different patterns to emerge from populations living in different spatial configurations."
+        },
+        {
+          "type": "p",
+          "text": "Methods: Engrave spaces along a gradient of fractal to web shapes and have large Caenorhabditis elegans colonies on those spaces. Use computer vision to track their movements to record the emergence of movement networks within the constrained space. Response variable is a measure of efficiency for movement networks that form under each special configuration."
+        },
+        {
+          "type": "p",
+          "text": "Designing spatial corridor networks"
+        },
+        {
+          "type": "p",
+          "text": "Using transport networks to design a future where both human and non-human species are free to move as much as they require to meet their energetic and resource needs. I am testing these designs using the Caenorhabditis elegans microcosm system developed as part of my current postdoc."
+        },
+        {
+          "type": "figcaption",
+          "text": "Designing spatial corridor networks Using transport networks to design a future where both human and non-human species are free to move as much as they require to meet their energetic and resource needs. I am testing these designs using the Caenorhabditis elegans microcosm system developed as part of my current postdoc."
+        },
+        {
+          "type": "p",
+          "text": "Rescuing moving species from extinction"
+        },
+        {
+          "type": "p",
+          "text": "I have previously shown several successful examples of evolutionary rescue using a Tribolium microcosm experimental system in the past and now I am extending those experiments into spatial corridor networks to study our ability to rescue urban populations living in constrained urban spatial networks."
+        },
+        {
+          "type": "figcaption",
+          "text": "Rescuing moving species from extinction I have previously shown several successful examples of evolutionary rescue using a Tribolium microcosm experimental system in the past and now I am extending those experiments into spatial corridor networks to study our ability to rescue urban populations living in constrained urban spatial networks."
+        },
+        {
+          "type": "p",
+          "text": "Modeling movement trajectories"
+        },
+        {
+          "type": "p",
+          "text": "I have previously shown that pole-to-pole migrants travel along an analemma path as they stay stationary relative to the sun. What I am developing now is an extension to that model that allows for species that spend part of the day in a nest, attached to Earth, and part of the day flying, referencing the sun. We are using move bank data to characterize the relative contribution that attached and detached movement make to creating a realized migratory path."
+        },
+        {
+          "type": "figcaption",
+          "text": "Modeling movement trajectories I have previously shown that pole-to-pole migrants travel along an analemma path as they stay stationary relative to the sun. What I am developing now is an extension to that model that allows for species that spend part of the day in a nest, attached to Earth, and part of the day flying, referencing the sun. We are using move bank data to characterize the relative contribution that attached and detached movement make to creating a realized migratory path."
+        },
+        {
+          "type": "p",
+          "text": "Question: Can assisted migration\" rescue populations that are failing to keep up with their moving climate?"
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: if we artificially increase dispersal speed in populations failing to keep up with their moving habitat, then we can rescue those populations from extinction."
+        },
+        {
+          "type": "p",
+          "text": "Method: We expose replicate populations to a speed that is drive them to extinction in 5 generations and then expose half of those treatments to transplanting 100 individuals from the trailing edge to the leading edge to see if you can rescue them from extinction."
+        },
+        {
+          "type": "p",
+          "text": "Results: Assisted migration can save populations from extinction over the course of 6-12 generations, but it only has a very narrow window of success and misplaced interventions can drive populations to extinction faster."
+        },
+        {
+          "type": "p",
+          "text": "Question: What is the relative contribution of genes vs. demography vs. unassisted evolution in colonization events."
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: we can experimentally isolate the relative contribution of genetics and demographics in colonization by varying the genetic diversity and demographic size of the founding population and using the growth rate of the population over time as a response variable."
+        },
+        {
+          "type": "p",
+          "text": "Method: We used Triboleum castaneum microcosms to replicate repeated colonization across a gradient of habitats and initial population sizes. In these colonization events and censused those populations each generation to monitor the response in population growth rate."
+        },
+        {
+          "type": "p",
+          "text": "Results: We found that genes where more important than demographics in creating a successful colonizing population, but that it was easier for those genes to play that positive role when colonizing populations where larger. We also found that evolution was capable of rescuing populations in distress."
+        },
+        {
+          "type": "p",
+          "text": "Question: Relative contribution between solar cues and Earth’s surface in determining avian migration routes and timing. Migratory birds stay stationary relative to the sun and we move under then on a spinning Earth"
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: Relative contribution between solar cues and Earth’s surface in determining avian migration routes and timing. Migratory birds stay stationary relative to the sun and we move under then on a spinning Earth"
+        },
+        {
+          "type": "p",
+          "text": "Method: Relative contribution between solar cues and Earth’s surface in determining avian migration routes and timing. Migratory birds stay stationary relative to the sun and we move under then on a spinning Earth"
+        },
+        {
+          "type": "p",
+          "text": "Results: Relative contribution between solar cues and Earth’s surface in determining avian migration routes and timing. Migratory birds stay stationary relative to the sun and we move under then on a spinning Earth"
+        },
+        {
+          "type": "p",
+          "text": "Question: Relative contribution between inheritance, sharing, and forced replacement in the spread of agriculture through human cultures."
+        },
+        {
+          "type": "p",
+          "text": "Hypothesis: Relative contribution between inheritance, sharing, and forced replacement in the spread of agriculture through human cultures."
+        },
+        {
+          "type": "p",
+          "text": "Method: Relative contribution between inheritance, sharing, and forced replacement in the spread of agriculture through human cultures."
+        },
+        {
+          "type": "p",
+          "text": "Results: Relative contribution between inheritance, sharing, and forced replacement in the spread of agriculture through human cultures."
+        },
+        {
+          "type": "p",
+          "text": "Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science"
+        },
+        {
+          "type": "p",
+          "text": "© Ty Tuff 2020. All Rights Reserved. Site designed & built by Impact Media Lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1536117928108-9KBNBLU6UAQ5VEI2KF5R/Screen+Shot+2018-09-04+at+11.19.58+PM.png",
+          "alt": "Screen Shot 2018-09-04 at 11.19.58 PM.png",
+          "title": "",
+          "dimensions": "2326x1563",
+          "classes": "custom-fallback-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1536893768265-AZJXGP9MGAHDHK4OTSGR/Photo+of+the+white+Pfeilstorch+stork+with+an+African+arrow+piercing+through+its+neck",
+          "alt": "",
+          "title": "",
+          "dimensions": "800x1200",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538264266972-41HP8NZLZ50GLFLJFECA/chalkboard_texture_mc2015_by_mattiamc-d8dbnac.jpg",
+          "alt": "",
+          "title": "",
+          "dimensions": "1191x670",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1583161717544-KJ6YAXIZWNIOM8I4NRO5/image-asset.jpeg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x1667",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1583161656949-OGPF1JOGXQ0009UK8U01/image-asset.jpeg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2197x1465",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1583161676424-707OW6O6H5WJUJKQRMYV/image-asset.jpeg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x1669",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538681708727-F0WOFR3XASMD85SHCETT/Chalkboard+sketch+of+a+lightbulb",
+          "alt": "",
+          "title": "",
+          "dimensions": "533x654",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538681797468-FBLL1H93ZLZINRJ44GMG/Chalkboard+sketch+of+a+leaf",
+          "alt": "",
+          "title": "",
+          "dimensions": "496x572",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538680740762-HWK6P9NG6K0VFTBINE23/Chalkboard+sketch+of+a+laptop+computer",
+          "alt": "",
+          "title": "",
+          "dimensions": "1169x1309",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538247835079-RJN5N0TWPESK9M2MTB93/chalkboard_texture_long.jpg",
+          "alt": "",
+          "title": "",
+          "dimensions": "1191x2070",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1583164537491-BXSF8MXUEVEKZJHKOJS2/image-asset.jpeg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x1669",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1583164648790-XFKSP030K0QO0AFZGXF2/image-asset.jpeg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2499x1666",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1583164709411-R9WVJ7TXISON3PTHKY35/image-asset.jpeg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2332x1555",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538680907500-485IGMN0NVECG93CHVWB/Chalkboard+sketch+of+a+rocket+ship",
+          "alt": "",
+          "title": "",
+          "dimensions": "1173x1064",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538681632885-K8I9BRDERQYD91SOF0DV/Chalkboard+sketch+of+a+butterfly",
+          "alt": "",
+          "title": "",
+          "dimensions": "552x581",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538680953020-HE9S3QP8D5YCJBJOXHYB/Chalkboard+sketch+of+a+globe",
+          "alt": "",
+          "title": "",
+          "dimensions": "778x949",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538681572404-WRCVYXJ9E95T4BRVB1UZ/Chalkboard+sketch+of+a+calculator",
+          "alt": "",
+          "title": "",
+          "dimensions": "919x1118",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538250083576-LCSO6LVURSD31XOFC3UA/chalkboard_texture_long.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2298x2070",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538759421467-QKY9SWES9YZ73VQC2BYI/Ty_logo_WHITE.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x718",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        }
+      ],
+      "image_captions": [
+        {
+          "type": "figcaption",
+          "text": "The Rostocker Pfeilstorch, found in 1822, demonstrated that birds migrated rather than hibernating or changing form in winter. Image: Wikipedia."
+        },
+        {
+          "type": "figcaption",
+          "text": "Theory Finding mathematical tools that are able to mechanistically describe the way emergent properties form in nature. I have a fondness for geometry, which plays nicely with the math of Einstein’s theory of relativity."
+        },
+        {
+          "type": "figcaption",
+          "text": "Simulation Explore the universe of outcomes possible from the simple set of rules laid out in the theory. Watching models behave under many different conditions points me to the best situations for drawing experimental contrasts."
+        },
+        {
+          "type": "figcaption",
+          "text": "Experiment Design microcosms to mimic the mathematical equations and look for places where experimental results are disagreeing with theory or where I can show contrasts between competing candidate mechanisms."
+        },
+        {
+          "type": "figcaption",
+          "text": "Designing spatial corridor networks Using transport networks to design a future where both human and non-human species are free to move as much as they require to meet their energetic and resource needs. I am testing these designs using the Caenorhabditis elegans microcosm system developed as part of my current postdoc."
+        },
+        {
+          "type": "figcaption",
+          "text": "Rescuing moving species from extinction I have previously shown several successful examples of evolutionary rescue using a Tribolium microcosm experimental system in the past and now I am extending those experiments into spatial corridor networks to study our ability to rescue urban populations living in constrained urban spatial networks."
+        },
+        {
+          "type": "figcaption",
+          "text": "Modeling movement trajectories I have previously shown that pole-to-pole migrants travel along an analemma path as they stay stationary relative to the sun. What I am developing now is an extension to that model that allows for species that spend part of the day in a nest, attached to Earth, and part of the day flying, referencing the sun. We are using move bank data to characterize the relative contribution that attached and detached movement make to creating a realized migratory path."
+        }
+      ],
+      "links": [
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "",
+          "url": "https://www.drtuff.com/search"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "MS - video header",
+          "url": "https://www.drtuff.com/my-science#ms-video-header"
+        },
+        {
+          "text": "MS - intro",
+          "url": "https://www.drtuff.com/my-science#ms-intro"
+        },
+        {
+          "text": "MS - example",
+          "url": "https://www.drtuff.com/my-science#ms-example"
+        },
+        {
+          "text": "MS - Theory, Simulation, Experiment",
+          "url": "https://www.drtuff.com/my-science#ms-theory-simulation-experiment"
+        },
+        {
+          "text": "MS - Current projects",
+          "url": "https://www.drtuff.com/my-science#ms-current-projects"
+        },
+        {
+          "text": "MS - Future directions",
+          "url": "https://www.drtuff.com/my-science#ms-future-directions"
+        },
+        {
+          "text": "MS - Ongoing projects",
+          "url": "https://www.drtuff.com/my-science#ms-ongoing-projects"
+        },
+        {
+          "text": "7209381454",
+          "url": "tel:7209381454"
+        },
+        {
+          "text": "ty.tuff@colorado.edu",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "HOME",
+          "url": "https://www.drtuff.com/home"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact Me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Impact Media Lab",
+          "url": "https://www.impactmedialab.com/"
+        }
+      ],
+      "downloadable_files": [],
+      "galleries": [],
+      "embedded_content": [
+        {
+          "type": "div",
+          "url": "https://vimeo.com/288230987"
+        }
+      ],
+      "layout_structure": [
+        {
+          "id": "ms-video-header",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b89530303ce647836626e16"
+        },
+        {
+          "id": "ms-intro",
+          "classes": "Index-page",
+          "collection_id": "5b893aaa4d7a9c6492cdd923"
+        },
+        {
+          "id": "ms-example",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5bb001d0652dea8b18d25a6a"
+        },
+        {
+          "id": "ms-theory-simulation-experiment",
+          "classes": "Index-page",
+          "collection_id": "5b8fc8b84d7a9c8dcd1f14fc"
+        },
+        {
+          "id": "ms-current-projects",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b894f9a21c67c3ac905c8c0"
+        },
+        {
+          "id": "ms-future-directions",
+          "classes": "Index-page",
+          "collection_id": "5ba62980f9619abf167c4f2a"
+        },
+        {
+          "id": "ms-ongoing-projects",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b8fcb020e2e7219615899ea"
+        }
+      ],
+      "relevant_css_classes": [
+        "Index-page",
+        "Index-page--has-image"
+      ],
+      "metadata": {
+        "viewport": "initial-scale=1",
+        "og:site_name": "Dr. Tuff",
+        "og:title": "My Science — Dr. Tuff",
+        "og:url": "https://www.drtuff.com/my-science",
+        "og:type": "website",
+        "og:description": "Learn about Dr. Ty Tuff’s science, including his research projects, experiments, and computational background working with relative motion in ecology and evolutionary biology.",
+        "og:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "og:image:width": "532",
+        "og:image:height": "569",
+        "name": "My Science — Dr. Tuff",
+        "url": "https://www.drtuff.com/my-science",
+        "description": " Learn about Dr. Ty Tuff’s science, including his research projects, experiments, and computational background working with relative motion in ecology and evolutionary biology.  ",
+        "thumbnailUrl": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:title": "My Science — Dr. Tuff",
+        "twitter:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:url": "https://www.drtuff.com/my-science",
+        "twitter:card": "summary",
+        "twitter:description": "Learn about Dr. Ty Tuff’s science, including his research projects, experiments, and computational background working with relative motion in ecology and evolutionary biology."
+      },
+      "archived_html": "migration/source/pages/my-science.html"
+    },
+    {
+      "url": "https://www.drtuff.com/my-skills",
+      "slug": "my-skills",
+      "title": "My Skills — Dr. Tuff",
+      "navigation_position": null,
+      "page_hierarchy": [
+        "site",
+        "my-skills"
+      ],
+      "headings": [
+        {
+          "level": "h1",
+          "text": "When it comes to data, I like to think BIG"
+        },
+        {
+          "level": "h2",
+          "text": "Working with big data requires a diverse skillset."
+        },
+        {
+          "level": "h3",
+          "text": "01."
+        },
+        {
+          "level": "h3",
+          "text": "Directing large-scale and long-term laboratory microcosm experiments"
+        },
+        {
+          "level": "h3",
+          "text": "02 ."
+        },
+        {
+          "level": "h3",
+          "text": "Building bespoke spatial models in the age of big data"
+        },
+        {
+          "level": "h3",
+          "text": "03."
+        },
+        {
+          "level": "h3",
+          "text": "Designing Data visualization and digital science communication"
+        },
+        {
+          "level": "h3",
+          "text": "04."
+        },
+        {
+          "level": "h3",
+          "text": "Teaching and mentorship"
+        },
+        {
+          "level": "h3",
+          "text": "05."
+        },
+        {
+          "level": "h3",
+          "text": "Speaking and public engagement"
+        },
+        {
+          "level": "h1",
+          "text": "Spatial microcosm experiments"
+        },
+        {
+          "level": "h3",
+          "text": "Publications from this experiment include"
+        },
+        {
+          "level": "h3",
+          "text": "I am currently designing a new C. elegans system that allows for further testing of these complex spatial ideas."
+        },
+        {
+          "level": "h1",
+          "text": "Bespoke mathematical models"
+        },
+        {
+          "level": "h3",
+          "text": "Spatial spread plus phylogenetic spread"
+        },
+        {
+          "level": "h3",
+          "text": "Relativistic map projections"
+        },
+        {
+          "level": "h3",
+          "text": "Moving stochastic Ricker model"
+        },
+        {
+          "level": "h1",
+          "text": "Data visualization and digital science communication"
+        },
+        {
+          "level": "h1",
+          "text": "Teaching and student mentorship"
+        },
+        {
+          "level": "h3",
+          "text": "I want to see more math in everything we do!"
+        },
+        {
+          "level": "h3",
+          "text": "Teaching in indoor classrooms"
+        },
+        {
+          "level": "h3",
+          "text": "Teaching in outdoor classrooms"
+        },
+        {
+          "level": "h3",
+          "text": "Teacher-scholar research model"
+        },
+        {
+          "level": "h1",
+          "text": "Public speaking and community engagement"
+        },
+        {
+          "level": "h2",
+          "text": "Sharing my science with my community"
+        },
+        {
+          "level": "h3",
+          "text": "Efforts include:"
+        },
+        {
+          "level": "h3",
+          "text": "CU's Evolution Outreach Committee:"
+        },
+        {
+          "level": "h3",
+          "text": "CU's Science Discovery:"
+        },
+        {
+          "level": "h2",
+          "text": "Sharing science with my colleagues"
+        },
+        {
+          "level": "h3",
+          "text": "Efforts include:"
+        },
+        {
+          "level": "h3",
+          "text": "CU's Evolution Outreach Committee:"
+        },
+        {
+          "level": "h3",
+          "text": "CU's Science Discovery:"
+        },
+        {
+          "level": "h2",
+          "text": "Quick Links"
+        },
+        {
+          "level": "h3",
+          "text": "HOME"
+        },
+        {
+          "level": "h3",
+          "text": "My Science"
+        },
+        {
+          "level": "h3",
+          "text": "My CV"
+        },
+        {
+          "level": "h3",
+          "text": "Contact Me"
+        }
+      ],
+      "textual_content": [
+        {
+          "type": "p",
+          "text": "I have spent the past decade harnessing techniques and approaches from a variety of disciplines, including geography, ecology, human history, biology, computer science, art, and conservation. This unique blend of techniques and approaches has allowed me to cultivate a unique style of research that relies on five primary skills:"
+        },
+        {
+          "type": "p",
+          "text": "I spent 7 years directing a large-scale and long-term Tribolium castaneum landscape experiment split between two universities. At full capacity, the experiment required 28 full-time undergraduate assistants that counted approximately 50,000 beetles per week, by hand."
+        },
+        {
+          "type": "p",
+          "text": "cite"
+        },
+        {
+          "type": "li",
+          "text": "cite"
+        },
+        {
+          "type": "p",
+          "text": "cite"
+        },
+        {
+          "type": "li",
+          "text": "cite"
+        },
+        {
+          "type": "p",
+          "text": "cite"
+        },
+        {
+          "type": "li",
+          "text": "cite"
+        },
+        {
+          "type": "p",
+          "text": "cite"
+        },
+        {
+          "type": "li",
+          "text": "cite"
+        },
+        {
+          "type": "p",
+          "text": "Simulated the spread of agriculture on a network of cultures…."
+        },
+        {
+          "type": "p",
+          "text": "The following is placeholder text known as “lorem ipsum,” which is scrambled Latin used by designers to mimic real copy. Maecenas non leo laoreet, condimentum lorem nec, vulputate massa. Vivamus sit amet semper lacus, in mollis libero."
+        },
+        {
+          "type": "p",
+          "text": "When designing an experiment to test the efficacy of assisted migration, the question arose about the best location to place transplanted individuals. I modified a stochastic spatial Ricker model to include relativistic habitat movement and assisted migration and simulated possible experimental outcomes given different habitat speeds and sizes of transplant intervention."
+        },
+        {
+          "type": "p",
+          "text": "Great visualizations can be a bridge to understanding for many people. When the written word fails to convey the complexity of an idea, visualization act as that vehicle."
+        },
+        {
+          "type": "p",
+          "text": "I have been teaching professionally since I was 13 years old. My parents were ski instructors at a local resort and they needed something for their kids to do while they worked all day. It is strange to have started working at such a young age, but I was allowed to do so because ski instruction was considered an agricultural job and I was working on the same “ranch” as my parents. Such was life in western Colorado. When I taught my first ecology lab at the age of 26, I had spent half of my life teaching in the outdoors and that colored the way I thought about the classroom and the way I planned lessons. I was struck by the differences between indoor and outdoor classrooms. Eventually, I found that both worlds were talking about designing experiences for students to discover concepts for themselves. Students retain more information when they discover something for themselves and their engagement grows over time if they start discovering connections between concepts. I practiced new ways of delivering material and fun ways to design discovery to my students. I still teach outdoors for the American Canoe Association training instructors in both Swiftwater rescue and whitewater kayaking and I still teach indoors classes at the university."
+        },
+        {
+          "type": "p",
+          "text": "While my teaching style is colored by my history of teaching in the outdoors, my teaching content is colored by my professional research interests and my perception of the current tech-driven competitive job market facing our students. I think that modern biologist should have more training in math and computer science and that students are asking us for tangible vocational skills that they can deploy in a professional workplace (e.g. computer programming literacy, GIS basics, and data visualization). Students should be building models and fitting them to data as daily exercises during class. Here is an example of one such lesson that I wrote as part of a curriculum overhaul for the introductory Ecology class at the University of Colorado at Boulder in 2016 (https://tuff.shinyapps.io/Ecology_Stats_intro_application/)."
+        },
+        {
+          "type": "p",
+          "text": "The following is placeholder text known as “lorem ipsum,” which is scrambled Latin used by designers to mimic real copy. Fusce at massa nec sapien auctor gravida in in tellus. Nulla lectus ante, consequat et ex eget, feugiat tincidunt metus. Mauris egestas at nibh nec finibus. Aenean eu justo sed elit dignissim aliquam."
+        },
+        {
+          "type": "p",
+          "text": "The following is placeholder text known as “lorem ipsum,” which is scrambled Latin used by designers to mimic real copy. Quisque congue porttitor ullamcorper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget risus diam. Mauris egestas at nibh nec finibus. Nulla eu pretium massa."
+        },
+        {
+          "type": "p",
+          "text": "I value a teacher-scholar model of incorporating students into my own research to give them vocational skills they can use in the job market while infusing my lab with fresh ways of seeing research problems and maintaining the flow of fresh ideas for solving hard questions. I have a history of designing student-centered research where undergraduate assistants manage animal husbandry, data collection, lab maintenance, and help with intellectual synthesis. These are experiments designed explicitly to rely on the active participation of student researchers and the experiments are better for it."
+        },
+        {
+          "type": "p",
+          "text": "Lorem ipsum dolor sit amet, nam ei tation maiorum incorrupte, te vis justo debitis nostrum. Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "p",
+          "text": "Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "li",
+          "text": "CU's Evolution Outreach Committee:Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "p",
+          "text": "Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "li",
+          "text": "CU's Science Discovery:Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "p",
+          "text": "Lorem ipsum dolor sit amet, nam ei tation maiorum incorrupte, te vis justo debitis nostrum. Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "p",
+          "text": "Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "li",
+          "text": "CU's Evolution Outreach Committee:Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "p",
+          "text": "Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "li",
+          "text": "CU's Science Discovery:Duo ei illud meliore mentitum. Qui et omnis quidam tractatos. Fugit quidam pertinax usu ut, est ea eripuit pericula scripserit, eu quo ignota vidisse noluisse. His debet disputando cu, ad munere iisque mei."
+        },
+        {
+          "type": "p",
+          "text": "Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science"
+        },
+        {
+          "type": "p",
+          "text": "© Ty Tuff 2020. All Rights Reserved. Site designed & built by Impact Media Lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682382612-XVD5CWYSVR9B2F8GZUYY/Asset+10.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "627x785",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682694341-483Y2L5ZD2W1ZWHTEM0Q/169215_365562946843604_48899407_o.jpg",
+          "alt": "169215_365562946843604_48899407_o.jpg",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682694341-483Y2L5ZD2W1ZWHTEM0Q/169215_365562946843604_48899407_o.jpg",
+          "alt": "169215_365562946843604_48899407_o.jpg",
+          "title": "",
+          "dimensions": "2048x1536",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682676828-LSKA0VCOANSG1IJ1B1PC/Madens+arrival+in+CO.jpg",
+          "alt": "Madens arrival in CO.jpg",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682676828-LSKA0VCOANSG1IJ1B1PC/Madens+arrival+in+CO.jpg",
+          "alt": "Madens arrival in CO.jpg",
+          "title": "",
+          "dimensions": "2048x1536",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682733134-VDDB69YR68C2JAGP531L/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.040.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.040.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682733134-VDDB69YR68C2JAGP531L/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.040.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.040.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682735197-5RHGO5ZGCVQD52QUEY6U/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.043.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.043.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682735197-5RHGO5ZGCVQD52QUEY6U/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.043.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.043.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682881605-TRQZ7FJ6TZEB51JT8F01/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.038.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.038.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682881605-TRQZ7FJ6TZEB51JT8F01/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.038.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.038.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682694341-483Y2L5ZD2W1ZWHTEM0Q/169215_365562946843604_48899407_o.jpg",
+          "alt": "Slide 1",
+          "title": "",
+          "dimensions": "2048x1536",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682676828-LSKA0VCOANSG1IJ1B1PC/Madens+arrival+in+CO.jpg",
+          "alt": "Slide 2",
+          "title": "",
+          "dimensions": "2048x1536",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682733134-VDDB69YR68C2JAGP531L/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.040.png",
+          "alt": "Slide 3",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682735197-5RHGO5ZGCVQD52QUEY6U/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.043.png",
+          "alt": "Slide 4",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538682881605-TRQZ7FJ6TZEB51JT8F01/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.038.png",
+          "alt": "Slide 5",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538370637812-1INFKFZPQ78MJ84K2V4H/chalkboard_texture_long.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2298x2070",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683115813-WLX1USAXCPAD5U0T1IYY/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.020.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.020.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683115813-WLX1USAXCPAD5U0T1IYY/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.020.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.020.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683116385-A4ZXPR5DU4VRAAR5C8MO/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.029.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.029.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683116385-A4ZXPR5DU4VRAAR5C8MO/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.029.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.029.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683117640-Z6KD4XJ3GEBP99SIKX2U/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.047.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.047.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683117640-Z6KD4XJ3GEBP99SIKX2U/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.047.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.047.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683119890-JT0ZAXE7ARTQSXAA490I/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.061.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.061.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683119890-JT0ZAXE7ARTQSXAA490I/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.061.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.061.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683118220-BWQJXCI6H9YIS1DUSZFH/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.037.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.037.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683118220-BWQJXCI6H9YIS1DUSZFH/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.037.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.037.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683123191-RFYZ1BYTWZT3D2O33HR7/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.064.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.064.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683123191-RFYZ1BYTWZT3D2O33HR7/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.064.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.064.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683125733-G7ZLVI9YHO9325VJNHE0/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.077.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.077.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683125733-G7ZLVI9YHO9325VJNHE0/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.077.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.077.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683123501-QB4Z6Z8ZF5CZQSFWK8QE/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.071.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.071.png",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683123501-QB4Z6Z8ZF5CZQSFWK8QE/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.071.png",
+          "alt": "Phd Exit talk FINAL DRAFT 19 February 2016.071.png",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538370763002-EN2FLH3HO4WNVJ82DG3J/chalkboard_texture_long.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2298x2070",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538367828441-X0UXHU5PKCOSKT3HYRMT/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.005.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538367833179-2IZSGO5TCXGFGL6YW902/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.016.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538367845650-VDWHVLQ0UF18G9NLB7BV/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.058.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538367854059-GS38J45L14FR2LN2V308/Phd+Exit+talk+FINAL+DRAFT+19+February+2016.006.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "1024x768",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683558319-Y6P521YF81BUPYW6D7LH/Asset+10.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "627x785",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538683447448-4HGL0TB7ZNESS8ZO1VXG/Asset+7.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "989x967",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538253180655-2JHHE78K0BVTL0MYX6PF/chalkboard_texture_long.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2298x2070",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538759421467-QKY9SWES9YZ73VQC2BYI/Ty_logo_WHITE.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x718",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        }
+      ],
+      "image_captions": [],
+      "links": [
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "",
+          "url": "https://www.drtuff.com/search"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "https://tuff.shinyapps.io/Ecology_Stats_intro_application/",
+          "url": "https://tuff.shinyapps.io/Ecology_Stats_intro_application/"
+        },
+        {
+          "text": "My skills header",
+          "url": "https://www.drtuff.com/my-skills#skills-header"
+        },
+        {
+          "text": "My skills",
+          "url": "https://www.drtuff.com/my-skills#my-skills-details"
+        },
+        {
+          "text": "Experiments",
+          "url": "https://www.drtuff.com/my-skills#new-page"
+        },
+        {
+          "text": "Models",
+          "url": "https://www.drtuff.com/my-skills#new-page-2"
+        },
+        {
+          "text": "Data visualization",
+          "url": "https://www.drtuff.com/my-skills#new-page-3"
+        },
+        {
+          "text": "Teaching",
+          "url": "https://www.drtuff.com/my-skills#new-page-4"
+        },
+        {
+          "text": "Broader Impacts",
+          "url": "https://www.drtuff.com/my-skills#broader-impacts"
+        },
+        {
+          "text": "7209381454",
+          "url": "tel:7209381454"
+        },
+        {
+          "text": "ty.tuff@colorado.edu",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "HOME",
+          "url": "https://www.drtuff.com/home"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact Me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Impact Media Lab",
+          "url": "https://www.impactmedialab.com/"
+        }
+      ],
+      "downloadable_files": [],
+      "galleries": [],
+      "embedded_content": [
+        {
+          "type": "div",
+          "url": "https://vimeo.com/288286209"
+        }
+      ],
+      "layout_structure": [
+        {
+          "id": "skills-header",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b90830321c67c0efe683fe2"
+        },
+        {
+          "id": "my-skills-details",
+          "classes": "Index-page",
+          "collection_id": "5b893ac5352f53395f7a1c86"
+        },
+        {
+          "id": "new-page",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5ba76f37e4966bf0ebeb9197"
+        },
+        {
+          "id": "new-page-2",
+          "classes": "Index-page",
+          "collection_id": "5ba7700ae4966bf0ebeb9624"
+        },
+        {
+          "id": "new-page-3",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5ba77053104c7b4a52ad3ee7"
+        },
+        {
+          "id": "new-page-4",
+          "classes": "Index-page",
+          "collection_id": "5ba7eb4e24a69414e2ff9d12"
+        },
+        {
+          "id": "broader-impacts",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b9084c7cd83667e00e1ffa0"
+        }
+      ],
+      "relevant_css_classes": [
+        "Index-page",
+        "Index-page--has-image"
+      ],
+      "metadata": {
+        "viewport": "initial-scale=1",
+        "og:site_name": "Dr. Tuff",
+        "og:title": "My Skills — Dr. Tuff",
+        "og:url": "https://www.drtuff.com/my-skills",
+        "og:type": "website",
+        "og:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "og:image:width": "532",
+        "og:image:height": "569",
+        "name": "My Skills — Dr. Tuff",
+        "url": "https://www.drtuff.com/my-skills",
+        "thumbnailUrl": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:title": "My Skills — Dr. Tuff",
+        "twitter:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:url": "https://www.drtuff.com/my-skills",
+        "twitter:card": "summary"
+      },
+      "archived_html": "migration/source/pages/my-skills.html"
+    },
+    {
+      "url": "https://www.drtuff.com/my-cv",
+      "slug": "my-cv",
+      "title": "My CV — Dr. Tuff",
+      "navigation_position": 4,
+      "page_hierarchy": [
+        "site",
+        "my-cv"
+      ],
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Defining Environmental Data Science!"
+        },
+        {
+          "level": "h1",
+          "text": "My CV"
+        },
+        {
+          "level": "h2",
+          "text": "Education"
+        },
+        {
+          "level": "h2",
+          "text": "Peer-Reviewed Publications"
+        },
+        {
+          "level": "h2",
+          "text": "Publications in advanced stages"
+        },
+        {
+          "level": "h2",
+          "text": "Grants & Fellowships"
+        },
+        {
+          "level": "h2",
+          "text": "Service & Outreach"
+        },
+        {
+          "level": "h2",
+          "text": "Research positions"
+        },
+        {
+          "level": "h2",
+          "text": "Teaching positions"
+        },
+        {
+          "level": "h2",
+          "text": "Professional affiliations"
+        },
+        {
+          "level": "h2",
+          "text": "Professional talks"
+        },
+        {
+          "level": "h2",
+          "text": "Poster presentations"
+        },
+        {
+          "level": "h2",
+          "text": "Quick Links"
+        },
+        {
+          "level": "h3",
+          "text": "HOME"
+        },
+        {
+          "level": "h3",
+          "text": "My Science"
+        },
+        {
+          "level": "h3",
+          "text": "My CV"
+        },
+        {
+          "level": "h3",
+          "text": "Contact Me"
+        }
+      ],
+      "textual_content": [
+        {
+          "type": "p",
+          "text": "My journey as the principal Data Scientist and executive board member at the NSF-funded Environmental Data Science Innovation and Inclusion Lab (ESIIL) and my role as an editor for Environmental Data Science have been driven by a deep commitment to pioneering data-driven solutions for environmental challenges. I am passionate about leveraging cutting-edge data science to illuminate complex ecological dynamics."
+        },
+        {
+          "type": "p",
+          "text": "Doctor of Philosophy (2016)"
+        },
+        {
+          "type": "p",
+          "text": "University of Colorado at BoulderDept. of Ecology & Evolutionary Biology"
+        },
+        {
+          "type": "p",
+          "text": "Major advisor: Dr. Brett A. Melbourne"
+        },
+        {
+          "type": "p",
+          "text": "Sub-discipline: Spatial Theoretical Ecology and Evolution"
+        },
+        {
+          "type": "p",
+          "text": "Masters of Science (2009)"
+        },
+        {
+          "type": "p",
+          "text": "University of Colorado at BoulderDept. of Ecology & Evolutionary Biology"
+        },
+        {
+          "type": "p",
+          "text": "Major advisor: Dr. Alexander Cruz"
+        },
+        {
+          "type": "p",
+          "text": "Sub-discipline: Avian Ecology"
+        },
+        {
+          "type": "p",
+          "text": "Bachelors of Science (2003)"
+        },
+        {
+          "type": "p",
+          "text": "University of Colorado at BoulderDept. of Ecology & Evolutionary Biology"
+        },
+        {
+          "type": "p",
+          "text": "Major advisor: Dr. Alexander Cruz"
+        },
+        {
+          "type": "p",
+          "text": "Sub-discipline: Ecology"
+        },
+        {
+          "type": "p",
+          "text": "Kavanagh, P. H., B. Vilela, H. J. Haynie, T. Tuff, M. Lima-Ribeiro, R. D. Gray, C. A. Botero, M. C. Gavin. (2018). Hindcasting global population densities reveals forces driving the origin of agriculture. Nature Human Behavior. Altmetric score: 132"
+        },
+        {
+          "type": "p",
+          "text": "Szucs, M., B.A. Melbourne, T. Tuff, & R.A. Hufbauer. (2017). Genetic and demographic founder effects have long- term fitness consequences for colonizing populations. Ecology Letters. DOI: 10.1111/ele.12743. Altmetric score: 17"
+        },
+        {
+          "type": "p",
+          "text": "Tuff, K.T., Tuff, T. & Davies, K.F. (2016). A framework for integrating thermal biology into fragmentation research. Ecology Letters. DOI:10.1111/ele. 12579. Altmetric score: 90"
+        },
+        {
+          "type": "p",
+          "text": "Hufbauer R.A., M. Szucs, E, Kasyon, C. Youngberg, M.J. Koontz, C. Richards, T. Tuff, and B.A. Melbourne. (2015) Reply to Wootton and Pfister: The search for general context should include synthesis with laboratory model systems. PNAS. DOI: 10.1073/pnas.1517210112, Altmetric score: 11"
+        },
+        {
+          "type": "p",
+          "text": "Walsh J.J., T. Tuff, A. Cruz, and J.F. Chace. (2015) Differential Parasitism between two suitable cowbird hosts. The Open Ornithology Journal, 8, 32-38."
+        },
+        {
+          "type": "p",
+          "text": "Hufbauer R.A., M. Szucs, E, Kasyon, C. Youngberg, M.J. Koontz, C. Richards, T. Tuff, and B.A. Melbourne. (2015). Three types of rescue can avert extinction in a changing environment. PNAS, DOI:10.1073/pnas.1504732112. Altmetric score: 23"
+        },
+        {
+          "type": "p",
+          "text": "Szucs M., B.A. Melbourne, T. Tuff, and R.A. Hufbauer. (2014) The roles of demography and genetics in the early stages of colonization. Proceedings of the Royal Society B. 281(20141073). Altmetric score: 19"
+        },
+        {
+          "type": "p",
+          "text": "Tarsi, K. & T. Tuff. (2012) Introduction to Population Demographics . Nature Education Knowledge 3(11):3 (84,000 views)"
+        },
+        {
+          "type": "p",
+          "text": "Davies, K. F., Melbourne, B. A., McClenahan, J. L., & Tuff, T. (2010) Statistical models for monitoring and predicting effects of climate change and invasion on the free-living insects and a spider from sub-Antarctic Heard Island. Polar Biology, 34(1), 119-125. DOI:10.1007/s00300-010-0865-1."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B. Vilela, T. Fristoe, R. Gray, H. Haynie, P. Kavanagh, M. Gavin, and C. Botero. (In prep). Investigating mechanism in the global spread of agriculture. Target journal: Nature."
+        },
+        {
+          "type": "p",
+          "text": "T. Tuff and Brett A. Melbourne. (In prep). Revolutionary neutral theory of migration. Target journal: Science."
+        },
+        {
+          "type": "p",
+          "text": "Tuff, T., A. Hastings, and B.A. Melbourne. (In prep). Experimentally testing the fundamentals of assisted migration. Target journal: Nature."
+        },
+        {
+          "type": "p",
+          "text": "Graduate Student Domestic Travel Grant (CU-Boulder, Fall 2015): $300 Travel grant to present at the 2015 Ecological Society of America meeting in Baltimore, MD"
+        },
+        {
+          "type": "p",
+          "text": "Department of Ecology and Evolutionary Biology research grant (CU-Boulder, Spring 2013): $500 Animal migration is an emergent property."
+        },
+        {
+          "type": "p",
+          "text": "Department of Ecology and Evolutionary Biology research grant (CU-Boulder, Spring 2010): $1000Animal migration is an emergent property."
+        },
+        {
+          "type": "p",
+          "text": "Department of Ecology and Evolutionary Biology research grant (CU-Boulder, Spring 2009): $1000 Phenology Range Limits: A new model for understanding time in ecology."
+        },
+        {
+          "type": "p",
+          "text": "Department of Ecology and Evolutionary Biology research grant (CU-Boulder, Spring 2008): $2100 Does incubation temperature variance in potential Brown-headed Cowbird (Molothrus ater) hosts help determine parasitism rates?"
+        },
+        {
+          "type": "p",
+          "text": "United Government of Graduate Students Travel Grant (CU-Boulder, August 2009): $300 Travel grant to present at the 2009 Ecological Society of America meeting in Albuquerque, NM."
+        },
+        {
+          "type": "p",
+          "text": "United Government of Graduate Students Group Grant (CU-Boulder, Spring 2009): $750 Teaching Evolution: Meeting the Challenge (Fifth annual)."
+        },
+        {
+          "type": "p",
+          "text": "Private Donor: Lois Anderson (Minnesota, 2007): $3500Using Mathematical Modeling to Develop Hypotheses about the Ecology of the Brown-headed Cowbird and their Hosts."
+        },
+        {
+          "type": "p",
+          "text": "Undergraduate Research Opportunity Grant – Team Grant (CU-Boulder, Spring 2007): $3600Does incubation temperature variance in potential Brown-headed Cowbird (Molothrus ater) hosts help determine parasitism rates?"
+        },
+        {
+          "type": "p",
+          "text": "Boulder County Nature Association research grant (CU-Boulder, Spring 2006): $550Why are Western-Wood Pewee’s rarely parasitized by Brown-headed Cowbirds."
+        },
+        {
+          "type": "p",
+          "text": "CU-Boulder Science Discovery (Summer 2014)"
+        },
+        {
+          "type": "p",
+          "text": "Field instructor and guide"
+        },
+        {
+          "type": "p",
+          "text": "Guiding 5th-8th grade students through immersive outdoor education and leadership training. Includes backpacking over a pass to the sand dunes, dissecting fallen horses to feed them to wolves at a wolf sanctuary, rock climbing, and whitewater rafting."
+        },
+        {
+          "type": "p",
+          "text": "CU-Boulder Colloquium Committee (2007-2011)"
+        },
+        {
+          "type": "p",
+          "text": "Guest scheduling and management"
+        },
+        {
+          "type": "p",
+          "text": "Organizing speakers for our weekly departmental seminar. Includes organizing schedules, booking hotels, and managing the voting process for suggested speakers."
+        },
+        {
+          "type": "p",
+          "text": "CU-Boulder Evolution Outreach Committee (2008-2009)"
+        },
+        {
+          "type": "p",
+          "text": "Vice-chair"
+        },
+        {
+          "type": "p",
+          "text": "Developed and coordinated events to bring K-12 teachers to the University of Colorado to learn about teaching evolution in the classroom. I helped earn accreditation so we could award teaching credit to workshop participants and helped secure funding for the organization."
+        },
+        {
+          "type": "p",
+          "text": "Disentangling correlated drivers of evolution and spatial spread. St. Louis, MOPostdoctoral research May 2016 – May 2018"
+        },
+        {
+          "type": "p",
+          "text": "Worked with an international team of collaborators to develop spatial and phylogenetic tools for understanding how ideas and technology spread through time and space. We developed global-scale simulations for the spread of human cultural traits and then used those simulations to infer mechanisms driving the realized human phylogenetic history."
+        },
+        {
+          "type": "p",
+          "text": "Assisted migration as a conservation strategy Davis, CASupervising researcher January 2014 – August 2014"
+        },
+        {
+          "type": "p",
+          "text": "Managed project from experimental design to publication. This includes hiring and managing 9 undergraduate employees collectively working 100+ hours per week. This experiment was conducted in Alan Hastings’ lab in Davis, CA and I managed the experiment from Boulder, CO via video conferencing and by E-mailing directions each day."
+        },
+        {
+          "type": "p",
+          "text": "Range Limits and Climate Change Boulder, CO and Davis, CA Supervising researcher September 2010 – December 2013"
+        },
+        {
+          "type": "p",
+          "text": "Managed project from experimental design to publication. This includes hiring and managing 24 undergraduate employees collectively working 300+ hours per week. This experiment was split between our lab in Boulder, CO and Alan Hastings’ lab in Davis, CA. I managed both halves of this experiment from Boulder, CO via video conferencing and by E-mailing directions each day. I maintained strict experimental controls for over 30 generations."
+        },
+        {
+          "type": "p",
+          "text": "Wog Wog Habitat Fragmentation Experiment New South Wales, Australia Project manager September 2009 – August 2010"
+        },
+        {
+          "type": "p",
+          "text": "Coordinated the continued field sampling of the Wog Wog experiment, which has been in operation since 1985.I organized volunteers, arranged field vehicles, purchased and managed equipment, managed museum collections, collected field data, and organized international shipping of biological specimens. Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Principles of Ecology at the University of Colorado Boulder, Colorado Teaching Assistant August 2014 – May 2016"
+        },
+        {
+          "type": "p",
+          "text": "I developed and taught lectures for two 3-hour labs each week, covering basic ecological concepts and vocational field methods. In 2015 I co-authored a new lab manual for this class and coded a statistics module for teaching data analysis to undergraduates. Click here to explore the module."
+        },
+        {
+          "type": "p",
+          "text": "Swiftwater rescue instructor certification workshop and exam at Gonzaga University Spokane, WA. Adjunct professor/lecturer May 2015"
+        },
+        {
+          "type": "p",
+          "text": "As one of 8 instructor trainers in the US and the only trainer west of the Mississippi, I travel the west teaching accredited swiftwater (river) rescue instructor certification classes. This includes curriculum development, discovery learning, risk management, teaching style review, and evaluation for certification."
+        },
+        {
+          "type": "p",
+          "text": "Swiftwater rescue instructor certification workshop and exam at San Juan College Farmington, NM. Adjunct professor/lecturer May 2014"
+        },
+        {
+          "type": "p",
+          "text": "As one of 8 instructor trainers in the US and the only trainer west of the Mississippi, I travel the west teaching accredited swiftwater (river) rescue instructor certification classes. This includes curriculum development, discovery learning, risk management, teaching style review, and evaluation for certification."
+        },
+        {
+          "type": "p",
+          "text": "Vertebrate Zoology at the University of Colorado Boulder, Colorado Laboratory instructor January 2009 – May 2009"
+        },
+        {
+          "type": "p",
+          "text": "Helped administer a course on applied statistics for biological research. Assisted with lectures and lab development."
+        },
+        {
+          "type": "p",
+          "text": "Mammalogy at the University of Colorado Boulder, Colorado Laboratory instructor August 2007 – December 2007"
+        },
+        {
+          "type": "p",
+          "text": "I organized the entire class, including curriculum development, specimen management, and designing and administering exams."
+        },
+        {
+          "type": "p",
+          "text": "General Biology Lab at the University of Colorado Boulder, Colorado Teaching Assistant August 2006 – May 2007"
+        },
+        {
+          "type": "p",
+          "text": "Developed and taught lectures for two 3-hour labs each week, covering basic biological concepts and principles."
+        },
+        {
+          "type": "p",
+          "text": "Ecological Society of America"
+        },
+        {
+          "type": "p",
+          "text": "Animal Behavior Society"
+        },
+        {
+          "type": "p",
+          "text": "Western Field Ornithologist"
+        },
+        {
+          "type": "p",
+          "text": "2008 - current"
+        },
+        {
+          "type": "p",
+          "text": "2013"
+        },
+        {
+          "type": "p",
+          "text": "2006 - 2008"
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Relative motion as an ecological and evolutionary mechanism. (23 February 2018) Biology department invited speaker series at California Polytechnic. San Luis Obispo, CA."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Relative motion as an ecological and evolutionary mechanism. (24 January 2018) Invited speaker series at National Great Rivers research and education center. Alton, MO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Measuring migration from a moving platform. (23 Sept 2017) Pelican Days, Audubon migratory bird center, Alton, MO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Relative motion as an ecological and evolutionary mechanism (18 Sept 2017). Invited seminar speaker, Max Planck Institute for Ornithology, Radolfzell, Germany."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B. Vilela, T. Fristoe, R. Gray, H. Haynie, P. Kavanagh, M. Gavin, and C. Botero. Investigating mechanism in the global spread of agriculture (15 Sept 2017).Inaugural Meeting of the Cultural Evolution Society, Jena, Germany."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B. Vilela, T. Fristoe, R. Gray, H. Haynie, P. Kavanagh, M. Gavin, and C. Botero. How did the ideas and technology of farming spread so quickly? (7 Aug 2017). 102nd Annual meeting of the Ecological Society of America, Portland, OR."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B. Vilela, T. Fristoe, R. Gray, H. Haynie, P. Kavanagh, M. Gavin, and C. Botero. How did the ideas and technology of farming spread so quickly? (13 April 2017). Geography of Land tenure and subsistence meeting, Fort Collins, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. What can trees tell us about the spread of ideas and technology? (12 Dec 2016).St. Louis Darwin Day festival."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B. Vilela, and C. Botero. Disentangling correlated drivers of cultural evolution (2 Dec 2016). Bioforum speaker series at Washington University at Saint Louis (2 Dec 2016). St. Louis, MO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Relative motion as an ecological mechanism. EEPB invited speaker series at Washington University in Saint Louis (20 Oct 2016). St. Louis, MO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, A. Hastings, B.A. Melbourne. Modeling and testing the fundamentals of assisted migration. Ecological Society of America (9 Aug 2016). Fort Lauderdale, FL."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Relative motion as an ecological mechanism. Ecology and evolutionary ecology colloquium speaker series (19 Feb 2016): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Predicting migration in 3D.University of Colorado STEMinar speaker series (5 December 2015): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Predicting migration in 3D. Ecological Society of America, 99th Annual Meeting (14 August 2014): Sacramento, CA."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. Visualizing migration patterns in 3D helps inform causal mechanisms. Ecological Society of America, 98th Annual Meeting (5 August 2013): Minneapolis, MN."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B.A. Melbourne, and A. Hastings. Range limits and Climate Change: Rethinking the Edge. Ecology and Evolutionary Biology – Brown Bag speaker series (3 November 2012): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. Publication quality graphs in R. Ecology and Evolutionary BiologyEcology and Evolutionary Biology – Brown Bag speaker series (5 September 2012): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. A Revolutionary Migration: Full account of energy niche predicts stationary avian migrants and a unified theory of phenology. Ecological Society of America, 97th Annual Meeting (10 August 2012): Portland, OR."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. The Physics you wish you knew. Exploring Evolution without genetics and Ecology without behavior. Ecology and Evolutionary Biology – Brown Bag speaker series (16 February 2012): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Biological Space-Time: Einstein’s relativity predicts stationary avian migrants and a unified theory of phenology. Guild of Rocky Mountain Ecologists and Evolutionary Biologists (September 2011): University of Colorado Mountain Research Station/LTER."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Biological Space-Time: Einstein’s relativity predicts stationary avian migrants and a unified theory of phenology. Ecological Society of America, 96th Annual Meeting (2 August 2011): Austin, TX."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Biological Space-Time: Einstein’s relativity predicts stationary avian migrants and a unified theory of phenology. University of Colorado Department of Ecology and Evolutionary Biology Spring Symposium (2 April 2011): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B.A. Melbourne, and A. Hastings. Range Limits: rethinking the edge. Ecological Society of America, 95th Annual Meeting (5 August 2010): Pittsburgh, PA."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, C. Ray, and A. Cruz. Nest failure paradoxically leads to higher nest success. Ecological Society of America, 94th Annual Meeting (2 August 2009): Albuquerque, NM."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, C. Ray, and A. Cruz. Nest failure paradoxically leads to higher nest success. Guild of Rocky Mountain Ecologists and Evolutionary Biologists (September 2008): University of Colorado Mountain Research Station/LTER."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. Understanding population growth: how and why increasing the number of individuals in a population contributes to evolution. Evolution Outreach Symposium (June 2008): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and A. Cruz. Differential Parasitism Frequencies in Two Suitable Cowbird Hosts. Guild of Rocky Mountain Ecologists and Evolutionary Biologists (September 2008): University of New Mexico Mountain Research Station/LTER, Ghost Ranch, NM."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and A. Cruz. Differential Parasitism Frequencies in Two Suitable Cowbird Hosts. American Ornithologist Union, 125th Meeting (11 August 2007): Laramie, WY."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff. Understanding population growth: how and why increasing the number of individuals in a population contributes to evolution. Evolution Outreach Symposium (June 2007): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and A. Cruz. Differential Parasitism Frequencies in Two Suitable Cowbird Hosts. University of Colorado Department of Ecology and Evolutionary Biology Spring Symposium (13 April 2007): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and A. Cruz. Differential Parasitism Frequencies in Two Suitable Cowbird Hosts. Western Field Ornithologists, 31st annual meeting (22 September 2006): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff, B. Vilela, T. Fristoe, R.D. Grey, P. Kavanagh, H. Haynie, M. Gavin, and C. Botero. How do ideas and technology spread through human cultures? International Biogeography society, 8th biennial conference (10 January 2017): Tucson, AZ."
+        },
+        {
+          "type": "p",
+          "text": "Ty Tuff and B.A. Melbourne. Ditching SI units to build an ecologically relevant measure of time and space. Ecological Society of America, 100th Annual Meeting (5 August 2015): Baltimore, MD."
+        },
+        {
+          "type": "p",
+          "text": "Walsh, J.J., T. Tuff, A. Cruz, and J.F. Chace. Why are Pewees rarely parasitized? Host-Parasite interactions at an Urban-Wildland Interface.Animal Behavior Society, 50th annual meeting (31 July 2014): Boulder, CO."
+        },
+        {
+          "type": "p",
+          "text": "Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science"
+        },
+        {
+          "type": "p",
+          "text": "© Ty Tuff 2020. All Rights Reserved. Site designed & built by Impact Media Lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538284663929-QK1T4OVFU8QM6VIDYH9H/Ty+%26+Einstein.jpg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2400x1096",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538759421467-QKY9SWES9YZ73VQC2BYI/Ty_logo_WHITE.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x718",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        }
+      ],
+      "image_captions": [],
+      "links": [
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "",
+          "url": "https://www.drtuff.com/search"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "Let's chat!",
+          "url": "mailto: ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Click here to explore the module.",
+          "url": "https://cuecologylab.shinyapps.io/Ecology_Stats_intro_application"
+        },
+        {
+          "text": "My CV header",
+          "url": "https://www.drtuff.com/my-cv#my-cv-header"
+        },
+        {
+          "text": "CV details",
+          "url": "https://www.drtuff.com/my-cv#cv-details"
+        },
+        {
+          "text": "7209381454",
+          "url": "tel:7209381454"
+        },
+        {
+          "text": "ty.tuff@colorado.edu",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "HOME",
+          "url": "https://www.drtuff.com/home"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact Me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Impact Media Lab",
+          "url": "https://www.impactmedialab.com/"
+        }
+      ],
+      "downloadable_files": [],
+      "galleries": [],
+      "embedded_content": [],
+      "layout_structure": [
+        {
+          "id": "my-cv-header",
+          "classes": "Index-page Index-page--has-image",
+          "collection_id": "5b90863e21c67c0efe68623a"
+        },
+        {
+          "id": "cv-details",
+          "classes": "Index-page",
+          "collection_id": "5b893adc032be47e603b2611"
+        }
+      ],
+      "relevant_css_classes": [
+        "Index-page",
+        "Index-page--has-image"
+      ],
+      "metadata": {
+        "viewport": "initial-scale=1",
+        "og:site_name": "Dr. Tuff",
+        "og:title": "My CV — Dr. Tuff",
+        "og:url": "https://www.drtuff.com/my-cv",
+        "og:type": "website",
+        "og:description": "Read the CV of Dr. Tuff Tuff, including his publications, presentations, service, and outreach, teaching and research experience,",
+        "og:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "og:image:width": "532",
+        "og:image:height": "569",
+        "name": "My CV — Dr. Tuff",
+        "url": "https://www.drtuff.com/my-cv",
+        "description": " Read the CV of Dr. Tuff Tuff, including his publications, presentations, service, and outreach, teaching and research experience, ",
+        "thumbnailUrl": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:title": "My CV — Dr. Tuff",
+        "twitter:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:url": "https://www.drtuff.com/my-cv",
+        "twitter:card": "summary",
+        "twitter:description": "Read the CV of Dr. Tuff Tuff, including his publications, presentations, service, and outreach, teaching and research experience,"
+      },
+      "archived_html": "migration/source/pages/my-cv.html"
+    },
+    {
+      "url": "https://www.drtuff.com/news",
+      "slug": "news",
+      "title": "News — Dr. Tuff",
+      "navigation_position": null,
+      "page_hierarchy": [
+        "site",
+        "news"
+      ],
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Quick Links"
+        },
+        {
+          "level": "h3",
+          "text": "HOME"
+        },
+        {
+          "level": "h3",
+          "text": "My Science"
+        },
+        {
+          "level": "h3",
+          "text": "My CV"
+        },
+        {
+          "level": "h3",
+          "text": "Contact Me"
+        }
+      ],
+      "textual_content": [
+        {
+          "type": "p",
+          "text": "Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science"
+        },
+        {
+          "type": "p",
+          "text": "© Ty Tuff 2020. All Rights Reserved. Site designed & built by Impact Media Lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/58b47c8b59cc68eea9efaf22/1488400883996-STZX90PM44DUM8A52FVO/IMG_5693-Edit.jpg",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x1667",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538759421467-QKY9SWES9YZ73VQC2BYI/Ty_logo_WHITE.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x718",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        }
+      ],
+      "image_captions": [],
+      "links": [
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "",
+          "url": "https://www.drtuff.com/search"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "7209381454",
+          "url": "tel:7209381454"
+        },
+        {
+          "text": "ty.tuff@colorado.edu",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "HOME",
+          "url": "https://www.drtuff.com/home"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact Me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Impact Media Lab",
+          "url": "https://www.impactmedialab.com/"
+        }
+      ],
+      "downloadable_files": [],
+      "galleries": [],
+      "embedded_content": [],
+      "layout_structure": [
+        {
+          "id": "",
+          "classes": "Intro Intro--has-image",
+          "collection_id": ""
+        },
+        {
+          "id": "",
+          "classes": "Main-content",
+          "collection_id": ""
+        },
+        {
+          "id": "",
+          "classes": "BlogList BlogList--posts-excerpt BlogList--empty sqs-blog-list clear",
+          "collection_id": ""
+        }
+      ],
+      "relevant_css_classes": [
+        "BlogList",
+        "BlogList--empty",
+        "BlogList--posts-excerpt",
+        "Intro",
+        "Intro--has-image",
+        "Main-content",
+        "clear",
+        "sqs-blog-list"
+      ],
+      "metadata": {
+        "viewport": "initial-scale=1",
+        "og:site_name": "Dr. Tuff",
+        "og:title": "News — Dr. Tuff",
+        "og:url": "https://www.drtuff.com/news",
+        "og:type": "website",
+        "og:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "og:image:width": "532",
+        "og:image:height": "569",
+        "name": "News — Dr. Tuff",
+        "url": "https://www.drtuff.com/news",
+        "thumbnailUrl": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:title": "News — Dr. Tuff",
+        "twitter:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:url": "https://www.drtuff.com/news",
+        "twitter:card": "summary"
+      },
+      "archived_html": "migration/source/pages/news.html"
+    },
+    {
+      "url": "https://www.drtuff.com/contact-me",
+      "slug": "contact-me",
+      "title": "Contact me — Dr. Tuff",
+      "navigation_position": 6,
+      "page_hierarchy": [
+        "site",
+        "contact-me"
+      ],
+      "headings": [
+        {
+          "level": "h1",
+          "text": "Let’s Connect!"
+        },
+        {
+          "level": "h2",
+          "text": "Quick Links"
+        },
+        {
+          "level": "h3",
+          "text": "HOME"
+        },
+        {
+          "level": "h3",
+          "text": "My Science"
+        },
+        {
+          "level": "h3",
+          "text": "My CV"
+        },
+        {
+          "level": "h3",
+          "text": "Contact Me"
+        }
+      ],
+      "textual_content": [
+        {
+          "type": "p",
+          "text": "Ty Tuff, Ph.D. (He/Him)Friendly Neighborhood Data Scientist"
+        },
+        {
+          "type": "p",
+          "text": "1) Environmental Data Science Innovation and Inclusion Lab (ESIIL) NSF Synthesis Center2) Earth Lab"
+        },
+        {
+          "type": "p",
+          "text": "Cooperative Institute for Research in Environmental Sciences"
+        },
+        {
+          "type": "p",
+          "text": "University of Colorado, Boulder, CO"
+        },
+        {
+          "type": "p",
+          "text": "e-mail: ty.tuff[at]colorado.edu"
+        },
+        {
+          "type": "p",
+          "text": "Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science"
+        },
+        {
+          "type": "p",
+          "text": "© Ty Tuff 2020. All Rights Reserved. Site designed & built by Impact Media Lab"
+        }
+      ],
+      "images": [
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538759421467-QKY9SWES9YZ73VQC2BYI/Ty_logo_WHITE.png",
+          "alt": "",
+          "title": "",
+          "dimensions": "2500x718",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263068185-ADGJBI2YQKXEX0IKMZPM/RG+logo-01.png",
+          "alt": "Researchgate",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "",
+          "classes": ""
+        },
+        {
+          "url": "https://images.squarespace-cdn.com/content/v1/5b893719c258b4ea14935cd9/1538263067045-8IER649UFOIFHV1BI1C9/GS_logo-01.png",
+          "alt": "Google scholar",
+          "title": "",
+          "dimensions": "2017x2017",
+          "classes": "thumb-image"
+        }
+      ],
+      "image_captions": [],
+      "links": [
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "",
+          "url": "https://www.drtuff.com/search"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "Dr. Tuff",
+          "url": "https://www.drtuff.com/"
+        },
+        {
+          "text": "ESIIL",
+          "url": "https://esiil.org/"
+        },
+        {
+          "text": "Earth Lab",
+          "url": "https://earthlab.colorado.edu/our-team/ty-tuff"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "7209381454",
+          "url": "tel:7209381454"
+        },
+        {
+          "text": "ty.tuff@colorado.edu",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "",
+          "url": "https://www.researchgate.net/profile/Ty_Tuff"
+        },
+        {
+          "text": "",
+          "url": "https://scholar.google.com/citations?user=jxAk620AAAAJ&hl=en"
+        },
+        {
+          "text": "HOME",
+          "url": "https://www.drtuff.com/home"
+        },
+        {
+          "text": "My Science",
+          "url": "https://www.drtuff.com/my-science"
+        },
+        {
+          "text": "My CV",
+          "url": "https://www.drtuff.com/my-cv"
+        },
+        {
+          "text": "Contact Me",
+          "url": "https://www.drtuff.com/contact-me"
+        },
+        {
+          "text": "",
+          "url": "https://github.com/ttuff"
+        },
+        {
+          "text": "",
+          "url": "mailto:ty.tuff@colorado.edu"
+        },
+        {
+          "text": "Impact Media Lab",
+          "url": "https://www.impactmedialab.com/"
+        }
+      ],
+      "downloadable_files": [],
+      "galleries": [],
+      "embedded_content": [],
+      "layout_structure": [
+        {
+          "id": "",
+          "classes": "Main-content",
+          "collection_id": ""
+        }
+      ],
+      "relevant_css_classes": [
+        "Main-content"
+      ],
+      "metadata": {
+        "viewport": "initial-scale=1",
+        "og:site_name": "Dr. Tuff",
+        "og:title": "Contact me — Dr. Tuff",
+        "og:url": "https://www.drtuff.com/contact-me",
+        "og:type": "website",
+        "og:description": "Contact Dr. Ty Tuff to learn more about his work or to develop a new collaboration.",
+        "og:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "og:image:width": "532",
+        "og:image:height": "569",
+        "name": "Contact me — Dr. Tuff",
+        "url": "https://www.drtuff.com/contact-me",
+        "description": " Contact Dr. Ty Tuff to learn more about his work or to develop a new collaboration. ",
+        "thumbnailUrl": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:title": "Contact me — Dr. Tuff",
+        "twitter:image": "http://static1.squarespace.com/static/5b893719c258b4ea14935cd9/t/5bb76ed27817f7f5820af141/1538748116092/10353027_10153056621894937_558955528339896458_n.jpg?format=1500w",
+        "twitter:url": "https://www.drtuff.com/contact-me",
+        "twitter:card": "summary",
+        "twitter:description": "Contact Dr. Ty Tuff to learn more about his work or to develop a new collaboration."
+      },
+      "archived_html": "migration/source/pages/contact-me.html"
+    }
+  ]
+}
