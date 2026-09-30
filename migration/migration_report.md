@@ -3,12 +3,13 @@
 ## Status
 
 - Pages found: 6
-- Pages reproduced: 6, plus the site root
+- Pages reproduced: 6, plus the site root and `/about` and `/research` compatibility redirects
 - Logical first-party assets recovered: 63
 - Assets that could not be recovered: 0
 - Public page paths preserved: `/home`, `/my-science`, `/my-skills`, `/my-cv`, `/news`, `/contact-me`
 - Raw HTML, sitemap, robots rules, theme CSS, and custom CSS archived: yes
 - Remaining Squarespace dependencies in the deployable site: 0
+- Production custom domain in source and artifact: `drtuff.com`
 
 ## Reproduced content and behavior
 
@@ -22,15 +23,15 @@
 ## Intentional differences
 
 - Squarespace runtime JavaScript, editing hooks, analytics, image-resize services, and AJAX navigation were removed.
-- The live Proxima Nova face is supplied by Adobe Typekit. The replacement uses a system sans-serif stack rather than create a new external font dependency.
+- The live Proxima Nova face remains supplied by the site’s existing Adobe Typekit kit, with a system sans-serif fallback.
 - Vimeo background video sections use static local imagery/dark section treatments when autoplay background playback is unavailable; ordinary embedded talks remain playable.
 - Squarespace gallery lightboxes are represented as responsive media grids rather than the proprietary Squarespace lightbox runtime.
-- The static contact page retains the original direct contact and organization links. There is no server-side Squarespace form submission dependency.
+- The static contact page retains the original direct contact and organization links. Its runtime map is replaced by a keyless OpenStreetMap embed at the same CIRES coordinates. There is no server-side Squarespace form submission dependency.
 
 ## Validation and remaining manual work
 
-- `scripts/validate_site.py` rebuilds the static output and checks internal references, local assets, HTML parsing, and forbidden Squarespace dependencies.
-- GitHub Actions builds and deploys the `site/` directory to GitHub Pages.
-- The migration is committed locally. This host has no GitHub HTTPS or SSH credentials, so an authenticated `git push origin main` is still required before Pages can publish.
-- Before moving DNS, inspect the GitHub Pages URL at 1440, 1024, 768, and 390px and compare against the live site. The optional screenshot script captures both versions.
-- Do not add a `CNAME` file or change DNS until visual and functional review is accepted.
+- `scripts/validate_site.py` rebuilds the static output and checks all nine routes, internal references, local assets, production canonical/OpenGraph URLs, `CNAME`, sitemap, robots rules, and forbidden deployment references.
+- GitHub Actions builds and deploys the `site/` directory. The build copies the tracked root `CNAME` into the uploaded Pages artifact, although GitHub ignores artifact `CNAME` files for Actions deployments; the repository Pages custom-domain setting is authoritative.
+- Matched live/local browser captures and generated visual comparisons are documented in `migration/fidelity_audit.md`.
+- This host still has no GitHub HTTPS or SSH credentials, so an authenticated `git push origin main` and confirmation of the Pages custom-domain setting are required before GitHub can publish this revision.
+- DNS has not been changed. Keep Squarespace live until the pushed Pages deployment and custom-domain setting are verified.

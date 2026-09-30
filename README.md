@@ -22,9 +22,11 @@ Then open `http://127.0.0.1:8000`.
 
 Pushes to `main` run `.github/workflows/pages.yml`, validate the build, and deploy `site/` to GitHub Pages. Configure the repository’s Pages source as **GitHub Actions**.
 
-The expected project URL is `https://ttuff.github.io/personal_website/`.
+The production URL is `https://drtuff.com/`. The tracked root `CNAME` contains `drtuff.com`, and the build copies it into the deployed `site/` artifact. With a custom GitHub Actions Pages workflow, GitHub’s repository **Settings → Pages → Custom domain** value is authoritative (GitHub ignores artifact `CNAME` files); the retained file is a portable declaration and regression check. Canonical, OpenGraph, Twitter, structured-data, sitemap, and robots URLs are generated for the apex domain.
 
-No `CNAME` is included. Keep the custom domain on Squarespace until the GitHub Pages version has passed visual and functional review.
+The compatibility paths `/about` and `/research` redirect to the canonical home/about and science destinations. Keep the existing Squarespace DNS records in place until the GitHub Pages workflow has been pushed, the custom domain is registered in the repository Pages settings, and the deployed artifact has been reviewed.
+
+The intended HostGator DNS records are four apex `A` records for GitHub Pages (`185.199.108.153` through `185.199.111.153`) and `CNAME www ttuff.github.io`. DNS is deliberately not managed by this repository.
 
 ## Migration records
 
@@ -32,5 +34,6 @@ No `CNAME` is included. Keep the custom domain on Squarespace until the GitHub P
 - `migration/site_inventory.md` — human-readable page summary
 - `migration/asset_manifest.csv` — recovered asset provenance and file metadata
 - `migration/design_inventory.md` — measured live-site design system
+- `migration/fidelity_audit.md` — matched-viewport live/local comparison results
 - `migration/migration_report.md` — scope, differences, and remaining manual work
 - `migration/source/` — preserved raw source material

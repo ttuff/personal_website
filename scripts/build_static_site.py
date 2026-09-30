@@ -16,6 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "migration" / "source" / "pages"
 DIST = ROOT / "site"
 PAGES = ["home", "my-science", "my-skills", "my-cv", "news", "contact-me"]
+PRODUCTION_ORIGIN = "https://drtuff.com"
+SOCIAL_IMAGE = "assets/images/10353027_10153056621894937_558955528339896458_n-fd9f57fd.jpg"
+TYPEKIT_URL = "https://use.typekit.net/ik/Plzv6nh1Zm7kt6TtAz-0cecuDBs31OE5yPK8WPSNthGfe7jffFHN4UJLFRbh52jhWDmK52qDFDIojDJu5eJXZAIUF2qDFAFq5sTEHKoqSKuXpPuXiAZcO1FUiABkZWF3jAF8OcFzdPUqSKuXpPuXiAZcO1FUiABkZWF3jAF8OcFzdPUqS1suZcj0jhNlOeUzjhBC-eNDifUaiaS0ZYJliYqliYmcZKoDSWmyScmDSeBRZPoRdhXCiaiaOcskiYmcZKoRdhXK2YgkdayTdAIldcNhjPJ4Z1mXiW4yOWgXH6qJtKGbMg62JMJ7fbKzMsMMeMb6MKGHfO2IMsMMeM96MKG4fHXgIMMjgKMfH6qJK3IbMg6YJMJ7fbRRHyMMeMX6MKGHfOYIMsMMeMv6MKG4fJ3gIMMjIPMfH6qJ6m9bMs6YJMHbMjO6zNXB.js"
 
 
 def normalize_remote(url: str) -> str:
@@ -86,6 +89,36 @@ def rewrite_main(markup: str, slug: str, asset_map: dict[str, str]) -> str:
 
     main = re.sub(r"<img\b[^>]*>", materialize_img, main, flags=re.I)
 
+    # Replace Squarespace's map runtime with a plain, keyless map embed.
+    def materialize_map(match: re.Match[str]) -> str:
+        opening_tag = match.group(0)
+        context_match = re.search(r'data-context="([^"]+)"', opening_tag, flags=re.I)
+        if not context_match:
+            return opening_tag
+        try:
+            context = json.loads(html.unescape(context_match.group(1)))
+            location = context["location"]
+            lat = location["mapLat"]
+            lng = location["mapLng"]
+            title = location.get("addressTitle", "Map")
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
+            return opening_tag
+        bbox = f"{lng - 0.01},{lat - 0.005},{lng + 0.01},{lat + 0.005}"
+        query = urllib.parse.urlencode({"bbox": bbox, "layer": "mapnik", "marker": f"{lat},{lng}"})
+        iframe = (
+            f'<iframe class="static-map-embed" title="{html.escape(title, quote=True)} map" '
+            f'src="https://www.openstreetmap.org/export/embed.html?{query}" loading="lazy" '
+            'referrerpolicy="no-referrer-when-downgrade"></iframe>'
+        )
+        return opening_tag + iframe
+
+    main = re.sub(
+        r'<div\b(?=[^>]*data-context="[^"]*&quot;mapLat&quot;)[^>]*>',
+        materialize_map,
+        main,
+        flags=re.I,
+    )
+
     # Convert Squarespace's encoded video configuration into ordinary embeds.
     def materialize_video(match: re.Match[str]) -> str:
         opening_tag = match.group(0)
@@ -140,8 +173,8 @@ def navigation(prefix: str) -> str:
       </nav>
       <a class="site-title" href="{prefix}">Dr. Tuff</a>
       <nav class="social-nav" aria-label="Social links">
-        <a href="https://github.com/ttuff" aria-label="GitHub">GH</a>
-        <a href="mailto:ty.tuff@colorado.edu" aria-label="Email">@</a>
+        <a class="social-link social-link--github" href="https://github.com/ttuff" aria-label="GitHub"><span aria-hidden="true">GH</span></a>
+        <a class="social-link social-link--email" href="mailto:ty.tuff@colorado.edu" aria-label="Email"><span aria-hidden="true">@</span></a>
       </nav>
     </header>
     <nav id="mobile-navigation" class="mobile-navigation" aria-label="Mobile navigation">
@@ -158,7 +191,10 @@ def footer(prefix: str) -> str:
         <div class="footer-about">
           <img src="{prefix}assets/images/Ty_logo_WHITE-ea311454.png" alt="Ty Tuff">
           <p>Principle Data Scientist at the NSF’s ESIIL synthesis center for Biology and Computer Science</p>
-          <p class="footer-social"><a href="https://www.researchgate.net/profile/Ty_Tuff">Researchgate</a> · <a href="https://scholar.google.com/citations?user=jxAk620AAAAJ&amp;hl=en">Google scholar</a></p>
+          <div class="footer-social">
+            <a href="https://www.researchgate.net/profile/Ty_Tuff"><img src="{prefix}assets/images/RG-logo-01-9d242ea8.png" alt=""><span>Researchgate</span></a>
+            <a href="https://scholar.google.com/citations?user=jxAk620AAAAJ&amp;hl=en"><img src="{prefix}assets/images/GS_logo-01-d709fc22.png" alt=""><span>Google scholar</span></a>
+          </div>
         </div>
         <div class="footer-links">
           <h2>Quick Links</h2>
@@ -166,6 +202,7 @@ def footer(prefix: str) -> str:
           <a href="{prefix}my-science/">My Science</a>
           <a href="{prefix}my-cv/">My CV</a>
           <a href="{prefix}contact-me/">Contact Me</a>
+          <div class="footer-contact-social" aria-label="Contact links"><a href="https://github.com/ttuff" aria-label="GitHub">GH</a><a href="mailto:ty.tuff@colorado.edu" aria-label="Email">@</a></div>
         </div>
       </div>
       <div class="footer-bottom"><span>© Ty Tuff 2020. All Rights Reserved.</span><span>Site designed &amp; built by <a href="https://www.impactmedialab.com/">Impact Media Lab</a></span></div>
@@ -176,7 +213,22 @@ def page_document(slug: str, main: str, meta: dict[str, str]) -> str:
     prefix = "../" if slug != "root" else ""
     title = meta.get("og:title") or meta.get("title") or "Dr. Tuff"
     description = meta.get("description") or meta.get("og:description") or ""
-    canonical_slug = "home" if slug == "root" else slug
+    page_slug = "home" if slug == "root" else slug
+    canonical_path = "/" if slug == "root" else f"/{slug}"
+    canonical_url = f"{PRODUCTION_ORIGIN}{canonical_path}"
+    social_image_url = f"{PRODUCTION_ORIGIN}/{SOCIAL_IMAGE}"
+    structured_data = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": title,
+            "description": description.strip(),
+            "url": canonical_url,
+            "isPartOf": {"@type": "WebSite", "name": "Dr. Tuff", "url": f"{PRODUCTION_ORIGIN}/"},
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).replace("</", "<\\/")
     return f"""<!doctype html>
 <html lang="en-US">
 <head>
@@ -184,16 +236,49 @@ def page_document(slug: str, main: str, meta: dict[str, str]) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description, quote=True)}">
-  <link rel="canonical" href="https://www.drtuff.com/{canonical_slug}">
+  <link rel="canonical" href="{canonical_url}">
+  <meta property="og:site_name" content="Dr. Tuff">
+  <meta property="og:title" content="{html.escape(title, quote=True)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{canonical_url}">
+  <meta property="og:description" content="{html.escape(description, quote=True)}">
+  <meta property="og:image" content="{social_image_url}">
+  <meta property="og:image:width" content="532">
+  <meta property="og:image:height" content="569">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{html.escape(title, quote=True)}">
+  <meta name="twitter:description" content="{html.escape(description, quote=True)}">
+  <meta name="twitter:image" content="{social_image_url}">
   <link rel="icon" href="{prefix}assets/icons/favicon-e92ccdd0.ico">
   <link rel="stylesheet" href="{prefix}styles/site.css">
+  <script src="{TYPEKIT_URL}"></script>
+  <script>try{{Typekit.load();}}catch(error){{document.documentElement.classList.add('typekit-unavailable');}}</script>
   <script src="{prefix}scripts/site.js" defer></script>
+  <script type="application/ld+json">{structured_data}</script>
 </head>
-<body class="page-{canonical_slug}">
+<body class="page-{page_slug}">
 {navigation(prefix)}
 {main}
 {footer(prefix)}
 </body>
+</html>
+"""
+
+
+def redirect_document(destination: str, canonical: str) -> str:
+    escaped_destination = html.escape(destination, quote=True)
+    escaped_canonical = html.escape(canonical, quote=True)
+    return f"""<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url={escaped_destination}">
+  <link rel="canonical" href="{escaped_canonical}">
+  <title>Redirecting — Dr. Tuff</title>
+</head>
+<body><p>Redirecting to <a href="{escaped_destination}">{escaped_destination}</a>.</p></body>
 </html>
 """
 
@@ -220,6 +305,26 @@ def main() -> None:
         if slug == "home":
             root_main = rewrite_main(markup, "root", asset_map)
             (DIST / "index.html").write_text(page_document("root", root_main, metadata[slug]), encoding="utf-8")
+
+    aliases = {
+        "about": ("/#h-about-me", f"{PRODUCTION_ORIGIN}/"),
+        "research": ("/my-science", f"{PRODUCTION_ORIGIN}/my-science"),
+    }
+    for alias, (destination, canonical) in aliases.items():
+        target = DIST / alias
+        target.mkdir(parents=True, exist_ok=True)
+        (target / "index.html").write_text(redirect_document(destination, canonical), encoding="utf-8")
+
+    sitemap_paths = ["/", *(f"/{slug}" for slug in PAGES)]
+    sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+    sitemap += "".join(f"  <url><loc>{PRODUCTION_ORIGIN}{path}</loc></url>\n" for path in sitemap_paths)
+    sitemap += "</urlset>\n"
+    (DIST / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    (DIST / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {PRODUCTION_ORIGIN}/sitemap.xml\n",
+        encoding="utf-8",
+    )
+    shutil.copy2(ROOT / "CNAME", DIST / "CNAME")
 
     (DIST / ".nojekyll").write_text("", encoding="utf-8")
 

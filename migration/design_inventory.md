@@ -15,7 +15,7 @@ The live Squarespace site was measured in a rendered browser at desktop and mobi
 - H3 typography: Proxima Nova, 22px, weight 300, `0.1em` tracking, uppercase, 1.3 line height.
 - Standard desktop page padding: 90px. Standard content width at 1280px: 1100px.
 
-The local reproduction embeds the exact Squarespace-hosted Permanent Marker and Rock Salt font files. Proxima Nova was loaded by the live site through Adobe Typekit, so the static version uses a close system sans-serif stack rather than retaining an external font service.
+The local reproduction embeds recovered local copies of the Permanent Marker and Rock Salt font files. Proxima Nova remains loaded from the live site’s Adobe Typekit kit, with Helvetica/Arial fallbacks. Typekit rejects `127.0.0.1`, so local screenshots use the fallback; the production-domain font load must be confirmed once `drtuff.com` points to GitHub Pages.
 
 ## Header and navigation
 
@@ -56,4 +56,5 @@ Representative Home section heights on the live 390×844 layout were 775, 1583, 
 - My Science alternates photographic, chalkboard, and white sections and includes Vimeo/YouTube embeds.
 - My Skills uses image galleries, slide stills, and a Vimeo background reference.
 - Vimeo and YouTube remain intentional third-party embeds; all Squarespace-hosted first-party media is local.
-- Desktop and mobile screenshots were inspected in browser automation. `scripts/compare_screenshots.mjs` can regenerate matching full-page captures at 1440, 1024, 768, and 390px when Playwright is available.
+- The contact map is reproduced as a keyless OpenStreetMap embed centered on the original CIRES coordinates. This avoids retaining the Squarespace Google Maps runtime/API key while preserving the original map content and placement.
+- Desktop, tablet, and mobile screenshots were captured and inspected through browser automation. `scripts/compare_screenshots.mjs` regenerates matching viewport/full-page captures at 1440×1000, 1280×900, 768×1024, and 390×844 when Playwright is available; `scripts/create_visual_diffs.py` creates side-by-side, overlay, and amplified-difference images when Pillow is available.
