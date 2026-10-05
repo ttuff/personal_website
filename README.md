@@ -18,9 +18,19 @@ python3 -m http.server 8000 --directory site
 
 Then open `http://127.0.0.1:8000`.
 
+The data-driven GitHub narrative is available at `http://127.0.0.1:8000/github/`. Its checked-in compact dataset is generated from public GitHub data and a small editorial layer:
+
+```bash
+GITHUB_TOKEN=... python3 scripts/build_github_life.py --refresh
+python3 -m unittest discover -s tests -v
+python3 scripts/validate_site.py
+```
+
+`GITHUB_TOKEN` is required for the GraphQL contribution calendar and normal authenticated API limits. The browser never receives the token. Without a token, the generator can use GitHub's public contribution calendar as a local fallback. Edit `data/github-projects.yml` to change project families, descriptions, importance, or curated relationships; see `docs/github-life-design.md` for metric provenance and limitations.
+
 ## Deployment
 
-Pushes to `main` run `.github/workflows/pages.yml`, validate the build, and deploy `site/` to GitHub Pages. Configure the repository’s Pages source as **GitHub Actions**.
+Pushes to `main` run `.github/workflows/pages.yml`, validate the build, and deploy `site/` to GitHub Pages. `.github/workflows/github-life.yml` refreshes the GitHub-life dataset daily, tests and validates it, commits only the compact derived JSON when it changes, and deploys the refreshed artifact directly. The refresh workflow does not run on pushes, so its generated commit cannot trigger a refresh loop. Configure the repository’s Pages source as **GitHub Actions**.
 
 The production URL is `https://drtuff.com/`. The tracked root `CNAME` contains `drtuff.com`, and the build copies it into the deployed `site/` artifact. With a custom GitHub Actions Pages workflow, GitHub’s repository **Settings → Pages → Custom domain** value is authoritative (GitHub ignores artifact `CNAME` files); the retained file is a portable declaration and regression check. Canonical, OpenGraph, Twitter, structured-data, sitemap, and robots URLs are generated for the apex domain.
 
@@ -37,3 +47,6 @@ The intended HostGator DNS records are four apex `A` records for GitHub Pages (`
 - `migration/fidelity_audit.md` — matched-viewport live/local comparison results
 - `migration/migration_report.md` — scope, differences, and remaining manual work
 - `migration/source/` — preserved raw source material
+- `docs/github-life-design.md` — GitHub-life architecture, provenance, derived metrics, and API limitations
+- `data/github-projects.yml` — human-editable project families and relationships
+- `data/generated/github-life.json` — compact generated dataset consumed by `/github/`

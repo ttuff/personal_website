@@ -17,7 +17,7 @@ SQUARESPACE = ("squarespace.com", "squarespace-cdn.com", "static1.squarespace.co
 PRODUCTION_ORIGIN = "https://drtuff.com"
 PRODUCTION_HOSTS = {"drtuff.com", "www.drtuff.com"}
 FORBIDDEN_DEPLOYMENT_TEXT = ("ttuff.github.io", "/personal_website/", "squarespace-cdn")
-REQUIRED_ROUTES = ("/", "/about", "/research", "/home", "/my-science", "/my-skills", "/my-cv", "/news", "/contact-me")
+REQUIRED_ROUTES = ("/", "/about", "/research", "/home", "/my-science", "/my-skills", "/my-cv", "/news", "/contact-me", "/github")
 
 
 class ReferenceParser(HTMLParser):
@@ -73,11 +73,12 @@ def main() -> None:
                     f"missing {attr} target in {page.relative_to(ROOT)}: {reference}"
                 )
         lower = markup.lower()
+        deployment_scan = lower.replace("https://github.com/ttuff/personal_website/", "")
         for hostname in SQUARESPACE:
             if hostname in lower:
                 failures.append(f"Squarespace dependency in {page.relative_to(ROOT)}: {hostname}")
         for forbidden in FORBIDDEN_DEPLOYMENT_TEXT:
-            if forbidden in lower:
+            if forbidden in deployment_scan:
                 failures.append(f"forbidden deployment reference in {page.relative_to(ROOT)}: {forbidden}")
 
         is_alias = page.parent.name in {"about", "research"}
@@ -117,6 +118,19 @@ def main() -> None:
         if not required_file.exists():
             failures.append(f"missing deployment file: {required_file.relative_to(ROOT)}")
 
+    github_data = SITE / "data" / "github-life.json"
+    if not github_data.exists():
+        failures.append("missing generated GitHub-life dataset")
+    else:
+        try:
+            dataset = __import__("json").loads(github_data.read_text(encoding="utf-8"))
+            if not dataset.get("repositories") or not dataset.get("contributions", {}).get("days"):
+                failures.append("generated GitHub-life dataset has no repositories or calendar data")
+            if github_data.stat().st_size > 500_000:
+                failures.append("generated GitHub-life dataset exceeds the 500 KB performance budget")
+        except (ValueError, OSError) as exc:
+            failures.append(f"invalid generated GitHub-life dataset: {exc}")
+
     for path in SITE.rglob("*"):
         if path.is_file() and path.stat().st_size == 0 and path.name != ".nojekyll":
             failures.append(f"empty deployable asset: {path.relative_to(ROOT)}")
@@ -125,8 +139,9 @@ def main() -> None:
         if not path.is_file() or path.suffix.lower() not in {".html", ".css", ".js", ".xml", ".txt"}:
             continue
         content = path.read_text(encoding="utf-8", errors="replace").lower()
+        deployment_scan = content.replace("https://github.com/ttuff/personal_website/", "")
         for forbidden in FORBIDDEN_DEPLOYMENT_TEXT:
-            if forbidden in content:
+            if forbidden in deployment_scan:
                 failures.append(f"forbidden deployment reference in {path.relative_to(ROOT)}: {forbidden}")
 
     if failures:

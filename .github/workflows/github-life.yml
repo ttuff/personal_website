@@ -1,0 +1,58 @@
+name: Refresh GitHub life data
+
+on:
+  schedule:
+    - cron: "23 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-life-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate GitHub-life data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/build_github_life.py --refresh
+      - name: Test transformations
+        run: python -m unittest discover -s tests -v
+      - name: Build and validate site
+        run: python scripts/validate_site.py
+      - name: Commit refreshed data
+        run: |
+          if git diff --quiet -- data/generated/github-life.json; then
+            echo "GitHub-life data is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/generated/github-life.json
+          git commit -m "Refresh GitHub life data"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: refresh
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy refreshed site
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -16,6 +16,12 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "migration" / "source" / "pages"
 DIST = ROOT / "site"
 PAGES = ["home", "my-science", "my-skills", "my-cv", "news", "contact-me"]
+CUSTOM_PAGES = {
+    "github": {
+        "title": "A Life of Building in Public — Ty Tuff on GitHub",
+        "description": "A reproducible, data-driven view of Ty Tuff's public GitHub work, collaborations, project relationships, and technical evolution.",
+    }
+}
 PRODUCTION_ORIGIN = "https://drtuff.com"
 SOCIAL_IMAGE = "assets/images/10353027_10153056621894937_558955528339896458_n-fd9f57fd.jpg"
 TYPEKIT_URL = "https://use.typekit.net/ik/Plzv6nh1Zm7kt6TtAz-0cecuDBs31OE5yPK8WPSNthGfe7jffFHN4UJLFRbh52jhWDmK52qDFDIojDJu5eJXZAIUF2qDFAFq5sTEHKoqSKuXpPuXiAZcO1FUiABkZWF3jAF8OcFzdPUqSKuXpPuXiAZcO1FUiABkZWF3jAF8OcFzdPUqS1suZcj0jhNlOeUzjhBC-eNDifUaiaS0ZYJliYqliYmcZKoDSWmyScmDSeBRZPoRdhXCiaiaOcskiYmcZKoRdhXK2YgkdayTdAIldcNhjPJ4Z1mXiW4yOWgXH6qJtKGbMg62JMJ7fbKzMsMMeMb6MKGHfO2IMsMMeM96MKG4fHXgIMMjgKMfH6qJK3IbMg6YJMJ7fbRRHyMMeMX6MKGHfOYIMsMMeMv6MKG4fJ3gIMMjIPMfH6qJ6m9bMs6YJMHbMjO6zNXB.js"
@@ -51,6 +57,7 @@ def relative_target(slug: str, target: str) -> str:
         "/my-cv": prefix + "my-cv/",
         "/news": prefix + "news/",
         "/contact-me": prefix + "contact-me/",
+        "/github": prefix + "github/",
     }
     for route in sorted(routes, key=len, reverse=True):
         if target == route or target.startswith(route + "#"):
@@ -169,6 +176,7 @@ def navigation(prefix: str) -> str:
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="{prefix}my-science/">My Science</a>
         <a href="{prefix}my-cv/">My CV</a>
+        <a href="{prefix}github/">GitHub</a>
         <a href="{prefix}contact-me/">Contact me</a>
       </nav>
       <a class="site-title" href="{prefix}">Dr. Tuff</a>
@@ -180,6 +188,7 @@ def navigation(prefix: str) -> str:
     <nav id="mobile-navigation" class="mobile-navigation" aria-label="Mobile navigation">
       <a href="{prefix}my-science/">My Science</a>
       <a href="{prefix}my-cv/">My CV</a>
+      <a href="{prefix}github/">GitHub</a>
       <a href="{prefix}contact-me/">Contact me</a>
     </nav>"""
 
@@ -201,6 +210,7 @@ def footer(prefix: str) -> str:
           <a href="{prefix}">Home</a>
           <a href="{prefix}my-science/">My Science</a>
           <a href="{prefix}my-cv/">My CV</a>
+          <a href="{prefix}github/">GitHub</a>
           <a href="{prefix}contact-me/">Contact Me</a>
           <div class="footer-contact-social" aria-label="Contact links"><a href="https://github.com/ttuff" aria-label="GitHub">GH</a><a href="mailto:ty.tuff@colorado.edu" aria-label="Email">@</a></div>
         </div>
@@ -229,6 +239,9 @@ def page_document(slug: str, main: str, meta: dict[str, str]) -> str:
         ensure_ascii=False,
         separators=(",", ":"),
     ).replace("</", "<\\/")
+    page_assets = ""
+    if slug == "github":
+        page_assets = f'  <link rel="stylesheet" href="{prefix}styles/github.css">\n  <link rel="preload" href="{prefix}data/github-life.json" as="fetch" crossorigin="anonymous">\n  <script src="{prefix}scripts/github.js" defer></script>\n'
     return f"""<!doctype html>
 <html lang="en-US">
 <head>
@@ -251,6 +264,7 @@ def page_document(slug: str, main: str, meta: dict[str, str]) -> str:
   <meta name="twitter:image" content="{social_image_url}">
   <link rel="icon" href="{prefix}assets/icons/favicon-e92ccdd0.ico">
   <link rel="stylesheet" href="{prefix}styles/site.css">
+{page_assets}
   <script src="{TYPEKIT_URL}"></script>
   <script>try{{Typekit.load();}}catch(error){{document.documentElement.classList.add('typekit-unavailable');}}</script>
   <script src="{prefix}scripts/site.js" defer></script>
@@ -306,6 +320,16 @@ def main() -> None:
             root_main = rewrite_main(markup, "root", asset_map)
             (DIST / "index.html").write_text(page_document("root", root_main, metadata[slug]), encoding="utf-8")
 
+    for slug, custom_meta in CUSTOM_PAGES.items():
+        main = (ROOT / "pages" / f"{slug}.html").read_text(encoding="utf-8")
+        destination = DIST / slug
+        destination.mkdir(parents=True, exist_ok=True)
+        (destination / "index.html").write_text(page_document(slug, main, custom_meta), encoding="utf-8")
+
+    data_target = DIST / "data"
+    data_target.mkdir(exist_ok=True)
+    shutil.copy2(ROOT / "data" / "generated" / "github-life.json", data_target / "github-life.json")
+
     aliases = {
         "about": ("/#h-about-me", f"{PRODUCTION_ORIGIN}/"),
         "research": ("/my-science", f"{PRODUCTION_ORIGIN}/my-science"),
@@ -315,7 +339,7 @@ def main() -> None:
         target.mkdir(parents=True, exist_ok=True)
         (target / "index.html").write_text(redirect_document(destination, canonical), encoding="utf-8")
 
-    sitemap_paths = ["/", *(f"/{slug}" for slug in PAGES)]
+    sitemap_paths = ["/", *(f"/{slug}" for slug in PAGES), *(f"/{slug}" for slug in CUSTOM_PAGES)]
     sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
     sitemap += "".join(f"  <url><loc>{PRODUCTION_ORIGIN}{path}</loc></url>\n" for path in sitemap_paths)
     sitemap += "</urlset>\n"

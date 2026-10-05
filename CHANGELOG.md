@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-04
+
+- Added a new `/github/` narrative that presents public GitHub scale, current work, long-term contribution continuity, repository relationships, repository substance, collaboration, and language evolution without changing the rest of the site's identity.
+- Added a dependency-free GitHub REST/GraphQL data generator, compact checked-in dataset, transparent activity score, evidence-typed graph edges, calendar discoveries, and transformation tests.
+- Added `data/github-projects.yml` as a small human-editable editorial layer and documented data provenance, API limitations, schema, performance, and design decisions in `docs/github-life-design.md`.
+- Added a keyboard-accessible Cmd-K/Ctrl-K search palette, day-level contribution inspection, desktop relationship graph, intentional mobile project-family view, reduced-motion support, and repository detail views.
+- Added a daily GitHub Actions refresh/deploy workflow with caching, validation, and loop-safe generated-data commits; added GitHub to shared desktop/mobile/footer navigation and the sitemap.
+
 ## 2026-09-30
 
 - Archived all six public drtuff.com pages, sitemap, robots rules, Squarespace theme CSS, and custom CSS.

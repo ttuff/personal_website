@@ -1,0 +1,114 @@
+{
+  "profile": {
+    "username": "ttuff",
+    "important_owners": ["CU-ESIIL", "earthlab"]
+  },
+  "exclude_repositories": ["CU-ESIIL/ty_test_to_delete"],
+  "families": [
+    {
+      "id": "cube-dynamics",
+      "title": "CubeDynamics",
+      "theme": "Environmental data cubes",
+      "description": "Reproducible cube-based workflows for observing environmental change through time.",
+      "featured": true,
+      "repositories": ["CU-ESIIL/cubedynamics", "CU-ESIIL/cubedynamics_test_user"]
+    },
+    {
+      "id": "spectral-bridge",
+      "title": "SpectralBridge",
+      "theme": "Remote sensing",
+      "description": "Cross-sensor calibration and spectral workflows that connect field and Earth-observation data.",
+      "featured": true,
+      "repositories": ["earthlab/spectralbridge", "earthlab/macrosystems"]
+    },
+    {
+      "id": "fire-growth-form",
+      "title": "Fire, growth & form",
+      "theme": "Wildfire research",
+      "description": "A connected line of work on fire, spread, growth, structure, and environmental response.",
+      "featured": true,
+      "repositories": [
+        "CU-ESIIL/fire_vase",
+        "CU-ESIIL/spread-vs-growth",
+        "CU-ESIIL/ExtremeWildfire",
+        "earthlab/Marshall-Fire",
+        "maxwellCcook/marshall-fire"
+      ]
+    },
+    {
+      "id": "oasis",
+      "title": "OASIS",
+      "theme": "Synthesis infrastructure",
+      "description": "Working-group and hackathon infrastructure for collaborative environmental synthesis.",
+      "featured": true,
+      "repositories": ["CU-ESIIL/Working_group_OASIS", "CU-ESIIL/hackathon_group_OASIS"]
+    },
+    {
+      "id": "agentic-infrastructure",
+      "title": "Agentic infrastructure",
+      "theme": "Research software infrastructure",
+      "description": "Containerized and standards-aware infrastructure for research agents and reproducible work.",
+      "featured": true,
+      "repositories": [
+        "CU-ESIIL/openclaw_container",
+        "ttuff/Openclaw_container",
+        "CU-ESIIL/FAIR-and-CARE-for-AGENTS"
+      ]
+    },
+    {
+      "id": "esiil-infrastructure",
+      "title": "ESIIL infrastructure",
+      "theme": "Cyberinfrastructure",
+      "description": "The shared data, analytics, documentation, and group infrastructure behind ESIIL programs.",
+      "featured": true,
+      "repositories": [
+        "CU-ESIIL/data-library",
+        "CU-ESIIL/analytics-library",
+        "CU-ESIIL/documentation",
+        "CU-ESIIL/home",
+        "CU-ESIIL/Working-Group-Guide",
+        "CU-ESIIL/pre-innovation-summit-training"
+      ]
+    },
+    {
+      "id": "open-life-science-hackathon",
+      "title": "Open Life Science hackathon",
+      "theme": "Collaborative learning",
+      "description": "Parallel group repositories used to support hands-on open-science collaboration.",
+      "featured": false,
+      "repositories": [
+        "CU-ESIIL/OLC_hackathon_groupA",
+        "CU-ESIIL/OLC_hackathon_groupB",
+        "CU-ESIIL/OLC_hackathon_groupC",
+        "CU-ESIIL/OLC_hackathon_groupD",
+        "CU-ESIIL/OLC_hackathon_groupE"
+      ]
+    },
+    {
+      "id": "climate-indices",
+      "title": "Climate indices",
+      "theme": "Climate data",
+      "description": "R packages and tools for accessing climate futures, drought, and landscape response indices.",
+      "featured": true,
+      "repositories": ["earthlab/cft", "earthlab/eddi", "earthlab/leri"]
+    },
+    {
+      "id": "ecological-sampling",
+      "title": "Ecological sampling",
+      "theme": "Ecological methods",
+      "description": "Sampling design and simulation work spanning spatial, phylogenetic, and ecological questions.",
+      "featured": false,
+      "repositories": ["BrunoVilela/sampler", "ttuff/Bruno-sampler", "ttuff/Tree-sampling"]
+    }
+  ],
+  "relationships": [
+    {"from": "cube-dynamics", "to": "spectral-bridge", "label": "Earth-observation workflows"},
+    {"from": "cube-dynamics", "to": "esiil-infrastructure", "label": "Shared research infrastructure"},
+    {"from": "spectral-bridge", "to": "fire-growth-form", "label": "Remote sensing applied to disturbance"},
+    {"from": "fire-growth-form", "to": "oasis", "label": "Collaborative synthesis workflows"},
+    {"from": "oasis", "to": "esiil-infrastructure", "label": "Working-group infrastructure"},
+    {"from": "agentic-infrastructure", "to": "esiil-infrastructure", "label": "Reusable platform components"},
+    {"from": "open-life-science-hackathon", "to": "esiil-infrastructure", "label": "Training built on shared infrastructure"},
+    {"from": "climate-indices", "to": "fire-growth-form", "label": "Climate and disturbance indicators"}
+  ]
+}
