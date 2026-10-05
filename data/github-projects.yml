@@ -178,6 +178,124 @@
       "repositories": ["BrunoVilela/sampler", "ttuff/Bruno-sampler", "ttuff/Tree-sampling"]
     }
   ],
+  "portfolio": {
+    "projects": [
+      {
+        "id": "cubedynamics",
+        "family": "cube-dynamics",
+        "capability": "Scientific software",
+        "title": "CubeDynamics",
+        "headline": "A grammar for environmental data analysis.",
+        "problem": "Environmental analyses repeatedly reconstruct similar operations across space, time, scale, and environmental context. Rerunnable code can still hide the scientific statement it executed.",
+        "built": "I built a Python framework that combines source-qualified environmental data with composable verbs, explicit authored order, semantic state, provenance, and bounded quality checks.",
+        "role": ["Scientific design", "Software architecture", "Implementation", "Packaging", "Testing", "Release engineering"],
+        "technologies": ["Python", "xarray", "Dask", "GeoPandas", "Rasterio", "STAC", "Packaging", "Testing", "CI/CD"],
+        "links": [
+          {"label": "Documentation", "url": "https://cu-esiil.github.io/cubedynamics/"},
+          {"label": "GitHub", "url": "https://github.com/CU-ESIIL/cubedynamics"},
+          {"label": "PyPI", "url": "https://pypi.org/project/cubedynamics/"}
+        ],
+        "visual": {
+          "src": "/assets/projects/cubedynamics-observed.png",
+          "alt": "A gridded map of observed daily maximum temperature near Boulder from a CubeDynamics example.",
+          "caption": "Observed PRISM temperature loaded through a source-qualified CubeDynamics workflow.",
+          "source": "https://github.com/CU-ESIIL/cubedynamics/blob/main/docs/assets/generated/visual/observed.png"
+        }
+      },
+      {
+        "id": "spectralbridge",
+        "family": "spectral-bridge",
+        "capability": "Data systems",
+        "title": "SpectralBridge",
+        "headline": "Making measurements comparable across sensors and scales.",
+        "problem": "Airborne imaging spectroscopy, drone observations, and satellite products measure reflectance at different resolutions and through different observing systems. Those measurements cannot simply be treated as interchangeable.",
+        "built": "I helped build a restartable pipeline that corrects observations, translates spectra into target-sensor bandspaces, writes analysis-ready outputs, and preserves quality evidence and provenance at every stage.",
+        "role": ["Scientific workflow design", "Pipeline architecture", "Implementation", "Validation", "Documentation", "Release engineering"],
+        "technologies": ["Python", "Ray", "DuckDB", "PyArrow", "GeoPandas", "Rasterio", "HPC", "Cloud computing", "Testing", "CI/CD"],
+        "links": [
+          {"label": "Documentation", "url": "https://earthlab.github.io/spectralbridge/"},
+          {"label": "GitHub", "url": "https://github.com/earthlab/spectralbridge"}
+        ],
+        "visual": {
+          "src": "/assets/projects/spectralbridge-overview.webp",
+          "alt": "A three-part SpectralBridge diagram showing airborne, drone, and Landsat sensors, the correction pipeline, and translations among sensor spaces.",
+          "caption": "A transparent path from raw observations through correction and harmonization to comparable evidence.",
+          "source": "https://github.com/earthlab/spectralbridge/blob/main/docs/images/homepage/spectralbridge-technical-overview.png"
+        }
+      },
+      {
+        "id": "oasis",
+        "family": "oasis",
+        "related_families": ["esiil-infrastructure", "open-life-science-hackathon"],
+        "capability": "Research infrastructure",
+        "title": "OASIS",
+        "headline": "Computational systems for science larger than one researcher.",
+        "problem": "Working groups and events need shared compute, data access, reproducible environments, repository workflows, documentation, and durable public outputs without rebuilding the same foundation for every team.",
+        "built": "I design and operate reusable infrastructure that connects researchers, GitHub workflows, cloud and HPC computing, shared data, containers, training, and open-science publishing.",
+        "role": ["Technical leadership", "Systems design", "Cloud and HPC workflows", "Repository automation", "Training infrastructure", "Open-science publishing"],
+        "technologies": ["Python", "GitHub Actions", "Containers", "HPC", "Cloud computing", "Object storage", "Documentation", "Automation"],
+        "links": [
+          {"label": "OASIS", "url": "https://cu-esiil.github.io/home/"},
+          {"label": "Working-group guide", "url": "https://cu-esiil.github.io/Working-Group-Guide/"},
+          {"label": "Infrastructure repositories", "url": "https://github.com/CU-ESIIL"}
+        ],
+        "diagram": ["Researchers", "GitHub workflows", "OASIS", "Cloud + HPC + data", "Reproducible environments"]
+      },
+      {
+        "id": "fire-vase",
+        "family": "fire-growth-form",
+        "capability": "Computational experiments",
+        "title": "Fire VASE",
+        "headline": "Can the shape of a wildfire reveal how its growth is changing?",
+        "problem": "Final burned area and duration hide when growth occurred. I wanted a common representation that could compare the development of fires with very different sizes and lifetimes.",
+        "built": "I reconstruct dated fire-growth histories, encode normalized growth allocation as developmental forms, extract morphology, and connect those representations to validation and environmental evidence.",
+        "role": ["Question formulation", "Computational method", "Large-scale event processing", "Morphology extraction", "Validation", "Visualization"],
+        "technologies": ["Python", "xarray", "Dask", "DuckDB", "GeoPandas", "Rasterio", "Scientific visualization", "Testing"],
+        "links": [
+          {"label": "Project site", "url": "https://cu-esiil.github.io/fire_vase/"},
+          {"label": "GitHub", "url": "https://github.com/CU-ESIIL/fire_vase"},
+          {"label": "Explore my science", "url": "/my-science/"}
+        ],
+        "visual": {
+          "src": "/assets/projects/fire-vase-figure-1.webp",
+          "alt": "Four observed wildfire growth histories shown as daily growth bars, cumulative growth lines, and Fire VASE developmental forms.",
+          "caption": "Observed growth histories become comparable developmental forms. Gray bands mark unobserved dates, not zero growth.",
+          "source": "https://github.com/CU-ESIIL/fire_vase/blob/main/docs/assets/figures/v2/Figure_1.png"
+        }
+      },
+      {
+        "id": "agentic-systems",
+        "family": "agentic-infrastructure",
+        "capability": "Autonomous and agentic computing",
+        "title": "Computational systems that can do more themselves",
+        "headline": "Planning, tool use, evidence, and verification—with humans retaining authority.",
+        "problem": "Giving a computational agent repository access does not give it scientific context, judgment, legitimate authority, or a reliable record of what it did.",
+        "built": "I am exploring containerized scientific workspaces and repository specifications that let computational systems plan, inspect, test, and revise work while keeping provenance, evaluation, permissions, and human review explicit.",
+        "role": ["Systems architecture", "Container workflows", "Governance design", "Provenance", "Verification", "Human-in-the-loop review"],
+        "technologies": ["Python", "Containers", "Docker Compose", "GitHub Actions", "Testing", "Provenance", "Automation"],
+        "links": [
+          {"label": "ScienceClaw", "url": "https://github.com/CU-ESIIL/openclaw_container"},
+          {"label": "FAIR + CARE for Agentic Science", "url": "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/"}
+        ],
+        "diagram": ["Scientist", "Computational agent", "Tools + data + compute", "Evidence", "Human verification"]
+      }
+    ],
+    "technology_groups": {
+      "Languages": ["Python", "R", "JavaScript", "SQL"],
+      "Scientific computing": ["xarray", "Dask", "GeoPandas", "Rasterio", "STAC", "DuckDB", "PyArrow", "Ray", "Scientific visualization"],
+      "Infrastructure": ["GitHub Actions", "Containers", "Docker Compose", "HPC", "Cloud computing", "Object storage", "Automation"],
+      "Engineering": ["Packaging", "Testing", "CI/CD", "Documentation", "Provenance"]
+    },
+    "principles": [
+      {"title": "Reproducible by default", "text": "Scientific computation should be reconstructable by someone other than its author."},
+      {"title": "Build the reusable layer", "text": "When an analytical pattern keeps appearing, I turn it into a tool instead of another one-off script."},
+      {"title": "Design for collaboration", "text": "Systems should work beyond one researcher, one dataset, or one machine."},
+      {"title": "Evidence over claims", "text": "Tests, documentation, releases, and reproducible outputs should show what a system can do."},
+      {"title": "Science drives architecture", "text": "I choose computational abstractions from the scientific problem, not the fashionable technology."}
+    ],
+    "connections_preview": ["cube-dynamics", "spectral-bridge", "fire-growth-form", "oasis", "agentic-infrastructure", "esiil-infrastructure", "open-life-science-hackathon", "climate-indices", "ecological-sampling"],
+    "representative_repositories": ["CU-ESIIL/cubedynamics", "earthlab/spectralbridge", "CU-ESIIL/fire_vase", "CU-ESIIL/Working_group_OASIS", "CU-ESIIL/openclaw_container"]
+  },
   "relationships": [
     {"from": "cube-dynamics", "to": "spectral-bridge", "label": "Earth-observation workflows"},
     {"from": "cube-dynamics", "to": "esiil-infrastructure", "label": "Shared research infrastructure"},

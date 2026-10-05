@@ -17,7 +17,7 @@ SQUARESPACE = ("squarespace.com", "squarespace-cdn.com", "static1.squarespace.co
 PRODUCTION_ORIGIN = "https://drtuff.com"
 PRODUCTION_HOSTS = {"drtuff.com", "www.drtuff.com"}
 FORBIDDEN_DEPLOYMENT_TEXT = ("ttuff.github.io", "/personal_website/", "squarespace-cdn")
-REQUIRED_ROUTES = ("/", "/about", "/research", "/home", "/my-science", "/my-skills", "/my-cv", "/news", "/contact-me", "/github")
+REQUIRED_ROUTES = ("/", "/about", "/research", "/home", "/my-science", "/my-projects", "/my-skills", "/my-cv", "/news", "/contact-me", "/github")
 
 
 class ReferenceParser(HTMLParser):
@@ -135,6 +135,10 @@ def main() -> None:
                 failures.append("generated GitHub-life graph contains duplicate or missing edge identifiers")
             if any(edge.get("source") not in node_ids or edge.get("target") not in node_ids for edge in graph.get("edges", [])):
                 failures.append("generated GitHub-life graph contains an edge with an unknown node")
+            portfolio = dataset.get("portfolio", {})
+            projects = portfolio.get("projects", [])
+            if len(projects) != 5 or not all(project.get("evidence", {}).get("repository_count") for project in projects):
+                failures.append("generated GitHub-life dataset is missing the five evidenced portfolio projects")
             if github_data.stat().st_size > 500_000:
                 failures.append("generated GitHub-life dataset exceeds the 500 KB performance budget")
         except (ValueError, OSError) as exc:

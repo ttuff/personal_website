@@ -78,12 +78,13 @@ The generated `data/generated/github-life.json` contains:
 - `repositories`: normalized facts, recent counts, score, small sparklines, languages, releases, contributors, CI, and optional curated family fields;
 - `families`: editorial groupings with category, question, topics, and compact evidence summaries;
 - `graph`: schema-v2 nodes and deduplicated typed edges, ownership classes, metrics, summary counts, and evidence-linked insights;
+- `portfolio`: curated capability stories joined to repository facts, technology evidence, principles, and a compact Connections preview;
 - `collaboration`: repeated observed contributors and the repositories connecting them;
 - `language_evolution`: repository start/last-push spans grouped by primary language;
 - `discoveries`: reproducibly calculated streak, busiest day/month, and concurrent-project facts;
 - `limitations`: plain-language qualifications rendered on the page.
 
-Raw API payloads belong in `.cache/github-life/` and are ignored. The browser receives only the compact derived JSON.
+Raw API payloads belong in `.cache/github-life/` and are ignored. The browser receives only the compact derived JSON. The Connections and My Projects pages share this file; first-person project narrative remains in the curated source rather than being inferred from API metadata.
 
 `exclude_repositories` in the curated file can remove obvious scratch repositories from the narrative without pretending they were never discovered; discovery counts remain based on the complete observed set.
 

@@ -18,7 +18,7 @@ python3 -m http.server 8000 --directory site
 
 Then open `http://127.0.0.1:8000`.
 
-The data-driven GitHub narrative is available at `http://127.0.0.1:8000/github/`. Its checked-in compact dataset is generated from public GitHub data and a small editorial layer:
+The capability-led project narrative is available at `http://127.0.0.1:8000/my-projects/`, and the data-driven Connections narrative is at `http://127.0.0.1:8000/github/`. They share a checked-in compact dataset generated from public GitHub data and a small editorial layer; the curated first-person project stories remain in `data/github-projects.yml`.
 
 ```bash
 GITHUB_TOKEN=... python3 scripts/build_github_life.py --refresh
@@ -26,7 +26,7 @@ python3 -m unittest discover -s tests -v
 python3 scripts/validate_site.py
 ```
 
-`GITHUB_TOKEN` is required for the GraphQL contribution calendar and normal authenticated API limits. The browser never receives the token. Without a token, the generator can use GitHub's public contribution calendar as a local fallback. Edit `data/github-projects.yml` to change human-readable repository metadata, project families, conceptual categories, research questions, importance, or curated relationships; see `docs/github-life-design.md` for graph definitions, metric provenance, and limitations.
+`GITHUB_TOKEN` is required for the GraphQL contribution calendar and normal authenticated API limits. The browser never receives the token. Without a token, the generator can use GitHub's public contribution calendar as a local fallback. Edit `data/github-projects.yml` to change human-readable repository metadata, project families, capability stories, technology associations, research questions, importance, or curated relationships; see `docs/github-life-design.md` for graph definitions, metric provenance, and limitations and `docs/projects-page-design.md` for the portfolio design and asset provenance.
 
 ## Deployment
 
@@ -48,5 +48,6 @@ The intended HostGator DNS records are four apex `A` records for GitHub Pages (`
 - `migration/migration_report.md` — scope, differences, and remaining manual work
 - `migration/source/` — preserved raw source material
 - `docs/github-life-design.md` — GitHub-life architecture, provenance, derived metrics, and API limitations
-- `data/github-projects.yml` — human-editable project families and relationships
-- `data/generated/github-life.json` — compact generated dataset consumed by `/github/`
+- `docs/projects-page-design.md` — project-page design, data boundaries, review notes, and visual provenance
+- `data/github-projects.yml` — human-editable project families, capability stories, and relationships
+- `data/generated/github-life.json` — compact generated dataset consumed by `/github/` and `/my-projects/`

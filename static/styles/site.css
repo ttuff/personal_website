@@ -104,6 +104,14 @@ strong{font-weight:700}
 .page-my-science #ms-current-projects,.page-my-science #ms-ongoing-projects,.page-my-skills #new-page,.page-my-skills #new-page-3,.page-my-skills #broader-impacts{background-color:#171717}
 .page-my-science #ms-current-projects .Index-page-image img,.page-my-science #ms-ongoing-projects .Index-page-image img,.page-my-skills #new-page .Index-page-image img,.page-my-skills #new-page-3 .Index-page-image img,.page-my-skills #broader-impacts .Index-page-image img{filter:brightness(.5)}
 .page-my-cv #cv-details .sqs-html-content p{margin:.4em 0}
+.science-projects-link{background:#fff}
+.science-projects-link .Index-page-content{padding-top:110px;padding-bottom:110px}
+.science-projects-link__inner{display:grid;grid-template-columns:minmax(240px,.65fr) minmax(420px,1.35fr);gap:18px 80px;max-width:1100px;margin:0 auto}
+.science-projects-link__kicker{grid-column:1;margin:7px 0 0;color:var(--blue);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.science-projects-link h2{grid-column:2;margin:0;font-size:52px}
+.science-projects-link__inner>p:not(.science-projects-link__kicker),.science-projects-link__inner>a{grid-column:2}
+.science-projects-link__inner>p:not(.science-projects-link__kicker){max-width:660px;margin:10px 0 15px;font-size:20px}
+.science-projects-link__inner>a{justify-self:start}
 .Main-content a[href*="github.com/ttuff"]:empty::before{content:"GitHub"}
 .Main-content a[href^="mailto:"]:empty::before{content:"Email"}
 
@@ -122,7 +130,11 @@ strong{font-weight:700}
 
 @media(max-width:900px){
   :root{--gutter:45px;--header-gutter:45px}
-  .primary-nav{gap:18px}
+  .site-header{padding-right:28px;padding-left:28px}
+  .site-title{flex:0 0 auto;margin-right:22px;font-size:26px;white-space:nowrap}
+  .primary-nav{gap:14px;font-size:11px;letter-spacing:.04em}
+  .social-nav{gap:6px}
+  .social-link{width:36px;height:36px}
   .footer-inner{width:calc(100% - 90px)}
   h1{font-size:48px}h2{font-size:34px}
 }
@@ -143,6 +155,10 @@ strong{font-weight:700}
   .mobile-navigation.is-open{visibility:visible;opacity:1;transform:none}
   .page-contact-me .site-header,.page-news .site-header{display:none}
   .page-contact-me .Main-content,.page-news .Main-content{padding-top:55px}
+  .science-projects-link .Index-page-content{padding-top:70px;padding-bottom:70px}
+  .science-projects-link__inner{display:block}
+  .science-projects-link h2{margin-top:18px;font-size:38px}
+  .science-projects-link__inner>p:not(.science-projects-link__kicker){font-size:17px}
   .Index>.Index-page:first-child{min-height:calc(98vh - 52px)}
   .Index>.Index-page:first-child .Index-page-content{min-height:calc(98vh - 52px);padding-top:60px}
   .Index-page-content,.Main-content{padding:55px var(--gutter)}

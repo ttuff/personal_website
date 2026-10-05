@@ -516,6 +516,96 @@ def network_insights(families: list[dict[str, Any]], edges: list[dict[str, Any]]
     return metrics, insights
 
 
+def build_portfolio(
+    config: dict[str, Any],
+    families: list[dict[str, Any]],
+    repositories: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Join timeless project narratives to the GitHub evidence already collected."""
+    portfolio = config.get("portfolio", {})
+    family_by_id = {family["id"]: family for family in families}
+    repository_by_name = {repo["full_name"]: repo for repo in repositories}
+    projects = []
+    used_technologies: set[str] = set()
+
+    for project in portfolio.get("projects", []):
+        family_ids = [project["family"], *project.get("related_families", [])]
+        family_rows = [family_by_id[family_id] for family_id in family_ids if family_id in family_by_id]
+        repository_names = list(dict.fromkeys(
+            name for family in family_rows for name in family.get("repositories", [])
+        ))
+        project_repositories = [
+            repository_by_name[name] for name in repository_names if name in repository_by_name
+        ]
+        starts = sorted(
+            (repo.get("created_at") or "")[:10]
+            for repo in project_repositories
+            if repo.get("created_at")
+        )
+        ends = sorted(
+            (repo.get("pushed_at") or repo.get("created_at") or "")[:10]
+            for repo in project_repositories
+            if repo.get("pushed_at") or repo.get("created_at")
+        )
+        contributors = sorted({
+            person["login"]
+            for repo in project_repositories
+            for person in repo.get("contributors", [])
+        })
+        owners = sorted({repo["owner"] for repo in project_repositories if repo.get("owner")})
+        languages = sorted({
+            language
+            for repo in project_repositories
+            for language in repo.get("languages", {})
+        })
+        used_technologies.update(project.get("technologies", []))
+        projects.append({
+            **project,
+            "families": family_ids,
+            "repositories": [
+                {
+                    "full_name": repo["full_name"],
+                    "title": repo["semantic"]["title"],
+                    "description": repo["semantic"]["description"],
+                    "url": repo.get("url"),
+                    "homepage": repo.get("homepage"),
+                    "primary_language": repo.get("primary_language"),
+                    "license": repo.get("license"),
+                    "latest_release": repo.get("latest_release"),
+                    "release_count_observed": repo.get("release_count_observed", 0),
+                    "contributor_count_observed": repo.get("contributor_count_observed", 0),
+                    "activity_score": repo.get("recent", {}).get("score", 0),
+                }
+                for repo in project_repositories
+            ],
+            "evidence": {
+                "repository_count": len(project_repositories),
+                "release_count": sum(repo.get("release_count_observed", 0) for repo in project_repositories),
+                "contributor_count": len(contributors),
+                "contributors": contributors,
+                "owner_count": len(owners),
+                "owners": owners,
+                "languages": languages,
+                "documented_repository_count": sum(bool(repo.get("homepage")) for repo in project_repositories),
+                "licensed_repository_count": sum(bool(repo.get("license")) for repo in project_repositories),
+                "active_from": starts[0] if starts else None,
+                "active_to": ends[-1] if ends else None,
+            },
+        })
+
+    technology_groups = {
+        group: [technology for technology in technologies if technology in used_technologies]
+        for group, technologies in portfolio.get("technology_groups", {}).items()
+    }
+    return {
+        "projects": projects,
+        "technology_groups": {group: technologies for group, technologies in technology_groups.items() if technologies},
+        "principles": portfolio.get("principles", []),
+        "connections_preview": portfolio.get("connections_preview", []),
+        "representative_repositories": portfolio.get("representative_repositories", []),
+    }
+
+
 def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Path | None = None, limit: int = 40) -> dict[str, Any]:
     username = config["profile"]["username"]
     generated = utc_now()
@@ -786,6 +876,7 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
         if repo.get("pushed_at") or repo.get("created_at")
     )
     graph_organizations = sorted({repo["owner"] for repo in graph_repositories if repo.get("owner_type") == "Organization"})
+    portfolio_payload = build_portfolio(config, family_payload, normalized)
     return {
         "meta": {
             "schema_version": SCHEMA_VERSION,
@@ -830,6 +921,7 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
             },
             "insights": insights,
         },
+        "portfolio": portfolio_payload,
         "collaboration": {"contributors": all_people[:40], "repeated": repeated[:20]},
         "language_evolution": language_evolution,
         "discoveries": discoveries,

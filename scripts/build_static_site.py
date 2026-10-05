@@ -20,6 +20,10 @@ CUSTOM_PAGES = {
     "github": {
         "title": "I Build in Public — Ty Tuff on GitHub",
         "description": "Explore the public GitHub work I’ve built, maintained, and contributed to, including my collaborations, project relationships, and evolving technical practice.",
+    },
+    "my-projects": {
+        "title": "My Projects — Scientific Software and Research Infrastructure",
+        "description": "Explore the scientific software, environmental data systems, research infrastructure, computational experiments, and agentic systems I build.",
     }
 }
 PRODUCTION_ORIGIN = "https://drtuff.com"
@@ -58,6 +62,7 @@ def relative_target(slug: str, target: str) -> str:
         "/news": prefix + "news/",
         "/contact-me": prefix + "contact-me/",
         "/github": prefix + "github/",
+        "/my-projects": prefix + "my-projects/",
     }
     for route in sorted(routes, key=len, reverse=True):
         if target == route or target.startswith(route + "#"):
@@ -175,8 +180,9 @@ def navigation(prefix: str) -> str:
     <header class="site-header">
       <nav class="primary-nav" aria-label="Primary navigation">
         <a href="{prefix}my-science/">My Science</a>
+        <a href="{prefix}my-projects/">My Projects</a>
+        <a href="{prefix}github/">Connections</a>
         <a href="{prefix}my-cv/">My CV</a>
-        <a href="{prefix}github/">GitHub</a>
         <a href="{prefix}contact-me/">Contact me</a>
       </nav>
       <a class="site-title" href="{prefix}">Dr. Tuff</a>
@@ -187,8 +193,9 @@ def navigation(prefix: str) -> str:
     </header>
     <nav id="mobile-navigation" class="mobile-navigation" aria-label="Mobile navigation">
       <a href="{prefix}my-science/">My Science</a>
+      <a href="{prefix}my-projects/">My Projects</a>
+      <a href="{prefix}github/">Connections</a>
       <a href="{prefix}my-cv/">My CV</a>
-      <a href="{prefix}github/">GitHub</a>
       <a href="{prefix}contact-me/">Contact me</a>
     </nav>"""
 
@@ -209,8 +216,9 @@ def footer(prefix: str) -> str:
           <h2>Quick Links</h2>
           <a href="{prefix}">Home</a>
           <a href="{prefix}my-science/">My Science</a>
+          <a href="{prefix}my-projects/">My Projects</a>
+          <a href="{prefix}github/">Connections</a>
           <a href="{prefix}my-cv/">My CV</a>
-          <a href="{prefix}github/">GitHub</a>
           <a href="{prefix}contact-me/">Contact Me</a>
           <div class="footer-contact-social" aria-label="Contact links"><a href="https://github.com/ttuff" aria-label="GitHub">GH</a><a href="mailto:ty.tuff@colorado.edu" aria-label="Email">@</a></div>
         </div>
@@ -242,6 +250,8 @@ def page_document(slug: str, main: str, meta: dict[str, str]) -> str:
     page_assets = ""
     if slug == "github":
         page_assets = f'  <link rel="stylesheet" href="{prefix}styles/github.css">\n  <link rel="preload" href="{prefix}data/github-life.json" as="fetch" crossorigin="anonymous">\n  <script src="{prefix}scripts/github.js" defer></script>\n'
+    elif slug == "my-projects":
+        page_assets = f'  <link rel="stylesheet" href="{prefix}styles/projects.css">\n  <link rel="preload" href="{prefix}data/github-life.json" as="fetch" crossorigin="anonymous">\n  <script src="{prefix}scripts/projects.js" defer></script>\n'
     return f"""<!doctype html>
 <html lang="en-US">
 <head>
@@ -313,6 +323,20 @@ def main() -> None:
     for slug in PAGES:
         markup = (SOURCE / f"{slug}.html").read_text(encoding="utf-8", errors="replace")
         rewritten = rewrite_main(markup, slug, asset_map)
+        if slug == "my-science":
+            science_projects_link = """
+    <section class="Index-page science-projects-link" aria-labelledby="science-projects-title">
+      <div class="Index-page-content">
+        <div class="science-projects-link__inner">
+          <p class="science-projects-link__kicker">Questions into systems</p>
+          <h2 id="science-projects-title">See what I build from the science.</h2>
+          <p>My projects turn environmental questions into computational methods, software, data systems, and shared research infrastructure.</p>
+          <a class="sqs-block-button-element" href="../my-projects/">Explore my projects</a>
+        </div>
+      </div>
+    </section>
+"""
+            rewritten = rewritten.replace('<nav class="Index-nav">', science_projects_link + '    <nav class="Index-nav">', 1)
         destination = DIST / slug
         destination.mkdir(parents=True, exist_ok=True)
         (destination / "index.html").write_text(page_document(slug, rewritten, metadata[slug]), encoding="utf-8")

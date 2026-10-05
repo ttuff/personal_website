@@ -114,6 +114,35 @@ class GeneratedDatasetTests(unittest.TestCase):
             self.assertTrue(set(insight["nodes"]) <= node_ids)
             self.assertTrue(set(insight["edges"]) <= edge_ids)
 
+    def test_portfolio_joins_curated_projects_to_repository_evidence(self) -> None:
+        payload = json.loads((ROOT / "data" / "generated" / "github-life.json").read_text(encoding="utf-8"))
+        portfolio = payload["portfolio"]
+        projects = portfolio["projects"]
+        repository_names = {repo["full_name"] for repo in payload["repositories"]}
+        self.assertEqual(
+            {project["id"] for project in projects},
+            {"cubedynamics", "spectralbridge", "oasis", "fire-vase", "agentic-systems"},
+        )
+        for project in projects:
+            self.assertEqual(project["evidence"]["repository_count"], len(project["repositories"]))
+            self.assertTrue({repo["full_name"] for repo in project["repositories"]} <= repository_names)
+            self.assertEqual(
+                project["evidence"]["release_count"],
+                sum(repo["release_count_observed"] for repo in project["repositories"]),
+            )
+            if project.get("visual"):
+                asset = ROOT / project["visual"]["src"].lstrip("/")
+                self.assertTrue(asset.exists(), f"Missing portfolio visual: {asset}")
+                self.assertTrue(project["visual"]["alt"])
+        used_technologies = {technology for project in projects for technology in project["technologies"]}
+        published_technologies = {
+            technology
+            for technologies in portfolio["technology_groups"].values()
+            for technology in technologies
+        }
+        self.assertTrue(published_technologies)
+        self.assertTrue(published_technologies <= used_technologies)
+
 
 if __name__ == "__main__":
     unittest.main()

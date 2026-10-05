@@ -2,6 +2,10 @@
 
 ## 2026-10-05
 
+- Added a new `/my-projects/` capability narrative for scientific software, data systems, research infrastructure, computational experiments, and agentic systems, using the preserved site's original typography, color, spacing, chalkboard, and full-bleed composition language.
+- Extended the shared GitHub editorial and generated-data layers with five evidence-backed project stories, technology-to-project associations, reusable build principles, and live repository summaries rather than creating a separate portfolio data source.
+- Added first-party scientific visuals with source links and provenance notes, accessible code-native systems diagrams, technology evidence filtering, a compact Connections preview, and desktop/mobile navigation and contextual cross-links among Science, Projects, Connections, and CV.
+- Added project-data tests, required-route validation, documentation, and visual-asset provenance for the new page.
 - Reworked the GitHub relationship view into an evidence-backed intellectual map organized around research questions, methods and software, infrastructure, and communities.
 - Added first-person repository titles and descriptions, ownership distinctions, stable semantic clustering, selective labels, richer family and repository inspection, and an equivalent mobile family list.
 - Added deterministic graph metrics and generated insights with exact evidence references, plus schema, validation, transformation-test, and provenance documentation updates.

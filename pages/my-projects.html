@@ -1,0 +1,99 @@
+<main id="main-content" class="projects-page" data-projects-page>
+  <section class="projects-hero" aria-labelledby="projects-title">
+    <div class="projects-hero__texture" aria-hidden="true"></div>
+    <img class="projects-hero__object" src="../assets/projects/fire-vase-hero.webp" alt="">
+    <div class="projects-shell projects-hero__content">
+      <p class="projects-kicker">My Projects</p>
+      <h1 id="projects-title">Things<br>I build.</h1>
+      <p>I build scientific software, data systems, and computational infrastructure to make difficult environmental questions tractable.</p>
+      <p>My projects move from scientific ideas to working systems: packages, pipelines, cloud infrastructure, analytical methods, and tools other researchers can use.</p>
+      <a class="projects-button" href="#range-of-work">See how I work</a>
+    </div>
+  </section>
+
+  <section id="range-of-work" class="projects-section projects-range" aria-labelledby="range-title">
+    <div class="projects-shell">
+      <div class="projects-heading">
+        <p class="projects-kicker">The range of the work</p>
+        <h2 id="range-title">Across the computational stack</h2>
+        <p>I do more than analyze a dataset. I move between scientific reasoning, computational methods, software architecture, and the infrastructure that makes those methods reusable.</p>
+      </div>
+      <ol class="range-sequence" aria-label="How my work moves from a scientific question to reusable science">
+        <li><span>01</span><strong>Scientific<br>question</strong></li>
+        <li><span>02</span><strong>Computational<br>method</strong></li>
+        <li><span>03</span><strong>Software +<br>data system</strong></li>
+        <li><span>04</span><strong>Reusable<br>infrastructure</strong></li>
+        <li><span>05</span><strong>Science<br>enabled</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <div data-featured-projects aria-live="polite">
+    <section class="projects-section projects-loading" aria-label="Loading project evidence">
+      <div class="projects-shell"><p>Loading project evidence…</p></div>
+    </section>
+  </div>
+
+  <section class="projects-section projects-principles" aria-labelledby="principles-title">
+    <div class="projects-shell">
+      <div class="projects-heading projects-heading--compact">
+        <p class="projects-kicker">How I build</p>
+        <h2 id="principles-title">The architecture follows the science.</h2>
+      </div>
+      <ol class="principle-list" data-principles></ol>
+    </div>
+  </section>
+
+  <section class="projects-section projects-technologies" aria-labelledby="technologies-title">
+    <div class="projects-shell">
+      <div class="projects-heading">
+        <p class="projects-kicker">Technologies, with evidence</p>
+        <h2 id="technologies-title">Tools earn their place in the work.</h2>
+        <p>Select a technology to see the projects that demonstrate it. These are repository-backed associations, not self-assessed skill scores.</p>
+      </div>
+      <div class="technology-evidence">
+        <div class="technology-selector" data-technology-selector aria-label="Filter projects by technology"></div>
+        <div class="technology-projects" data-technology-projects aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section projects-connections" aria-labelledby="connections-preview-title">
+    <div class="projects-shell">
+      <div class="projects-heading">
+        <p class="projects-kicker">The work connects</p>
+        <h2 id="connections-preview-title">None of these projects stands alone.</h2>
+        <p>Software becomes infrastructure. Infrastructure enables science. Scientific questions create new computational methods. Collaborators carry those methods into new problems.</p>
+      </div>
+      <div class="connections-preview" data-connections-preview></div>
+      <a class="projects-text-link" href="../github/#project-graph">Explore how everything connects <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="projects-section projects-public" aria-labelledby="public-title">
+    <div class="projects-shell">
+      <div class="projects-heading">
+        <p class="projects-kicker">Built in public</p>
+        <h2 id="public-title">The evidence stays close.</h2>
+        <p>Repository facts and releases update from GitHub. The projects themselves are selected for substance, maturity, documentation, and their place in the larger system—not simply for the latest commit.</p>
+      </div>
+      <dl class="public-summary" data-public-summary aria-label="Current public project evidence"></dl>
+      <div class="representative-repositories" data-representative-repositories></div>
+      <p class="public-refresh" data-public-refresh></p>
+    </div>
+  </section>
+
+  <section class="projects-closing" aria-labelledby="closing-title">
+    <div class="projects-closing__texture" aria-hidden="true"></div>
+    <div class="projects-shell">
+      <h2 id="closing-title">Science gives me the questions.<br>Computation gives me a way to test them.<br>Software lets other people use what we learn.</h2>
+      <div class="projects-closing__links">
+        <a class="projects-button" href="../my-science/">Explore my science</a>
+        <a class="projects-button" href="../github/#project-graph">Explore the connections</a>
+        <a class="projects-text-link" href="../my-cv/">Read my full record <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <p class="projects-error" data-projects-error hidden>I couldn’t load the generated project evidence. The source links above remain available.</p>
+</main>
