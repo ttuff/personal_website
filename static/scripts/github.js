@@ -6,7 +6,7 @@
   const number = new Intl.NumberFormat('en-US');
   const dateFormat = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   const monthFormat = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long' });
-  const state = { data: null, repository: null, edgeFilter: 'all', commandIndex: 0, commandItems: [] };
+  const state = { data: null, repository: null, selectedNode: null, hoverNode: null, insight: null, edgeFilter: 'all', conceptFilter: 'all', commandIndex: 0, commandItems: [] };
 
   const escapeHTML = value => String(value ?? '').replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]);
   const formatDate = value => value ? dateFormat.format(new Date(`${value.slice(0, 10)}T12:00:00Z`)) : 'Unavailable';
@@ -130,112 +130,270 @@
       : '<span>No continuous public-calendar run was available.</span>';
   }
 
+  const categoryLabels = { 'research-questions': 'Research questions', 'methods-software': 'Methods & software', infrastructure: 'Infrastructure', communities: 'Communities', uncategorized: 'Other public work' };
+
   function graphPositions(data) {
     const width = 1000;
-    const height = 680;
-    const families = data.graph.nodes.filter(node => node.type === 'family');
+    const categoryX = { 'research-questions': 145, 'methods-software': 390, infrastructure: 650, communities: 875 };
     const positions = new Map();
-    families.forEach((family, index) => {
-      const angle = -Math.PI / 2 + index / families.length * Math.PI * 2;
-      positions.set(family.id, { x: width / 2 + Math.cos(angle) * 310, y: height / 2 + Math.sin(angle) * 220 });
+    Object.keys(categoryX).forEach(category => {
+      const families = data.graph.nodes.filter(node => node.type === 'family' && node.category === category);
+      families.forEach((family, index) => {
+        const y = families.length === 1 ? 340 : 145 + index * (400 / (families.length - 1));
+        positions.set(family.id, { x: categoryX[category], y, category });
+      });
     });
-    families.forEach(family => {
+    const angles = [-165, -130, -95, -60, -25, 10, 170].map(value => value * Math.PI / 180);
+    data.graph.nodes.filter(node => node.type === 'family').forEach(family => {
       const center = positions.get(family.id);
+      if (!center) return;
       const repositories = data.graph.nodes.filter(node => node.type === 'repository' && node.family === family.id);
       repositories.forEach((repo, index) => {
-        const angle = (index / Math.max(1, repositories.length)) * Math.PI * 2 + .35;
-        const radius = repositories.length > 4 ? 105 : 86;
-        positions.set(repo.id, { x: center.x + Math.cos(angle) * radius, y: center.y + Math.sin(angle) * radius });
+        const angle = angles[index % angles.length];
+        const ring = 67 + Math.floor(index / angles.length) * 24;
+        positions.set(repo.id, { x: center.x + Math.cos(angle) * ring, y: center.y + Math.sin(angle) * ring, category: family.category });
       });
     });
     const ungrouped = data.graph.nodes.filter(node => node.type === 'repository' && !positions.has(node.id));
-    ungrouped.forEach((repo, index) => positions.set(repo.id, { x: 110 + index % 7 * 125, y: 620 - Math.floor(index / 7) * 48 }));
+    ungrouped.forEach((repo, index) => positions.set(repo.id, { x: 70 + index * (width - 140) / Math.max(1, ungrouped.length - 1), y: 690, category: 'uncategorized' }));
     return positions;
+  }
+
+  function fact(label, value) {
+    return value === null || value === undefined || value === '' ? '' : `<div><span>${escapeHTML(label)}</span><strong>${escapeHTML(value)}</strong></div>`;
   }
 
   function inspectorHTML(data, id) {
     const repo = data.repositories.find(item => item.full_name === id);
     if (repo) {
+      const node = data.graph.nodes.find(item => item.id === id);
       const connected = data.graph.edges.filter(edge => edge.source === id || edge.target === id);
-      return `<p class="repo-inspector__eyebrow">${escapeHTML(repo.curated?.theme || repo.owner)}</p>
-        <h3>${escapeHTML(repo.full_name)}</h3>
-        <p>${escapeHTML(repo.description || repo.curated?.family_title || 'Public repository metadata did not include a description.')}</p>
+      const family = data.families.find(item => item.id === repo.curated?.family);
+      const type = node?.ownership === 'mine' ? 'My repository' : 'Connected repository';
+      const evidence = connected.map(edge => {
+        const otherId = edge.source === id ? edge.target : edge.source;
+        const other = data.graph.nodes.find(item => item.id === otherId);
+        return `<li><b>${escapeHTML(edge.type === 'family' ? 'Project membership' : edge.type.replaceAll('-', ' '))}</b><span>${escapeHTML(edge.label)}${other ? ` · ${escapeHTML(other.label)}` : ''}</span></li>`;
+      }).join('');
+      return `<p class="repo-inspector__eyebrow">${type}</p>
+        <h3>${escapeHTML(repo.semantic?.title || repo.name)}</h3>
+        <p class="repo-inspector__source">${escapeHTML(repo.full_name)}</p>
+        <p>${escapeHTML(repo.semantic?.description || family?.description || 'GitHub does not currently provide a description for this repository.')}</p>
+        ${family ? `<div class="inspector-section"><h4>Project story</h4><p>${escapeHTML(family.title)} · ${escapeHTML(family.theme)}</p></div>` : ''}
         <div class="inspector-facts">
-          <div><span>90-day commits</span><strong>${number.format(repo.recent.windows['90'].commits)}</strong></div>
-          <div><span>Active days / 30d</span><strong>${number.format(repo.recent.windows['30'].active_days)}</strong></div>
-          <div><span>Observed contributors</span><strong>${number.format(repo.contributor_count_observed)}</strong></div>
-          <div><span>Releases observed</span><strong>${number.format(repo.release_count_observed)}</strong></div>
-          <div><span>Primary language</span><strong>${escapeHTML(repo.primary_language || 'Unclassified')}</strong></div>
-          <div><span>License</span><strong>${escapeHTML(repo.license || 'Not returned')}</strong></div>
+          ${fact('90-day commits', number.format(repo.recent.windows['90'].commits))}
+          ${fact('Observed contributors', number.format(repo.contributor_count_observed))}
+          ${repo.primary_language ? fact('Primary language', repo.primary_language) : ''}
+          ${repo.license ? fact('License', repo.license) : ''}
         </div>
-        <div class="inspector-links"><a href="${escapeHTML(repo.url)}">Repository ↗</a>${repo.homepage ? `<a href="${escapeHTML(repo.homepage)}">Documentation ↗</a>` : ''}</div>
-        <ul class="inspector-edges">${connected.slice(0, 6).map(edge => `<li><b>${escapeHTML(edge.type.replaceAll('-', ' '))}</b><br>${escapeHTML(edge.label)}</li>`).join('')}</ul>`;
+        <div class="inspector-links"><a href="${escapeHTML(repo.url)}">GitHub repository ↗</a>${repo.homepage ? `<a href="${escapeHTML(repo.homepage)}">Project site ↗</a>` : ''}${repo.latest_release?.url ? `<a href="${escapeHTML(repo.latest_release.url)}">Latest release ↗</a>` : ''}</div>
+        ${evidence ? `<div class="inspector-section"><h4>Why it appears here</h4><ul class="inspector-edges">${evidence}</ul></div>` : ''}`;
     }
     const family = data.families.find(item => item.id === id);
-    if (family) return `<p class="repo-inspector__eyebrow">My project family</p><h3>${escapeHTML(family.title)}</h3><p>${escapeHTML(family.description)}</p><div class="inspector-facts"><div><span>Theme</span><strong>${escapeHTML(family.theme)}</strong></div><div><span>Repositories I connect here</span><strong>${family.repositories.length}</strong></div></div><ul class="inspector-edges">${family.repositories.map(name => `<li><b>${escapeHTML(name)}</b></li>`).join('')}</ul>`;
-    return '';
+    if (!family) return '';
+    const active = family.evidence.active_from && family.evidence.active_to ? `${family.evidence.active_from.slice(0, 4)}–${family.evidence.active_to.slice(0, 4)}` : null;
+    const repositories = family.repositories.map(name => data.repositories.find(repoItem => repoItem.full_name === name)).filter(Boolean);
+    const repositoryList = repositories.map(repoItem => `<li><div><a href="${escapeHTML(repoItem.url)}">${escapeHTML(repoItem.semantic?.title || repoItem.name)} ↗</a><span>${escapeHTML(repoItem.full_name)}</span></div>${repoItem.homepage ? `<a class="inspector-doc-link" href="${escapeHTML(repoItem.homepage)}">site ↗</a>` : ''}</li>`).join('');
+    const links = family.links || [];
+    return `<p class="repo-inspector__eyebrow">Project family</p>
+      <h3>${escapeHTML(family.title)}</h3>
+      <p>${escapeHTML(family.description)}</p>
+      ${family.question ? `<div class="inspector-section"><h4>The question</h4><p>${escapeHTML(family.question)}</p></div>` : ''}
+      ${family.topics?.length ? `<div class="inspector-section"><h4>What connects this work</h4><p class="inspector-topics">${family.topics.map(escapeHTML).join(' · ')}</p></div>` : ''}
+      <div class="inspector-section"><h4>Evidence</h4><div class="inspector-facts">
+        ${fact('Repositories', family.evidence.repository_count)}
+        ${family.evidence.contributor_count ? fact('Observed contributors', family.evidence.contributor_count) : ''}
+        ${family.evidence.organization_count ? fact('Organizations', family.evidence.organization_count) : ''}
+        ${active ? fact('Active span', active) : ''}
+      </div></div>
+      ${links.length ? `<div class="inspector-links">${links.map(link => `<a href="${escapeHTML(link.url)}">${escapeHTML(link.label)} ↗</a>`).join('')}</div>` : ''}
+      <details class="inspector-repositories"><summary>Repositories &amp; evidence (${repositories.length})</summary><ul>${repositoryList}</ul></details>`;
   }
 
   function selectGraphNode(id) {
     state.repository = id;
-    const stage = root.querySelector('[data-project-graph]');
-    stage?.querySelectorAll('.graph-node').forEach(node => node.classList.toggle('is-selected', node.dataset.id === id));
-    root.querySelector('[data-repo-inspector]').innerHTML = inspectorHTML(state.data, id);
+    state.selectedNode = id;
+    state.insight = null;
+    root.querySelectorAll('[data-network-insight]').forEach(button => button.setAttribute('aria-pressed', 'false'));
+    const html = inspectorHTML(state.data, id);
+    root.querySelector('[data-repo-inspector]').innerHTML = html;
+    root.querySelector('[data-mobile-inspector]').innerHTML = html;
+    applyGraphState();
+  }
+
+  function clearGraphSelection() {
+    state.repository = null;
+    state.selectedNode = null;
+    state.hoverNode = null;
+    state.insight = null;
+    root.querySelectorAll('[data-network-insight]').forEach(button => button.setAttribute('aria-pressed', 'false'));
+    applyGraphState();
+  }
+
+  function graphNeighborhood(id) {
+    const nodes = new Set([id]);
+    const edges = new Set();
+    state.data.graph.edges.forEach(edge => {
+      if (edge.source === id || edge.target === id) {
+        nodes.add(edge.source); nodes.add(edge.target); edges.add(edge.id);
+      }
+    });
+    return { nodes, edges };
+  }
+
+  function applyGraphState() {
+    const svg = root.querySelector('[data-project-graph]');
+    if (!svg || !svg.dataset.ready) return;
+    const focus = state.insight ? { nodes: new Set(state.insight.nodes), edges: new Set(state.insight.edges) } : (state.hoverNode || state.selectedNode ? graphNeighborhood(state.hoverNode || state.selectedNode) : null);
+    const nodeById = new Map(state.data.graph.nodes.map(node => [node.id, node]));
+    const conceptMatches = id => state.conceptFilter === 'all' || nodeById.get(id)?.category === state.conceptFilter;
+    svg.querySelectorAll('.graph-edge-group').forEach(group => {
+      const edgeMatches = state.edgeFilter === 'all' || group.dataset.type === state.edgeFilter;
+      const conceptMatch = state.conceptFilter === 'all' || conceptMatches(group.dataset.source) || conceptMatches(group.dataset.target);
+      const focusMatch = !focus || focus.edges.has(group.dataset.id);
+      group.classList.toggle('is-dimmed', !edgeMatches || !conceptMatch || !focusMatch);
+      group.classList.toggle('is-emphasized', Boolean(focus?.edges.has(group.dataset.id)));
+    });
+    svg.querySelectorAll('.graph-node').forEach(group => {
+      const conceptMatch = conceptMatches(group.dataset.id);
+      const focusMatch = !focus || focus.nodes.has(group.dataset.id);
+      group.classList.toggle('is-dimmed', !conceptMatch || !focusMatch);
+      group.classList.toggle('is-emphasized', Boolean(focus?.nodes.has(group.dataset.id)));
+      group.classList.toggle('is-selected', group.dataset.id === state.selectedNode);
+    });
+    root.querySelectorAll('.graph-mobile__family').forEach(section => section.hidden = state.conceptFilter !== 'all' && section.dataset.category !== state.conceptFilter);
+  }
+
+  function wrapGraphLabel(text) {
+    const words = text.split(/\s+/);
+    const lines = [''];
+    words.forEach(word => {
+      const current = lines.at(-1);
+      if (current && `${current} ${word}`.length > 20 && lines.length < 2) lines.push(word);
+      else lines[lines.length - 1] = current ? `${current} ${word}` : word;
+    });
+    return lines;
   }
 
   function renderGraph(data) {
     const svg = root.querySelector('[data-project-graph]');
+    const stage = root.querySelector('[data-graph-stage]');
+    const tooltip = root.querySelector('[data-graph-tooltip]');
     const ns = 'http://www.w3.org/2000/svg';
     const positions = graphPositions(data);
+    const nodeById = new Map(data.graph.nodes.map(node => [node.id, node]));
+    const categoryGroup = document.createElementNS(ns, 'g');
+    categoryGroup.setAttribute('class', 'graph-category-labels');
+    const categoryX = { 'research-questions': 145, 'methods-software': 390, infrastructure: 650, communities: 875 };
+    Object.entries(categoryX).forEach(([category, x]) => {
+      const label = document.createElementNS(ns, 'text');
+      label.setAttribute('x', x); label.setAttribute('y', 30); label.setAttribute('text-anchor', 'middle'); label.textContent = categoryLabels[category];
+      categoryGroup.append(label);
+    });
     const edgesGroup = document.createElementNS(ns, 'g');
-    edgesGroup.setAttribute('aria-hidden', 'true');
+    edgesGroup.setAttribute('class', 'graph-edges');
     data.graph.edges.forEach(edge => {
       const start = positions.get(edge.source);
       const end = positions.get(edge.target);
       if (!start || !end) return;
-      const line = document.createElementNS(ns, 'line');
-      line.setAttribute('x1', start.x); line.setAttribute('y1', start.y); line.setAttribute('x2', end.x); line.setAttribute('y2', end.y);
-      line.setAttribute('class', 'graph-edge'); line.dataset.type = edge.type; line.dataset.source = edge.source; line.dataset.target = edge.target;
-      edgesGroup.append(line);
+      const group = document.createElementNS(ns, 'g');
+      group.setAttribute('class', 'graph-edge-group'); group.dataset.id = edge.id; group.dataset.type = edge.type; group.dataset.source = edge.source; group.dataset.target = edge.target;
+      group.setAttribute('role', 'button'); group.setAttribute('tabindex', '0'); group.setAttribute('aria-label', `${edge.type.replaceAll('-', ' ')}: ${edge.label}`);
+      ['graph-edge graph-edge--hit', 'graph-edge'].forEach(className => {
+        const line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', start.x); line.setAttribute('y1', start.y); line.setAttribute('x2', end.x); line.setAttribute('y2', end.y); line.setAttribute('class', className); group.append(line);
+      });
+      group.addEventListener('mouseenter', event => showGraphTooltip(event, `<strong>${escapeHTML(edge.label)}</strong><span>${escapeHTML(edge.type === 'curated' ? 'Relationship I curated' : edge.type === 'family' ? 'Repository evidence for a project family' : 'Relationship observed through GitHub contributors')}</span>`));
+      group.addEventListener('focus', event => showGraphTooltip(event, `<strong>${escapeHTML(edge.label)}</strong><span>${escapeHTML(edge.type.replaceAll('-', ' '))}</span>`));
+      group.addEventListener('mouseleave', hideGraphTooltip); group.addEventListener('blur', hideGraphTooltip);
+      edgesGroup.append(group);
     });
     const nodesGroup = document.createElementNS(ns, 'g');
     data.graph.nodes.forEach(node => {
       const point = positions.get(node.id);
       if (!point) return;
       const group = document.createElementNS(ns, 'g');
-      group.setAttribute('class', 'graph-node'); group.dataset.id = node.id; group.dataset.type = node.type;
+      group.setAttribute('class', 'graph-node'); group.dataset.id = node.id; group.dataset.type = node.type; group.dataset.ownership = node.ownership || ''; group.dataset.category = node.category;
       if (node.activity > 0) group.dataset.active = 'true';
       group.setAttribute('transform', `translate(${point.x} ${point.y})`); group.setAttribute('role', 'button'); group.setAttribute('tabindex', '0');
-      group.setAttribute('aria-label', `${node.type}: ${node.label}`);
+      group.setAttribute('aria-label', `${node.type === 'family' ? 'Project family' : node.ownership === 'mine' ? 'My repository' : 'Connected repository'}: ${node.label}`);
       const circle = document.createElementNS(ns, 'circle');
-      circle.setAttribute('r', node.type === 'family' ? '22' : String(7 + Math.min(9, Math.sqrt(node.activity || 0))));
+      circle.setAttribute('class', 'graph-node__mark'); circle.setAttribute('r', node.type === 'family' ? '27' : String(5 + Math.min(5, Math.sqrt(node.activity || 0) / 2)));
+      const hit = document.createElementNS(ns, 'circle'); hit.setAttribute('class', 'graph-node__hit'); hit.setAttribute('r', node.type === 'family' ? '34' : '15');
       const label = document.createElementNS(ns, 'text');
-      label.setAttribute('text-anchor', 'middle'); label.setAttribute('y', node.type === 'family' ? '38' : '25');
-      label.textContent = node.label.length > 22 ? `${node.label.slice(0, 20)}…` : node.label;
-      group.append(circle, label); nodesGroup.append(group);
+      label.setAttribute('class', `graph-node__label graph-node__label--${node.type}`); label.setAttribute('text-anchor', 'middle');
+      if (node.type === 'family') {
+        wrapGraphLabel(node.label).forEach((line, index) => { const span = document.createElementNS(ns, 'tspan'); span.setAttribute('x', '0'); span.setAttribute('y', String(46 + index * 13)); span.textContent = line; label.append(span); });
+      } else { label.setAttribute('y', '24'); label.textContent = node.label; }
+      group.append(circle, hit, label);
+      group.addEventListener('mouseenter', event => { state.hoverNode = node.id; applyGraphState(); showGraphTooltip(event, `<strong>${escapeHTML(node.label)}</strong><span>${escapeHTML(node.type === 'family' ? node.description : `${node.ownership === 'mine' ? 'My repository' : 'Connected repository'} · ${node.owner}`)}</span>`); });
+      group.addEventListener('focus', event => { state.hoverNode = node.id; applyGraphState(); showGraphTooltip(event, `<strong>${escapeHTML(node.label)}</strong><span>${escapeHTML(node.description || node.owner || '')}</span>`); });
+      group.addEventListener('mouseleave', () => { state.hoverNode = null; applyGraphState(); hideGraphTooltip(); });
+      group.addEventListener('blur', () => { state.hoverNode = null; applyGraphState(); hideGraphTooltip(); });
+      nodesGroup.append(group);
     });
-    svg.append(edgesGroup, nodesGroup);
-    svg.addEventListener('click', event => { const node = event.target.closest('.graph-node'); if (node) selectGraphNode(node.dataset.id); });
-    svg.addEventListener('keydown', event => { const node = event.target.closest('.graph-node'); if (node && ['Enter', ' '].includes(event.key)) { event.preventDefault(); selectGraphNode(node.dataset.id); } });
+    svg.append(categoryGroup, edgesGroup, nodesGroup);
+    svg.dataset.ready = 'true';
 
+    function showGraphTooltip(event, html) {
+      tooltip.innerHTML = html; tooltip.hidden = false;
+      const stageRect = stage.getBoundingClientRect();
+      const targetRect = event.currentTarget.getBoundingClientRect();
+      const x = Math.max(12, Math.min(stageRect.width - tooltip.offsetWidth - 12, targetRect.left - stageRect.left + targetRect.width / 2 - tooltip.offsetWidth / 2));
+      const preferredY = targetRect.top - stageRect.top - tooltip.offsetHeight - 12;
+      const y = preferredY > 8 ? preferredY : targetRect.bottom - stageRect.top + 12;
+      tooltip.style.transform = `translate(${x}px, ${Math.min(stageRect.height - tooltip.offsetHeight - 8, y)}px)`;
+    }
+    function hideGraphTooltip() { tooltip.hidden = true; }
+
+    svg.addEventListener('click', event => {
+      const node = event.target.closest('.graph-node');
+      if (node) selectGraphNode(node.dataset.id); else if (!event.target.closest('.graph-edge-group')) clearGraphSelection();
+    });
+    svg.addEventListener('keydown', event => {
+      const node = event.target.closest('.graph-node');
+      if (node && ['Enter', ' '].includes(event.key)) { event.preventDefault(); selectGraphNode(node.dataset.id); }
+    });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !root.querySelector('[data-command-palette]').open) clearGraphSelection(); });
+
+    root.querySelectorAll('[data-concept-filter]').forEach(button => button.addEventListener('click', () => {
+      state.conceptFilter = button.dataset.conceptFilter;
+      root.querySelectorAll('[data-concept-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      applyGraphState();
+    }));
     root.querySelectorAll('[data-edge-filter]').forEach(button => button.addEventListener('click', () => {
       state.edgeFilter = button.dataset.edgeFilter;
       root.querySelectorAll('[data-edge-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      svg.querySelectorAll('.graph-edge').forEach(edge => edge.classList.toggle('is-dimmed', state.edgeFilter !== 'all' && edge.dataset.type !== state.edgeFilter));
-      const visible = new Set();
-      svg.querySelectorAll(`.graph-edge${state.edgeFilter === 'all' ? '' : `:not(.is-dimmed)`}`).forEach(edge => { visible.add(edge.dataset.source); visible.add(edge.dataset.target); });
-      svg.querySelectorAll('.graph-node').forEach(node => node.classList.toggle('is-dimmed', state.edgeFilter !== 'all' && !visible.has(node.dataset.id)));
+      applyGraphState();
     }));
+
+    root.querySelector('[data-graph-summary]').innerHTML = [
+      ['Repositories in my map', data.graph.summary.repositories], ['My project families', data.graph.summary.families], ['Contributors GitHub returns', data.graph.summary.contributors], ['Organizations represented', data.graph.summary.organizations], ['My public work span', `${data.graph.summary.active_from?.slice(0, 4) || '—'}–${data.graph.summary.active_to?.slice(0, 4) || '—'}`]
+    ].map(([label, value]) => `<div><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join('');
+
     const mobile = root.querySelector('[data-graph-mobile]');
-    mobile.innerHTML = data.families.map(family => `<section class="graph-mobile__family"><h3>${escapeHTML(family.title)}</h3><p>${escapeHTML(family.description)}</p>${family.repositories.map(name => `<button type="button" data-mobile-repo="${escapeHTML(name)}">${escapeHTML(name)}</button>`).join('')}</section>`).join('');
-    mobile.addEventListener('click', event => {
-      const button = event.target.closest('[data-mobile-repo]');
-      if (!button) return;
-      const repo = data.repositories.find(item => item.full_name === button.dataset.mobileRepo);
-      if (repo) window.open(repo.url, '_blank', 'noopener');
-    });
-    const defaultRepo = data.repositories.find(repo => repo.recent.score > 0 && repo.curated) || data.repositories[0];
-    if (defaultRepo) selectGraphNode(defaultRepo.full_name);
+    mobile.innerHTML = data.families.map(family => `<section class="graph-mobile__family" data-category="${escapeHTML(family.category)}"><button class="graph-mobile__project" type="button" data-mobile-node="${escapeHTML(family.id)}"><span>${escapeHTML(categoryLabels[family.category] || family.theme)}</span><strong>${escapeHTML(family.title)}</strong><small>${escapeHTML(family.description)}</small></button><details><summary>${family.repositories.length} repositories</summary>${family.repositories.map(name => { const repo = data.repositories.find(item => item.full_name === name); return `<button type="button" data-mobile-node="${escapeHTML(name)}">${escapeHTML(repo?.semantic?.title || name)}</button>`; }).join('')}</details></section>`).join('');
+    mobile.addEventListener('click', event => { const button = event.target.closest('[data-mobile-node]'); if (button) selectGraphNode(button.dataset.mobileNode); });
+
+    root.querySelector('[data-network-insights]').innerHTML = data.graph.insights.map(insight => `<button type="button" data-network-insight="${escapeHTML(insight.id)}" aria-pressed="false"><span>${escapeHTML(insight.type)}</span><strong>${escapeHTML(insight.title)}</strong><p>${escapeHTML(insight.statement)}</p><small>${escapeHTML(insight.evidence)} · Select to show evidence</small></button>`).join('');
+    root.querySelectorAll('[data-network-insight]').forEach(button => button.addEventListener('click', () => {
+      const insight = data.graph.insights.find(item => item.id === button.dataset.networkInsight);
+      const active = state.insight?.id === insight.id;
+      state.insight = active ? null : insight; state.selectedNode = null;
+      root.querySelectorAll('[data-network-insight]').forEach(item => item.setAttribute('aria-pressed', String(!active && item === button)));
+      if (!active && insight.nodes[0]) {
+        const html = inspectorHTML(data, insight.nodes[0]);
+        root.querySelector('[data-repo-inspector]').innerHTML = html; root.querySelector('[data-mobile-inspector]').innerHTML = html;
+      }
+      applyGraphState();
+    }));
+
+    const defaultFamily = data.families.find(family => family.id === data.graph.insights[0]?.nodes[0]) || data.families[0];
+    if (defaultFamily) {
+      const html = inspectorHTML(data, defaultFamily.id);
+      root.querySelector('[data-repo-inspector]').innerHTML = html; root.querySelector('[data-mobile-inspector]').innerHTML = html;
+    }
+    applyGraphState();
   }
 
   function renderLedger(data) {

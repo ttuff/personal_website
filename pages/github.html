@@ -46,29 +46,52 @@
     <div class="github-shell">
       <div class="github-section__heading">
         <div><p class="github-index">03 / Connections</p><h2 id="graph-title">My work is a system</h2></div>
-        <p>I include a link only when I can point to evidence: an intellectual relationship I’ve curated, a shared project family, or an observed contributor.</p>
+        <p>Projects that look separate on GitHub often belong to the same scientific story. This map connects the questions I study, the tools I build, the communities I work with, and the repositories where that work happens. Every connection is backed by GitHub activity or a relationship I’ve explicitly curated.</p>
       </div>
-      <div class="graph-controls" aria-label="Relationship filters">
-        <button type="button" data-edge-filter="all" aria-pressed="true">All evidence</button>
-        <button type="button" data-edge-filter="curated" aria-pressed="false">Curated links</button>
-        <button type="button" data-edge-filter="family" aria-pressed="false">Project families</button>
-        <button type="button" data-edge-filter="shared-contributor" aria-pressed="false">Shared contributors</button>
+      <p class="graph-instruction">Explore the map. Hover for context. Select a project to see its story and evidence.</p>
+      <dl class="graph-summary" data-graph-summary aria-label="Summary of my project map"></dl>
+      <div class="graph-toolbar">
+        <div class="graph-controls" aria-label="Filter by kind of work">
+          <button type="button" data-concept-filter="all" aria-pressed="true">All work</button>
+          <button type="button" data-concept-filter="research-questions" aria-pressed="false">Research questions</button>
+          <button type="button" data-concept-filter="methods-software" aria-pressed="false">Methods &amp; software</button>
+          <button type="button" data-concept-filter="infrastructure" aria-pressed="false">Infrastructure</button>
+          <button type="button" data-concept-filter="communities" aria-pressed="false">Communities</button>
+        </div>
+        <details class="graph-evidence-controls">
+          <summary>Filter by evidence</summary>
+          <div aria-label="Relationship evidence filters">
+            <button type="button" data-edge-filter="all" aria-pressed="true">All evidence</button>
+            <button type="button" data-edge-filter="curated" aria-pressed="false">Curated relationships</button>
+            <button type="button" data-edge-filter="family" aria-pressed="false">Repository evidence</button>
+            <button type="button" data-edge-filter="shared-contributor" aria-pressed="false">Shared contributors</button>
+          </div>
+        </details>
+      </div>
+      <div class="graph-key" aria-label="Map legend">
+        <section><h3>Nodes</h3><span><i class="key-node key-node--family"></i>Project family</span><span><i class="key-node key-node--mine"></i>My repository</span><span><i class="key-node key-node--external"></i>Connected repository</span></section>
+        <section><h3>Connections</h3><span><i class="key-edge" data-edge="curated"></i>Curated relationship</span><span><i class="key-edge" data-edge="family"></i>Repository evidence</span><span><i class="key-edge" data-edge="shared-contributor"></i>Shared contributor</span></section>
       </div>
       <div class="graph-layout">
         <div class="graph-stage" data-graph-stage>
-          <svg data-project-graph role="img" aria-labelledby="graph-svg-title graph-svg-desc" viewBox="0 0 1000 680">
+          <svg data-project-graph role="img" aria-labelledby="graph-svg-title graph-svg-desc" viewBox="0 0 1000 720">
             <title id="graph-svg-title">Relationships among my public GitHub work</title>
             <desc id="graph-svg-desc">My project families and repositories, connected by relationships I have curated, family membership, and shared observed contributors.</desc>
           </svg>
+          <div class="graph-tooltip" data-graph-tooltip role="tooltip" hidden></div>
         </div>
         <aside class="repo-inspector" data-repo-inspector aria-live="polite">
-          <p class="repo-inspector__eyebrow">Select a node</p>
-          <h3>Trace a project</h3>
-          <p>Choose one of my repositories or project families to see the evidence behind its connections.</p>
+          <p class="repo-inspector__eyebrow">Project map</p>
+          <h3>Choose a story</h3>
+          <p>Select a project family or repository to see what it means and the evidence behind its place in the map.</p>
         </aside>
       </div>
-      <div class="graph-mobile" data-graph-mobile aria-label="Project families and repositories"></div>
-      <div class="graph-legend" aria-label="Relationship legend"><span><i data-edge="curated"></i>Curated relationship</span><span><i data-edge="family"></i>Project family</span><span><i data-edge="shared-contributor"></i>Shared contributor</span></div>
+      <div class="graph-mobile" data-graph-mobile aria-label="My project families and their repositories"></div>
+      <aside class="repo-inspector repo-inspector--mobile" data-mobile-inspector aria-live="polite"></aside>
+      <section class="network-insights" aria-labelledby="network-insights-title">
+        <div><p class="github-index">Derived from this map</p><h3 id="network-insights-title">What this network reveals</h3></div>
+        <div class="network-insight-list" data-network-insights></div>
+      </section>
     </div>
   </section>
 

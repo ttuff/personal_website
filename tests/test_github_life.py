@@ -49,6 +49,34 @@ class CalendarTests(unittest.TestCase):
         self.assertEqual(result["busiest_day"]["date"], "2026-01-05")
 
 
+class GraphTests(unittest.TestCase):
+    def test_duplicate_edges_merge_without_losing_evidence(self) -> None:
+        edges = github_life.deduplicate_edges([
+            {"source": "a", "target": "b", "type": "shared-contributor", "label": "Observed contributor: one", "weight": 1},
+            {"source": "b", "target": "a", "type": "shared-contributor", "label": "Observed contributor: two", "weight": 1},
+        ])
+        self.assertEqual(len(edges), 1)
+        self.assertEqual(edges[0]["weight"], 2)
+        self.assertEqual(len(edges[0]["evidence"]), 2)
+        self.assertIn("one", edges[0]["label"])
+        self.assertIn("two", edges[0]["label"])
+
+    def test_graph_metrics_identify_bridge_and_components(self) -> None:
+        edges = [
+            {"source": "a", "target": "b", "weight": 1},
+            {"source": "b", "target": "c", "weight": 2},
+        ]
+        metrics = github_life.graph_metrics(["a", "b", "c", "isolated"], edges)
+        self.assertEqual(metrics["connected_components"], 2)
+        self.assertEqual(metrics["nodes"]["b"]["degree"], 2)
+        self.assertEqual(metrics["nodes"]["b"]["weighted_degree"], 3)
+        self.assertGreater(metrics["nodes"]["b"]["betweenness"], metrics["nodes"]["a"]["betweenness"])
+
+    def test_fallback_repository_title_handles_missing_metadata(self) -> None:
+        self.assertEqual(github_life.humanize_repository_name("fire_vase"), "Fire vase")
+        self.assertEqual(github_life.humanize_repository_name(None), "Untitled repository")
+
+
 class GeneratedDatasetTests(unittest.TestCase):
     def test_checked_in_dataset_is_compact_and_has_evidenced_edges(self) -> None:
         path = ROOT / "data" / "generated" / "github-life.json"
@@ -56,9 +84,35 @@ class GeneratedDatasetTests(unittest.TestCase):
         self.assertLess(path.stat().st_size, 500_000)
         self.assertGreater(len(payload["repositories"]), 10)
         self.assertTrue(payload["contributions"]["days"])
+        self.assertEqual(payload["meta"]["schema_version"], 2)
         allowed = {"curated", "family", "shared-contributor"}
         self.assertTrue(all(edge["type"] in allowed and edge["label"] for edge in payload["graph"]["edges"]))
         self.assertTrue(all(repo["url"].startswith("https://github.com/") for repo in payload["repositories"] if repo.get("url")))
+
+    def test_graph_has_unique_nodes_edges_and_valid_family_membership(self) -> None:
+        payload = json.loads((ROOT / "data" / "generated" / "github-life.json").read_text(encoding="utf-8"))
+        nodes = payload["graph"]["nodes"]
+        edges = payload["graph"]["edges"]
+        node_ids = {node["id"] for node in nodes}
+        edge_ids = {edge["id"] for edge in edges}
+        self.assertEqual(len(node_ids), len(nodes))
+        self.assertEqual(len(edge_ids), len(edges))
+        self.assertTrue(all(edge["source"] in node_ids and edge["target"] in node_ids for edge in edges))
+        for family in payload["families"]:
+            membership = [edge for edge in edges if edge["type"] == "family" and family["id"] in {edge["source"], edge["target"]}]
+            self.assertEqual(len(membership), len(family["repositories"]))
+
+    def test_semantic_fallbacks_and_insight_evidence_are_complete(self) -> None:
+        payload = json.loads((ROOT / "data" / "generated" / "github-life.json").read_text(encoding="utf-8"))
+        node_ids = {node["id"] for node in payload["graph"]["nodes"]}
+        edge_ids = {edge["id"] for edge in payload["graph"]["edges"]}
+        self.assertTrue(all(repo["semantic"]["title"] for repo in payload["repositories"]))
+        self.assertTrue(all(node.get("ownership") in {"mine", "external"} for node in payload["graph"]["nodes"] if node["type"] == "repository"))
+        self.assertTrue(payload["graph"]["insights"])
+        for insight in payload["graph"]["insights"]:
+            self.assertTrue(insight["statement"] and insight["evidence"])
+            self.assertTrue(set(insight["nodes"]) <= node_ids)
+            self.assertTrue(set(insight["edges"]) <= edge_ids)
 
 
 if __name__ == "__main__":

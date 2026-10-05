@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05
+
+- Reworked the GitHub relationship view into an evidence-backed intellectual map organized around research questions, methods and software, infrastructure, and communities.
+- Added first-person repository titles and descriptions, ownership distinctions, stable semantic clustering, selective labels, richer family and repository inspection, and an equivalent mobile family list.
+- Added deterministic graph metrics and generated insights with exact evidence references, plus schema, validation, transformation-test, and provenance documentation updates.
+
 ## 2026-10-04
 
 - Added a new `/github/` narrative that presents public GitHub scale, current work, long-term contribution continuity, repository relationships, repository substance, collaboration, and language evolution without changing the rest of the site's identity.

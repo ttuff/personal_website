@@ -4,12 +4,65 @@
     "important_owners": ["CU-ESIIL", "earthlab"]
   },
   "exclude_repositories": ["CU-ESIIL/ty_test_to_delete"],
+  "repository_metadata": {
+    "CU-ESIIL/cubedynamics": {
+      "title": "CubeDynamics",
+      "description": "I use this repository to build reproducible, cube-based workflows for observing environmental change through time."
+    },
+    "earthlab/spectralbridge": {
+      "title": "SpectralBridge"
+    },
+    "CU-ESIIL/fire_vase": {
+      "title": "Fire Vase",
+      "description": "I use this project to reconstruct wildfire growth through time as a changing 3D form."
+    },
+    "CU-ESIIL/spread-vs-growth": {
+      "title": "Spread versus growth",
+      "description": "I use this repository to compare spatial spread with growth through time."
+    },
+    "CU-ESIIL/ExtremeWildfire": {
+      "title": "Extreme Wildfire"
+    },
+    "CU-ESIIL/Working_group_OASIS": {
+      "title": "OASIS working groups"
+    },
+    "CU-ESIIL/hackathon_group_OASIS": {
+      "title": "OASIS hackathon groups"
+    },
+    "CU-ESIIL/FAIR-and-CARE-for-AGENTS": {
+      "title": "FAIR and CARE for agents"
+    },
+    "CU-ESIIL/openclaw_container": {
+      "title": "OpenClaw research container"
+    },
+    "CU-ESIIL/Working-Group-Guide": {
+      "title": "Working Group Guide"
+    },
+    "CU-ESIIL/data-library": {
+      "title": "ESIIL data library"
+    },
+    "CU-ESIIL/analytics-library": {
+      "title": "ESIIL analytics library"
+    },
+    "earthlab/cft": {
+      "title": "Climate Futures Toolbox"
+    },
+    "earthlab/eddi": {
+      "title": "Evaporative Demand Drought Index"
+    },
+    "earthlab/leri": {
+      "title": "Landscape Evaporative Response Index"
+    }
+  },
   "families": [
     {
       "id": "cube-dynamics",
       "title": "CubeDynamics",
       "theme": "Environmental data cubes",
+      "category": "methods-software",
       "description": "I build reproducible, cube-based workflows for observing environmental change through time.",
+      "question": "How can multidimensional environmental data be analyzed reproducibly across space and time?",
+      "topics": ["data cubes", "reproducibility", "environmental change"],
       "featured": true,
       "repositories": ["CU-ESIIL/cubedynamics", "CU-ESIIL/cubedynamics_test_user"]
     },
@@ -17,15 +70,21 @@
       "id": "spectral-bridge",
       "title": "SpectralBridge",
       "theme": "Remote sensing",
+      "category": "methods-software",
       "description": "I connect field and Earth-observation data through cross-sensor calibration and spectral workflows.",
+      "question": "How can measurements from different sensors be calibrated so field and Earth-observation data can be compared?",
+      "topics": ["remote sensing", "cross-sensor calibration", "spectral data"],
       "featured": true,
       "repositories": ["earthlab/spectralbridge", "earthlab/macrosystems"]
     },
     {
       "id": "fire-growth-form",
-      "title": "Fire, growth & form",
+      "title": "Wildfire growth & geometry",
       "theme": "Wildfire research",
+      "category": "research-questions",
       "description": "I connect questions about fire, spread, growth, structure, and environmental response across this line of work.",
+      "question": "How do wildfire perimeter, spread, and growth change through time, and how can those dynamics be represented?",
+      "topics": ["wildfire", "fire geometry", "scaling", "environmental response"],
       "featured": true,
       "repositories": [
         "CU-ESIIL/fire_vase",
@@ -39,7 +98,10 @@
       "id": "oasis",
       "title": "OASIS",
       "theme": "Synthesis infrastructure",
+      "category": "communities",
       "description": "I build working-group and hackathon infrastructure for collaborative environmental synthesis.",
+      "question": "How can working groups and hackathons share reproducible infrastructure without rebuilding it for every collaboration?",
+      "topics": ["working groups", "hackathons", "environmental synthesis"],
       "featured": true,
       "repositories": ["CU-ESIIL/Working_group_OASIS", "CU-ESIIL/hackathon_group_OASIS"]
     },
@@ -47,7 +109,10 @@
       "id": "agentic-infrastructure",
       "title": "Agentic infrastructure",
       "theme": "Research software infrastructure",
+      "category": "infrastructure",
       "description": "I build containerized, standards-aware infrastructure for research agents and reproducible work.",
+      "question": "How can research agents work in reproducible environments that respect FAIR and CARE principles?",
+      "topics": ["research agents", "containers", "FAIR", "CARE"],
       "featured": true,
       "repositories": [
         "CU-ESIIL/openclaw_container",
@@ -59,7 +124,10 @@
       "id": "esiil-infrastructure",
       "title": "ESIIL infrastructure",
       "theme": "Cyberinfrastructure",
+      "category": "infrastructure",
       "description": "I contribute to the shared data, analytics, documentation, and group infrastructure behind ESIIL programs.",
+      "question": "What shared data, analytics, and documentation infrastructure helps synthesis teams work together?",
+      "topics": ["cyberinfrastructure", "data access", "analytics", "documentation"],
       "featured": true,
       "repositories": [
         "CU-ESIIL/data-library",
@@ -74,7 +142,10 @@
       "id": "open-life-science-hackathon",
       "title": "Open Life Science hackathon",
       "theme": "Collaborative learning",
+      "category": "communities",
       "description": "I use these parallel group repositories to support hands-on open-science collaboration.",
+      "question": "How can parallel group repositories support hands-on open-science collaboration?",
+      "topics": ["open science", "collaborative learning", "hackathons"],
       "featured": false,
       "repositories": [
         "CU-ESIIL/OLC_hackathon_groupA",
@@ -88,7 +159,10 @@
       "id": "climate-indices",
       "title": "Climate indices",
       "theme": "Climate data",
+      "category": "research-questions",
       "description": "I work on R packages and tools for accessing climate futures, drought, and landscape-response indices.",
+      "question": "How can climate-futures, drought, and landscape-response indices be easier to access and use?",
+      "topics": ["climate futures", "drought", "landscape response", "R packages"],
       "featured": true,
       "repositories": ["earthlab/cft", "earthlab/eddi", "earthlab/leri"]
     },
@@ -96,7 +170,10 @@
       "id": "ecological-sampling",
       "title": "Ecological sampling",
       "theme": "Ecological methods",
+      "category": "research-questions",
       "description": "I use sampling design and simulation to explore spatial, phylogenetic, and ecological questions.",
+      "question": "How does sampling design change what we can learn across geographic, phylogenetic, and ecological spaces?",
+      "topics": ["sampling design", "simulation", "ecology", "phylogenetics"],
       "featured": false,
       "repositories": ["BrunoVilela/sampler", "ttuff/Bruno-sampler", "ttuff/Tree-sampling"]
     }

@@ -37,7 +37,7 @@ The most active repositories reinforce a connected story rather than a collectio
 | Releases | REST releases endpoint | Published GitHub releases visible to the build token. |
 | Tags | REST tags endpoint | Visible repository tags; a tag is not treated as a release. |
 | CI status | REST Actions runs endpoint | Latest visible run on the default branch. Absence can mean no Actions workflow or inaccessible data. |
-| Project meaning | `data/github-projects.yml` | Human-edited families, descriptions, themes, importance, and intellectual relationships. |
+| Project meaning | `data/github-projects.yml` | Human-edited repository titles/descriptions, families, conceptual categories, research questions, topics, importance, and intellectual relationships. |
 
 ## Derived definitions
 
@@ -57,6 +57,17 @@ Graph edges have one of three explicit evidence types:
 
 Same-owner and same-language edges are not emitted by themselves because they make the graph dense without proving a useful relationship.
 
+The intellectual map separates two kinds of structure. Conceptual categories (`research-questions`, `methods-software`, `infrastructure`, and `communities`) provide the primary reading of the work. Evidence types (`curated`, `family`, and `shared-contributor`) remain a secondary filter so the interface never implies that an editorial relationship was inferred from GitHub activity. Repositories owned by `ttuff` or an explicitly listed important owner are marked as "mine"; the rest are shown as connected repositories, not as owned work.
+
+Graph metrics are deterministic build products, not claims about importance:
+
+- degree counts distinct adjacent nodes;
+- weighted degree sums the normalized weights of adjacent evidence links;
+- betweenness is the normalized share of shortest paths that pass through a node in the undirected evidence graph;
+- connected components describe reachability in the full graph and in the family-only intellectual map.
+
+The build also emits a small set of reproducible insights: the family with the highest family-level betweenness, the longest observed repository span, the widest observed contributor set, and the widest observed owner set. Each insight stores the exact node and edge identifiers it highlights, so the prose and interaction share the same evidence.
+
 ## Proposed compact schema
 
 The generated `data/generated/github-life.json` contains:
@@ -65,7 +76,8 @@ The generated `data/generated/github-life.json` contains:
 - `profile` and `summary`: public account facts and defensible top-level counts;
 - `contributions`: compact daily calendar cells and yearly totals;
 - `repositories`: normalized facts, recent counts, score, small sparklines, languages, releases, contributors, CI, and optional curated family fields;
-- `families` and `graph`: editorial groupings plus typed/evidenced edges;
+- `families`: editorial groupings with category, question, topics, and compact evidence summaries;
+- `graph`: schema-v2 nodes and deduplicated typed edges, ownership classes, metrics, summary counts, and evidence-linked insights;
 - `collaboration`: repeated observed contributors and the repositories connecting them;
 - `language_evolution`: repository start/last-push spans grouped by primary language;
 - `discoveries`: reproducibly calculated streak, busiest day/month, and concurrent-project facts;
@@ -80,14 +92,14 @@ Raw API payloads belong in `.cache/github-life/` and are ignored. The browser re
 1. A dark opening field establishes the public time span, public calendar total, discovered repositories, observed owners, and releases, with refresh provenance adjacent to the values.
 2. A ranked current-work stream shows score components and 90-day sparklines. It is a list, not a wall of equal cards.
 3. A career heatmap uses one row per year, explicit daily cells, keyboard-selectable days, and an adjacent yearly activity trace. Missing periods use a separate unknown treatment; they are not colored as zero.
-4. A repository relationship graph uses family centers and repository nodes on desktop. Typed edges are filterable and evidence is exposed on selection. Mobile receives a family-by-family relationship list instead of a shrunken force graph.
+4. An intellectual map uses stable category columns and curated family anchors on desktop. Family names remain visible; quieter repository labels appear on hover, focus, or selection. Conceptual categories are the primary filters and typed evidence is available as a secondary filter. Selecting a node or generated insight exposes the supporting repositories, people, organizations, owners, dates, and exact links. Mobile receives the same family narrative and evidence as an expandable list instead of a shrunken graph.
 5. Repository detail is driven by graph/list selection and foregrounds activity, lifespan, contributors, releases, license, documentation, and CI before stars or forks.
 6. Collaboration is shown as people who recur across included repositories and the repository paths connecting them.
 7. Language evolution uses repository lifespan lanes based on creation and last-push dates. The label explicitly states that a span is not proof of continuous activity.
 8. A native dialog command palette opened by Cmd-K/Ctrl-K searches repositories, owners, years, languages, topics, and project families and scrolls to or selects the result.
 9. The final machinery section names each build stage and links to source, generated data, methodology, and the website repository.
 
-All essential detail is available by click/focus rather than hover alone. Motion is minimal and disabled under `prefers-reduced-motion`. SVGs are responsive; the graph is replaced rather than miniaturized on narrow screens.
+All essential detail is available by click/focus rather than hover alone. Immediate neighbors are highlighted while unrelated nodes recede; Escape or the graph background clears the selection. Motion is minimal and disabled under `prefers-reduced-motion`. SVGs are responsive; the graph is replaced rather than miniaturized on narrow screens.
 
 ## API limitations
 

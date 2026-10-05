@@ -26,7 +26,7 @@ python3 -m unittest discover -s tests -v
 python3 scripts/validate_site.py
 ```
 
-`GITHUB_TOKEN` is required for the GraphQL contribution calendar and normal authenticated API limits. The browser never receives the token. Without a token, the generator can use GitHub's public contribution calendar as a local fallback. Edit `data/github-projects.yml` to change project families, descriptions, importance, or curated relationships; see `docs/github-life-design.md` for metric provenance and limitations.
+`GITHUB_TOKEN` is required for the GraphQL contribution calendar and normal authenticated API limits. The browser never receives the token. Without a token, the generator can use GitHub's public contribution calendar as a local fallback. Edit `data/github-projects.yml` to change human-readable repository metadata, project families, conceptual categories, research questions, importance, or curated relationships; see `docs/github-life-design.md` for graph definitions, metric provenance, and limitations.
 
 ## Deployment
 

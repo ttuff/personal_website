@@ -16,7 +16,7 @@ import re
 import urllib.error
 import urllib.parse
 import urllib.request
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, deque
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
 from html.parser import HTMLParser
@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "data" / "github-projects.yml"
 OUTPUT = ROOT / "data" / "generated" / "github-life.json"
 CACHE = ROOT / ".cache" / "github-life"
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 USER_AGENT = "drtuff-github-life/1.0"
 GRAPHQL_URL = "https://api.github.com/graphql"
 REST_URL = "https://api.github.com"
@@ -315,6 +315,207 @@ def select_repositories(repositories: dict[str, dict[str, Any]], recent_counts: 
     return sorted(repositories, key=rank, reverse=True)[:limit]
 
 
+def humanize_repository_name(name: str | None) -> str:
+    """Return a readable fallback without pretending a repository is a project."""
+    value = re.sub(r"[-_]+", " ", name or "").strip()
+    return value[:1].upper() + value[1:] if value else "Untitled repository"
+
+
+def edge_id(edge: dict[str, Any]) -> str:
+    source, target = sorted((edge["source"], edge["target"]))
+    return f"{edge['type']}:{source}|{target}"
+
+
+def deduplicate_edges(edges: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Merge repeated evidence without losing its individual labels."""
+    merged: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for raw in edges:
+        source, target = sorted((raw["source"], raw["target"]))
+        key = (raw["type"], source, target)
+        label = str(raw.get("label") or raw["type"].replace("-", " "))
+        if key not in merged:
+            merged[key] = {
+                **raw,
+                "source": raw["source"],
+                "target": raw["target"],
+                "evidence": [label],
+            }
+        elif label not in merged[key]["evidence"]:
+            merged[key]["evidence"].append(label)
+    result = []
+    for edge in merged.values():
+        evidence = edge["evidence"]
+        edge["weight"] = max(int(edge.get("weight", 1)), len(evidence))
+        if len(evidence) > 1 and edge["type"] == "shared-contributor":
+            names = [label.removeprefix("Observed contributor: ") for label in evidence]
+            edge["label"] = f"Observed contributors: {', '.join(names)}"
+        edge["id"] = edge_id(edge)
+        result.append(edge)
+    return sorted(result, key=lambda item: (item["type"], item["id"]))
+
+
+def graph_metrics(node_ids: Iterable[str], edges: Iterable[dict[str, Any]]) -> dict[str, Any]:
+    """Calculate deterministic unweighted structure plus weighted degree."""
+    ids = list(dict.fromkeys(node_ids))
+    adjacency: dict[str, set[str]] = {node_id: set() for node_id in ids}
+    weighted: Counter[str] = Counter()
+    for edge in edges:
+        source, target = edge["source"], edge["target"]
+        if source not in adjacency or target not in adjacency or source == target:
+            continue
+        adjacency[source].add(target)
+        adjacency[target].add(source)
+        weight = int(edge.get("weight", 1))
+        weighted[source] += weight
+        weighted[target] += weight
+
+    components: list[list[str]] = []
+    component_for: dict[str, int] = {}
+    for start in ids:
+        if start in component_for:
+            continue
+        index = len(components)
+        queue = deque([start])
+        component_for[start] = index
+        component: list[str] = []
+        while queue:
+            node = queue.popleft()
+            component.append(node)
+            for neighbor in sorted(adjacency[node]):
+                if neighbor not in component_for:
+                    component_for[neighbor] = index
+                    queue.append(neighbor)
+        components.append(component)
+
+    betweenness = dict.fromkeys(ids, 0.0)
+    for source in ids:
+        stack: list[str] = []
+        predecessors: dict[str, list[str]] = {node: [] for node in ids}
+        paths = dict.fromkeys(ids, 0.0)
+        paths[source] = 1.0
+        distance = dict.fromkeys(ids, -1)
+        distance[source] = 0
+        queue = deque([source])
+        while queue:
+            node = queue.popleft()
+            stack.append(node)
+            for neighbor in adjacency[node]:
+                if distance[neighbor] < 0:
+                    queue.append(neighbor)
+                    distance[neighbor] = distance[node] + 1
+                if distance[neighbor] == distance[node] + 1:
+                    paths[neighbor] += paths[node]
+                    predecessors[neighbor].append(node)
+        dependency = dict.fromkeys(ids, 0.0)
+        while stack:
+            node = stack.pop()
+            if paths[node]:
+                coefficient = (1.0 + dependency[node]) / paths[node]
+                for predecessor in predecessors[node]:
+                    dependency[predecessor] += paths[predecessor] * coefficient
+            if node != source:
+                betweenness[node] += dependency[node]
+    scale = 1 / ((len(ids) - 1) * (len(ids) - 2)) if len(ids) > 2 else 0
+    return {
+        "connected_components": len(components),
+        "components": components,
+        "nodes": {
+            node: {
+                "degree": len(adjacency[node]),
+                "weighted_degree": weighted[node],
+                "betweenness": round(betweenness[node] * scale, 4),
+                "component": component_for[node],
+            }
+            for node in ids
+        },
+    }
+
+
+def network_insights(families: list[dict[str, Any]], edges: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Turn defensible family-level structure into evidence-linked observations."""
+    family_ids = {family["id"] for family in families}
+    curated_edges = [
+        edge for edge in edges
+        if edge["type"] == "curated" and edge["source"] in family_ids and edge["target"] in family_ids
+    ]
+    metrics = graph_metrics(sorted(family_ids), curated_edges)
+    family_by_id = {family["id"]: family for family in families}
+    insights: list[dict[str, Any]] = []
+
+    def family_nodes(family: dict[str, Any]) -> list[str]:
+        return [family["id"], *family["repositories"]]
+
+    def family_edges(family: dict[str, Any]) -> list[str]:
+        nodes = set(family_nodes(family))
+        return [edge["id"] for edge in edges if edge["source"] in nodes and edge["target"] in nodes]
+
+    if family_ids:
+        bridge_id = max(family_ids, key=lambda node: metrics["nodes"][node]["betweenness"])
+        bridge_score = metrics["nodes"][bridge_id]["betweenness"]
+        if bridge_score > 0:
+            incident = [edge for edge in curated_edges if bridge_id in {edge["source"], edge["target"]}]
+            neighbors = sorted({edge["target"] if edge["source"] == bridge_id else edge["source"] for edge in incident})
+            family = family_by_id[bridge_id]
+            insights.append({
+                "id": "bridge-family",
+                "type": "Bridge project",
+                "title": f"{family['title']} bridges my project map",
+                "statement": "This family sits on the largest share of shortest paths between otherwise separate project families in the curated map.",
+                "evidence": f"{len(incident)} curated family links · betweenness {bridge_score:.2f}",
+                "nodes": [bridge_id, *neighbors],
+                "edges": [edge["id"] for edge in incident],
+            })
+
+        dated = [family for family in families if family.get("evidence", {}).get("active_from") and family.get("evidence", {}).get("active_to")]
+        if dated:
+            longest = max(
+                dated,
+                key=lambda family: (
+                    date.fromisoformat(family["evidence"]["active_to"]) - date.fromisoformat(family["evidence"]["active_from"]),
+                    len(family["repositories"]),
+                ),
+            )
+            start = longest["evidence"]["active_from"][:4]
+            end = longest["evidence"]["active_to"][:4]
+            if start != end:
+                insights.append({
+                    "id": "long-running-thread",
+                    "type": "Long-running thread",
+                    "title": f"{longest['title']} spans {start}–{end}",
+                    "statement": "This is the longest time span represented by repository creation and latest-push dates in the current project map.",
+                    "evidence": f"{len(longest['repositories'])} repositories · {start}–{end}",
+                    "nodes": family_nodes(longest),
+                    "edges": family_edges(longest),
+                })
+
+        collaborative = max(families, key=lambda family: family.get("evidence", {}).get("contributor_count", 0))
+        contributor_count = collaborative.get("evidence", {}).get("contributor_count", 0)
+        if contributor_count >= 2:
+            insights.append({
+                "id": "collaborative-hub",
+                "type": "Observed contributor hub",
+                "title": f"{collaborative['title']} has the widest contributor evidence",
+                "statement": "GitHub returns more distinct non-bot contributors here than for any other family in this compact dataset.",
+                "evidence": f"{contributor_count} observed contributors · {len(collaborative['repositories'])} repositories",
+                "nodes": family_nodes(collaborative),
+                "edges": family_edges(collaborative),
+            })
+
+        cross_owner = max(families, key=lambda family: family.get("evidence", {}).get("owner_count", 0))
+        owner_count = cross_owner.get("evidence", {}).get("owner_count", 0)
+        if owner_count >= 2:
+            insights.append({
+                "id": "cross-owner-family",
+                "type": "Cross-organization thread",
+                "title": f"{cross_owner['title']} crosses GitHub homes",
+                "statement": "The repositories I group in this family live under the largest number of distinct GitHub owners in the map.",
+                "evidence": f"{owner_count} owners · {len(cross_owner['repositories'])} repositories",
+                "nodes": family_nodes(cross_owner),
+                "edges": family_edges(cross_owner),
+            })
+    return metrics, insights
+
+
 def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Path | None = None, limit: int = 40) -> dict[str, Any]:
     username = config["profile"]["username"]
     generated = utc_now()
@@ -361,6 +562,7 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
 
     curated_by_repo: dict[str, dict[str, Any]] = {}
     curated_names: set[str] = set()
+    repository_metadata = config.get("repository_metadata", {})
     for family in config["families"]:
         for name in family["repositories"]:
             curated_names.add(name)
@@ -368,6 +570,7 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
                 "family": family["id"],
                 "family_title": family["title"],
                 "theme": family["theme"],
+                "category": family.get("category", "uncategorized"),
                 "featured": family.get("featured", False),
             }
             if name not in repositories and not seed_dir:
@@ -431,6 +634,8 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
         if isinstance(actions_raw, dict) and actions_raw.get("workflow_runs"):
             latest = actions_raw["workflow_runs"][0]
             run = {"status": latest.get("status"), "conclusion": latest.get("conclusion"), "name": latest.get("name"), "url": latest.get("html_url"), "updated_at": latest.get("updated_at")}
+        semantic = repository_metadata.get(name, {})
+        family_semantic = curated_by_repo.get(name) or {}
         repo.update(
             {
                 "languages": languages if isinstance(languages, dict) else {},
@@ -442,7 +647,12 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
                 "tag_count_observed": len(tags_raw) if isinstance(tags_raw, list) else 0,
                 "ci": run,
                 "recent": {**recent, "sparkline": weekly_sparkline(commits_by_repo.get(name, []), today)},
-                "curated": curated_by_repo.get(name),
+                "curated": family_semantic or None,
+                "semantic": {
+                    "title": semantic.get("title") or humanize_repository_name(repo.get("name")),
+                    "description": semantic.get("description") or repo.get("description") or None,
+                    "source": "curated" if semantic else ("github" if repo.get("description") else "fallback"),
+                },
             }
         )
         normalized.append(repo)
@@ -468,27 +678,71 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
 
     family_payload = []
     graph_nodes = []
-    graph_edges = []
+    raw_graph_edges = []
     selected_names = {repo["full_name"] for repo in normalized}
+    normalized_by_name = {repo["full_name"]: repo for repo in normalized}
+    my_owners = {username, *config.get("profile", {}).get("important_owners", [])}
     for family in config["families"]:
         members = [name for name in family["repositories"] if name in selected_names]
         if not members:
             continue
-        family_payload.append({**family, "repositories": members})
-        graph_nodes.append({"id": family["id"], "type": "family", "label": family["title"], "theme": family["theme"]})
+        member_repositories = [normalized_by_name[name] for name in members]
+        contributor_names = sorted({person["login"] for repo in member_repositories for person in repo.get("contributors", [])})
+        member_owners = sorted({repo["owner"] for repo in member_repositories if repo.get("owner")})
+        member_organizations = sorted({repo["owner"] for repo in member_repositories if repo.get("owner_type") == "Organization"})
+        starts = sorted((repo.get("created_at") or "")[:10] for repo in member_repositories if repo.get("created_at"))
+        ends = sorted((repo.get("pushed_at") or repo.get("created_at") or "")[:10] for repo in member_repositories if repo.get("pushed_at") or repo.get("created_at"))
+        evidence = {
+            "repository_count": len(members),
+            "contributor_count": len(contributor_names),
+            "contributors": contributor_names,
+            "organization_count": len(member_organizations),
+            "organizations": member_organizations,
+            "owner_count": len(member_owners),
+            "owners": member_owners,
+            "active_from": starts[0] if starts else None,
+            "active_to": ends[-1] if ends else None,
+        }
+        family_payload.append({**family, "repositories": members, "evidence": evidence})
+        graph_nodes.append({
+            "id": family["id"],
+            "type": "family",
+            "label": family["title"],
+            "description": family["description"],
+            "theme": family["theme"],
+            "category": family.get("category", "uncategorized"),
+            "question": family.get("question"),
+            "topics": family.get("topics", []),
+        })
         for name in members:
-            graph_edges.append({"source": family["id"], "target": name, "type": "family", "label": family["title"], "weight": 1})
+            raw_graph_edges.append({"source": family["id"], "target": name, "type": "family", "label": f"Repository evidence for {family['title']}", "weight": 1})
     for repo in normalized:
-        graph_nodes.append({"id": repo["full_name"], "type": "repository", "label": repo["name"], "owner": repo["owner"], "family": (repo.get("curated") or {}).get("family"), "activity": repo["recent"]["score"]})
+        curated = repo.get("curated") or {}
+        graph_nodes.append({
+            "id": repo["full_name"],
+            "type": "repository",
+            "label": repo["semantic"]["title"],
+            "description": repo["semantic"]["description"],
+            "owner": repo["owner"],
+            "ownership": "mine" if repo["owner"] in my_owners else "external",
+            "family": curated.get("family"),
+            "category": curated.get("category", "uncategorized"),
+            "activity": repo["recent"]["score"],
+        })
     available_families = {family["id"] for family in family_payload}
     for edge in config.get("relationships", []):
         if edge["from"] in available_families and edge["to"] in available_families:
-            graph_edges.append({"source": edge["from"], "target": edge["to"], "type": "curated", "label": edge["label"], "weight": 2})
+            raw_graph_edges.append({"source": edge["from"], "target": edge["to"], "type": "curated", "label": edge["label"], "weight": 2})
     for person in repeated:
         names = person["repositories"]
         for index, source in enumerate(names):
             for target in names[index + 1 :]:
-                graph_edges.append({"source": source, "target": target, "type": "shared-contributor", "label": f"Observed contributor: {person['login']}", "weight": 1})
+                raw_graph_edges.append({"source": source, "target": target, "type": "shared-contributor", "label": f"Observed contributor: {person['login']}", "weight": 1})
+    graph_edges = deduplicate_edges(raw_graph_edges)
+    network_metrics = graph_metrics((node["id"] for node in graph_nodes), graph_edges)
+    for node in graph_nodes:
+        node["metrics"] = network_metrics["nodes"][node["id"]]
+    family_metrics, insights = network_insights(family_payload, graph_edges)
 
     owners = sorted({repo["owner"] for repo in repositories.values() if repo.get("owner")})
     organizations = sorted(
@@ -519,6 +773,19 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
 
     active_since = discoveries.get("first_public_contribution") or (min((repo["created_at"] for repo in normalized if repo.get("created_at")), default="")[:10] or None)
     total_contributions = sum(int(value) for value in yearly.values())
+    graph_repository_names = {node["id"] for node in graph_nodes if node["type"] == "repository"}
+    graph_repositories = [normalized_by_name[name] for name in graph_repository_names]
+    graph_dates = sorted(
+        (repo.get("created_at") or "")[:10]
+        for repo in graph_repositories
+        if repo.get("created_at")
+    )
+    graph_end_dates = sorted(
+        (repo.get("pushed_at") or repo.get("created_at") or "")[:10]
+        for repo in graph_repositories
+        if repo.get("pushed_at") or repo.get("created_at")
+    )
+    graph_organizations = sorted({repo["owner"] for repo in graph_repositories if repo.get("owner_type") == "Organization"})
     return {
         "meta": {
             "schema_version": SCHEMA_VERSION,
@@ -546,7 +813,23 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
         "contributions": {"days": calendar, "yearly": yearly, "source": calendar_source},
         "repositories": sorted(normalized, key=lambda repo: (-repo["recent"]["score"], repo["full_name"].lower())),
         "families": family_payload,
-        "graph": {"nodes": graph_nodes, "edges": graph_edges},
+        "graph": {
+            "nodes": graph_nodes,
+            "edges": graph_edges,
+            "metrics": {
+                "connected_components": network_metrics["connected_components"],
+                "family_connected_components": family_metrics["connected_components"],
+            },
+            "summary": {
+                "repositories": len(graph_repository_names),
+                "families": len(family_payload),
+                "contributors": len({person["login"] for repo in graph_repositories for person in repo.get("contributors", [])}),
+                "organizations": len(graph_organizations),
+                "active_from": graph_dates[0] if graph_dates else None,
+                "active_to": graph_end_dates[-1] if graph_end_dates else None,
+            },
+            "insights": insights,
+        },
         "collaboration": {"contributors": all_people[:40], "repeated": repeated[:20]},
         "language_evolution": language_evolution,
         "discoveries": discoveries,

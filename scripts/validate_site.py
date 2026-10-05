@@ -126,6 +126,15 @@ def main() -> None:
             dataset = __import__("json").loads(github_data.read_text(encoding="utf-8"))
             if not dataset.get("repositories") or not dataset.get("contributions", {}).get("days"):
                 failures.append("generated GitHub-life dataset has no repositories or calendar data")
+            graph = dataset.get("graph", {})
+            if dataset.get("meta", {}).get("schema_version", 0) < 2 or not graph.get("summary") or not graph.get("insights"):
+                failures.append("generated GitHub-life dataset is missing semantic graph summaries or insights")
+            node_ids = {node.get("id") for node in graph.get("nodes", [])}
+            edge_ids = [edge.get("id") for edge in graph.get("edges", [])]
+            if len(edge_ids) != len(set(edge_ids)) or any(not edge_id for edge_id in edge_ids):
+                failures.append("generated GitHub-life graph contains duplicate or missing edge identifiers")
+            if any(edge.get("source") not in node_ids or edge.get("target") not in node_ids for edge in graph.get("edges", [])):
+                failures.append("generated GitHub-life graph contains an edge with an unknown node")
             if github_data.stat().st_size > 500_000:
                 failures.append("generated GitHub-life dataset exceeds the 500 KB performance budget")
         except (ValueError, OSError) as exc:
