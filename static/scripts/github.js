@@ -60,7 +60,7 @@
         <div class="current-row__spark">${sparkline(repo.recent.sparkline)}</div>
         <div class="current-row__score"><strong>${number.format(repo.recent.score)}</strong><span>${days} active day${days === 1 ? '' : 's'} / 30d</span></div>
       </article>`;
-    }).join('') || '<p>No public authored commits were returned for the trailing 90-day window.</p>';
+    }).join('') || '<p>GitHub returned no public commits authored by me in the trailing 90-day window.</p>';
   }
 
   function renderCareer(data) {
@@ -172,7 +172,7 @@
         <ul class="inspector-edges">${connected.slice(0, 6).map(edge => `<li><b>${escapeHTML(edge.type.replaceAll('-', ' '))}</b><br>${escapeHTML(edge.label)}</li>`).join('')}</ul>`;
     }
     const family = data.families.find(item => item.id === id);
-    if (family) return `<p class="repo-inspector__eyebrow">Project family</p><h3>${escapeHTML(family.title)}</h3><p>${escapeHTML(family.description)}</p><div class="inspector-facts"><div><span>Theme</span><strong>${escapeHTML(family.theme)}</strong></div><div><span>Repositories shown</span><strong>${family.repositories.length}</strong></div></div><ul class="inspector-edges">${family.repositories.map(name => `<li><b>${escapeHTML(name)}</b></li>`).join('')}</ul>`;
+    if (family) return `<p class="repo-inspector__eyebrow">My project family</p><h3>${escapeHTML(family.title)}</h3><p>${escapeHTML(family.description)}</p><div class="inspector-facts"><div><span>Theme</span><strong>${escapeHTML(family.theme)}</strong></div><div><span>Repositories I connect here</span><strong>${family.repositories.length}</strong></div></div><ul class="inspector-edges">${family.repositories.map(name => `<li><b>${escapeHTML(name)}</b></li>`).join('')}</ul>`;
     return '';
   }
 
@@ -255,7 +255,7 @@
 
   function renderCollaboration(data) {
     const repeated = data.collaboration.repeated;
-    root.querySelector('[data-collaborators]').innerHTML = repeated.length ? repeated.map(person => `<div class="collaborator-row"><span class="collaborator-row__avatar">${person.avatar ? `<img src="${escapeHTML(person.avatar)}" alt="">` : escapeHTML(person.login.slice(0, 2).toUpperCase())}</span><strong>${escapeHTML(person.login)}</strong><span>${person.repository_count} repositories · ${escapeHTML(person.repositories.map(name => name.split('/')[1]).join(' · '))}</span></div>`).join('') : '<p>No repeated non-bot contributor was returned in the current compact repository set.</p>';
+    root.querySelector('[data-collaborators]').innerHTML = repeated.length ? repeated.map(person => `<div class="collaborator-row"><span class="collaborator-row__avatar">${person.avatar ? `<img src="${escapeHTML(person.avatar)}" alt="">` : escapeHTML(person.login.slice(0, 2).toUpperCase())}</span><strong>${escapeHTML(person.login)}</strong><span>${person.repository_count} repositories · ${escapeHTML(person.repositories.map(name => name.split('/')[1]).join(' · '))}</span></div>`).join('') : '<p>GitHub returned no repeated non-bot contributor in my current compact repository set.</p>';
     const counts = new Map();
     data.repositories.forEach(repo => counts.set(repo.owner, (counts.get(repo.owner) || 0) + 1));
     root.querySelector('[data-owners]').innerHTML = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([owner, count]) => `<div class="owner-row"><strong>${escapeHTML(owner)}</strong><span>${count} repos in page</span></div>`).join('');
@@ -285,9 +285,9 @@
     const discoveries = data.discoveries;
     const values = [];
     if (discoveries.longest_active_streak) values.push([`${discoveries.longest_active_streak.days} days without breaking the chain`, `${formatDate(discoveries.longest_active_streak.start)} to ${formatDate(discoveries.longest_active_streak.end)}, with ${number.format(discoveries.longest_active_streak.contributions)} public calendar contributions.`]);
-    if (discoveries.busiest_month) values.push([`${number.format(discoveries.busiest_month.contributions)} contributions in one month`, `${formatMonth(discoveries.busiest_month.month)} is the highest month visible in the public contribution calendar.`]);
-    if (discoveries.widest_recent_month) values.push([`${discoveries.widest_recent_month.repositories} repositories moved in one month`, `${formatMonth(discoveries.widest_recent_month.month)} includes authored commits across ${escapeHTML(discoveries.widest_recent_month.names.slice(0, 5).map(name => name.split('/')[1]).join(', '))}${discoveries.widest_recent_month.names.length > 5 ? ', and more' : ''}.`]);
-    if (discoveries.busiest_day) values.push([`${number.format(discoveries.busiest_day.contributions)} contributions on a single day`, `${formatDate(discoveries.busiest_day.date)} is the highest public calendar cell in the observed record.`]);
+    if (discoveries.busiest_month) values.push([`${number.format(discoveries.busiest_month.contributions)} contributions in one month`, `${formatMonth(discoveries.busiest_month.month)} is my highest visible month in GitHub’s public contribution calendar.`]);
+    if (discoveries.widest_recent_month) values.push([`${discoveries.widest_recent_month.repositories} repositories moved in one month`, `In ${formatMonth(discoveries.widest_recent_month.month)}, I committed across ${escapeHTML(discoveries.widest_recent_month.names.slice(0, 5).map(name => name.split('/')[1]).join(', '))}${discoveries.widest_recent_month.names.length > 5 ? ', and more' : ''}.`]);
+    if (discoveries.busiest_day) values.push([`${number.format(discoveries.busiest_day.contributions)} contributions on a single day`, `${formatDate(discoveries.busiest_day.date)} is my highest visible public-calendar day.`]);
     root.querySelector('[data-discoveries]').innerHTML = values.map(([title, description], index) => `<article class="discovery-row"><span class="discovery-row__index">0${index + 1}</span><strong>${title}</strong><p>${description}</p></article>`).join('');
   }
 
@@ -319,7 +319,7 @@
       const query = input.value.trim().toLowerCase();
       state.commandItems = items.filter(item => !query || [item.label, ...item.terms].join(' ').toLowerCase().includes(query)).slice(0, 12);
       state.commandIndex = Math.min(state.commandIndex, Math.max(0, state.commandItems.length - 1));
-      results.innerHTML = state.commandItems.length ? state.commandItems.map((item, index) => `<button class="command-result" type="button" role="option" aria-selected="${index === state.commandIndex}" data-command-result="${index}"><span>${escapeHTML(item.type)}</span><strong>${escapeHTML(item.label)}</strong></button>`).join('') : '<p class="command-empty">No matching public work found.</p>';
+      results.innerHTML = state.commandItems.length ? state.commandItems.map((item, index) => `<button class="command-result" type="button" role="option" aria-selected="${index === state.commandIndex}" data-command-result="${index}"><span>${escapeHTML(item.type)}</span><strong>${escapeHTML(item.label)}</strong></button>`).join('') : '<p class="command-empty">I couldn’t find a match in my public work.</p>';
     }
     function open() { dialog.showModal(); input.value = ''; state.commandIndex = 0; update(); requestAnimationFrame(() => input.focus()); }
     document.addEventListener('keydown', event => {

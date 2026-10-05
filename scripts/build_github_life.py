@@ -552,16 +552,16 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
         "discoveries": discoveries,
         "methodology": {
             "activity_score": "5 × active days (30d) + 3 × commits (0–30d) + 2 × commits (31–60d) + commits (61–90d) + 6 × releases (90d)",
-            "active_repository": "At least one public commit authored by ttuff in the trailing 90 days.",
-            "observed_contributor": "A non-bot identity returned by GitHub's contributors endpoint for a repository included in this dataset.",
+            "active_repository": "I call a repository active when GitHub returns at least one public commit authored by me in the trailing 90 days.",
+            "observed_contributor": "I use ‘observed contributor’ for a non-bot identity returned by GitHub's contributors endpoint for a repository in this dataset.",
         },
         "limitations": [
-            "The repository set is a union of public repository discovery, recent authored-commit search, and curated project names; it may not include every historical repository.",
-            "GitHub's contribution calendar can include commits, issues, pull requests, and reviews. It is not presented as a lifetime commit count.",
-            "Recent commit counts include only public commits GitHub attributes to the ttuff author identity and search results are bounded to 90 days.",
-            "Contributor lists describe GitHub repository contributors, not necessarily direct collaborators or complete project teams.",
-            "Language byte counts describe current default branches and do not measure effort or proficiency.",
-            "A missing CI, release, license, or package value means unavailable in the queried GitHub surface, not that none exists elsewhere.",
+            "My repository set combines public repository discovery, recent authored-commit search, and project names I curated; it may not include every repository in my history.",
+            "I use GitHub's contribution calendar, which can include commits, issues, pull requests, and reviews; I do not present it as my lifetime commit count.",
+            "My recent commit counts include only public commits GitHub attributes to the ttuff author identity, and I bound search results to 90 days.",
+            "I use contributor lists to describe GitHub repository contributors, not necessarily my direct collaborators or complete project teams.",
+            "I use current default-branch language bytes as context; they do not measure my effort or proficiency.",
+            "When CI, release, license, or package data is missing, I treat it as unavailable in the GitHub surface I queried—not as proof that none exists elsewhere.",
         ],
     }
 

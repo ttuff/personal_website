@@ -18,8 +18,8 @@ DIST = ROOT / "site"
 PAGES = ["home", "my-science", "my-skills", "my-cv", "news", "contact-me"]
 CUSTOM_PAGES = {
     "github": {
-        "title": "A Life of Building in Public — Ty Tuff on GitHub",
-        "description": "A reproducible, data-driven view of Ty Tuff's public GitHub work, collaborations, project relationships, and technical evolution.",
+        "title": "I Build in Public — Ty Tuff on GitHub",
+        "description": "Explore the public GitHub work I’ve built, maintained, and contributed to, including my collaborations, project relationships, and evolving technical practice.",
     }
 }
 PRODUCTION_ORIGIN = "https://drtuff.com"

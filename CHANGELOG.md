@@ -7,6 +7,7 @@
 - Added `data/github-projects.yml` as a small human-editable editorial layer and documented data provenance, API limitations, schema, performance, and design decisions in `docs/github-life-design.md`.
 - Added a keyboard-accessible Cmd-K/Ctrl-K search palette, day-level contribution inspection, desktop relationship graph, intentional mobile project-family view, reduced-motion support, and repository detail views.
 - Added a daily GitHub Actions refresh/deploy workflow with caching, validation, and loop-safe generated-data commits; added GitHub to shared desktop/mobile/footer navigation and the sitemap.
+- Revised the GitHub narrative into Ty's direct first-person voice while distinguishing repositories he has worked in from repositories he owns.
 
 ## 2026-09-30
 
