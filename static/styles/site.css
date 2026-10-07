@@ -97,6 +97,11 @@ strong{font-weight:700}
 .social-account-links-block .sqs-svg-icon--wrapper>div,.social-account-links-block .sqs-svg-icon--social{display:none}
 
 .page-home #h-about-me .sqs-layout{max-width:1100px}
+.page-home #h-intro .sqs-html-content{text-align:center}
+.home-identity__title{margin:1.4rem 0 .65rem;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.home-identity__title span{display:block;margin-top:5px;color:var(--blue);font-size:15px}
+.home-identity__summary{max-width:610px;margin:.65rem auto;font-size:20px;line-height:1.45}
+.home-identity__areas{margin:1.2rem auto 0;font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.6;text-transform:uppercase}
 .page-home #h-relativity-in-action,.page-home #h-closer{min-height:580px}
 .page-home #h-social-media{text-align:center}
 .page-home #h-social-media .sqs-gallery-container{display:flex;justify-content:center;gap:40px}
@@ -172,6 +177,10 @@ strong{font-weight:700}
   .sqs-gallery-block-grid .image-slide-title{font-size:11px;line-height:1.35}
   .sqs-block-map{height:438px;padding-right:0;padding-left:0}
   .page-home #h-relativity-in-action,.page-home #h-closer{min-height:0}
+  .home-identity__title{font-size:11px}
+  .home-identity__title span{font-size:13px}
+  .home-identity__summary{font-size:17px}
+  .home-identity__areas{font-size:10px}
   .page-home #h-about-me{min-height:1580px}
   .page-home #h-relativity-in-action{min-height:787px}
   .page-home #h-talks{min-height:740px}

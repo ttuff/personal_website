@@ -88,6 +88,14 @@ class GeneratedDatasetTests(unittest.TestCase):
         allowed = {"curated", "family", "shared-contributor"}
         self.assertTrue(all(edge["type"] in allowed and edge["label"] for edge in payload["graph"]["edges"]))
         self.assertTrue(all(repo["url"].startswith("https://github.com/") for repo in payload["repositories"] if repo.get("url")))
+        self.assertFalse(any("earthdatascience.org" in (repo.get("homepage") or "") for repo in payload["repositories"]))
+
+    def test_curated_homepage_overrides_replace_stale_github_metadata(self) -> None:
+        config = json.loads((ROOT / "data" / "github-projects.yml").read_text(encoding="utf-8"))
+        metadata = config["repository_metadata"]
+        self.assertEqual(metadata["earthlab/cft"]["homepage"], "https://earthlab.github.io/cft/")
+        self.assertEqual(metadata["earthlab/eddi"]["homepage"], "https://earthlab.github.io/eddi/")
+        self.assertEqual(metadata["earthlab/leri"]["homepage"], "https://earthlab.github.io/leri/")
 
     def test_graph_has_unique_nodes_edges_and_valid_family_membership(self) -> None:
         payload = json.loads((ROOT / "data" / "generated" / "github-life.json").read_text(encoding="utf-8"))
@@ -126,10 +134,21 @@ class GeneratedDatasetTests(unittest.TestCase):
         for project in projects:
             self.assertEqual(project["evidence"]["repository_count"], len(project["repositories"]))
             self.assertTrue({repo["full_name"] for repo in project["repositories"]} <= repository_names)
+            self.assertTrue(project["summary"])
+            self.assertTrue(project["website"]["url"].startswith("https://"))
+            self.assertNotIn("drtuff.com", project["website"]["url"])
+            self.assertTrue(project["github"]["url"].startswith("https://github.com/"))
+            screenshot = ROOT / project["screenshot"]["src"].lstrip("/")
+            self.assertEqual(screenshot.suffix, ".webp")
+            self.assertTrue(screenshot.exists())
+            self.assertLess(screenshot.stat().st_size, 150_000)
             self.assertEqual(
                 project["evidence"]["release_count"],
                 sum(repo["release_count_observed"] for repo in project["repositories"]),
             )
+            for metric in project.get("metrics", []):
+                self.assertTrue(metric["value"] and metric["label"])
+                self.assertTrue(metric["source"].startswith("https://"))
             if project.get("visual"):
                 asset = ROOT / project["visual"]["src"].lstrip("/")
                 self.assertTrue(asset.exists(), f"Missing portfolio visual: {asset}")

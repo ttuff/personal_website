@@ -6,60 +6,74 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
   })[character]);
   const number = new Intl.NumberFormat('en-US');
-  const plural = (value, singular, pluralValue = `${singular}s`) => `${number.format(value)} ${value === 1 ? singular : pluralValue}`;
   const externalAttributes = url => /^https?:/.test(url || '') ? ' target="_blank" rel="noreferrer"' : '';
 
-  function links(project) {
-    return `<div class="project-links">${project.links.map(link => `<a href="${escapeHTML(link.url)}"${externalAttributes(link.url)}>${escapeHTML(link.label)} <span aria-hidden="true">→</span></a>`).join('')}</div>`;
+  function projectEventAttributes(project, linkType) {
+    return ` data-project-name="${escapeHTML(project.title)}" data-project-link-type="${escapeHTML(linkType)}"`;
   }
 
-  function projectVisual(project) {
-    if (project.visual) {
-      return `<figure class="project-visual">
-        <img src="${escapeHTML(project.visual.src)}" alt="${escapeHTML(project.visual.alt)}" loading="lazy" decoding="async">
-        <figcaption>${escapeHTML(project.visual.caption)} <a href="${escapeHTML(project.visual.source)}" target="_blank" rel="noreferrer">Source ↗</a></figcaption>
-      </figure>`;
+  function projectMetrics(project) {
+    if (project.metrics?.length) return project.metrics.slice(0, 2);
+    const metrics = [];
+    if (project.evidence.release_count) {
+      metrics.push({value: number.format(project.evidence.release_count), label: 'observed releases'});
     }
-    if (project.diagram) {
-      return `<div class="system-diagram" role="img" aria-label="${escapeHTML(project.diagram.join(' connects to '))}">
-        ${project.diagram.map((label, index) => `<div><span>${String(index + 1).padStart(2, '0')}</span><strong>${escapeHTML(label)}</strong></div>`).join('')}
-      </div>`;
+    if (project.evidence.contributor_count) {
+      metrics.push({value: number.format(project.evidence.contributor_count), label: 'observed contributors'});
     }
-    return '';
+    if (metrics.length < 2 && project.evidence.repository_count) {
+      metrics.push({value: number.format(project.evidence.repository_count), label: 'linked repositories'});
+    }
+    return metrics.slice(0, 2);
   }
 
-  function evidenceLine(project) {
-    const evidence = project.evidence;
-    const parts = [
-      plural(evidence.repository_count, 'repository', 'repositories'),
-      evidence.release_count ? plural(evidence.release_count, 'observed release') : null,
-      evidence.documented_repository_count ? `${evidence.documented_repository_count} with a project site` : null,
-      evidence.owner_count > 1 ? `${evidence.owner_count} GitHub owners` : null,
-    ].filter(Boolean);
-    return parts.join(' · ');
+  function projectWebsiteHref(project, url) {
+    const tracked = new URL(url);
+    tracked.searchParams.set('utm_source', 'drtuff.com');
+    tracked.searchParams.set('utm_medium', 'referral');
+    tracked.searchParams.set('utm_campaign', 'project_gallery');
+    tracked.searchParams.set('utm_content', project.id);
+    return tracked.toString();
+  }
+
+  function projectCard(project, index) {
+    const website = project.website || project.links?.find(link => !link.url.includes('github.com'));
+    const github = project.github || project.links?.find(link => link.url.includes('github.com'));
+    const metrics = projectMetrics(project);
+    const tags = project.technologies.slice(0, 6);
+    const domain = website ? new URL(website.url).hostname : '';
+    const websiteHref = website ? projectWebsiteHref(project, website.url) : '';
+    return `<article id="project-${escapeHTML(project.id)}" class="project-gallery__item" aria-labelledby="project-${escapeHTML(project.id)}-title">
+      ${website && project.screenshot ? `<a class="project-browser" href="${escapeHTML(websiteHref)}"${externalAttributes(websiteHref)}${projectEventAttributes(project, 'website')} aria-label="Visit the ${escapeHTML(project.title)} project website">
+        <span class="project-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>${escapeHTML(domain)}</span></span>
+        <img src="${escapeHTML(project.screenshot.src)}" alt="${escapeHTML(project.screenshot.alt)}" width="1200" height="750" loading="lazy" decoding="async">
+      </a>` : ''}
+      <div class="project-gallery__copy">
+        <p class="projects-kicker">${String(index + 1).padStart(2, '0')} / ${escapeHTML(project.capability)}</p>
+        <h3 id="project-${escapeHTML(project.id)}-title">${escapeHTML(project.title)}</h3>
+        <p class="project-gallery__headline">${escapeHTML(project.headline)}</p>
+        <p class="project-gallery__summary">${escapeHTML(project.summary || project.built)}</p>
+        ${metrics.length ? `<dl class="project-gallery__metrics">${metrics.map(metric => `<div><dt>${escapeHTML(metric.label)}</dt><dd>${escapeHTML(metric.value)}</dd></div>`).join('')}</dl>` : ''}
+        <ul class="project-gallery__technologies" aria-label="Technologies used by ${escapeHTML(project.title)}">${tags.map(technology => `<li>${escapeHTML(technology)}</li>`).join('')}</ul>
+        <div class="project-gallery__actions">
+          ${website ? `<a class="projects-button" href="${escapeHTML(websiteHref)}"${externalAttributes(websiteHref)}${projectEventAttributes(project, 'website')}>Visit ${escapeHTML(project.title)}</a>` : ''}
+          ${github ? `<a class="projects-text-link" href="${escapeHTML(github.url)}"${externalAttributes(github.url)}${projectEventAttributes(project, 'github')}>View code on GitHub <span aria-hidden="true">↗</span></a>` : ''}
+        </div>
+      </div>
+    </article>`;
   }
 
   function renderFeatured(portfolio) {
     const container = root.querySelector('[data-featured-projects]');
-    container.innerHTML = portfolio.projects.map((project, index) => `<section id="project-${escapeHTML(project.id)}" class="projects-section project-section project-section--${escapeHTML(project.id)}" aria-labelledby="project-${escapeHTML(project.id)}-title">
+    container.innerHTML = `<section class="projects-section projects-gallery" aria-labelledby="project-gallery-title">
       <div class="projects-shell">
-        <header class="project-header">
-          <p class="projects-kicker">${String(index + 1).padStart(2, '0')} / ${escapeHTML(project.capability)}</p>
-          <h2 id="project-${escapeHTML(project.id)}-title">${escapeHTML(project.title)}</h2>
-          <p class="project-headline">${escapeHTML(project.headline)}</p>
-        </header>
-        <div class="project-composition">
-          <div class="project-story">
-            <div class="project-copy"><span>Problem</span><p>${escapeHTML(project.problem)}</p></div>
-            <div class="project-copy"><span>Built</span><p>${escapeHTML(project.built)}</p></div>
-            <div class="project-copy project-copy--role"><span>My role</span><ul>${project.role.map(item => `<li>${escapeHTML(item)}</li>`).join('')}</ul></div>
-            ${links(project)}
-            <p class="project-evidence"><span>Evidence</span>${escapeHTML(evidenceLine(project))}</p>
-          </div>
-          ${projectVisual(project)}
+        <div class="projects-heading">
+          <div><p class="projects-kicker">The project ecosystem</p><h2 id="project-gallery-title">Project websites, not replicas.</h2></div>
+          <p>Each preview opens the project’s own canonical website. This page gives the technical throughline; the project sites hold the full documentation, evidence, and scientific context.</p>
         </div>
+        <div class="project-gallery__list">${portfolio.projects.map(projectCard).join('')}</div>
       </div>
-    </section>`).join('');
+    </section>`;
   }
 
   function renderPrinciples(portfolio) {

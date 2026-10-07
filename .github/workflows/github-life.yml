@@ -28,6 +28,8 @@ jobs:
         run: python scripts/build_github_life.py --refresh
       - name: Test transformations
         run: python -m unittest discover -s tests -v
+      - name: Test analytics behavior
+        run: node --test tests/test_analytics.mjs
       - name: Build and validate site
         run: python scripts/validate_site.py
       - name: Commit refreshed data

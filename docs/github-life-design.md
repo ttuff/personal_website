@@ -39,6 +39,8 @@ The most active repositories reinforce a connected story rather than a collectio
 | CI status | REST Actions runs endpoint | Latest visible run on the default branch. Absence can mean no Actions workflow or inaccessible data. |
 | Project meaning | `data/github-projects.yml` | Human-edited repository titles/descriptions, families, conceptual categories, research questions, topics, importance, and intellectual relationships. |
 
+Verified `repository_metadata.homepage` values in the editorial layer override stale or retired homepage fields returned by GitHub. These overrides should point only to confirmed project-owned destinations; repository URLs remain the fallback.
+
 ## Derived definitions
 
 Recent activity is deliberately not a pure "last push" sort. For repository `r`:
@@ -78,7 +80,7 @@ The generated `data/generated/github-life.json` contains:
 - `repositories`: normalized facts, recent counts, score, small sparklines, languages, releases, contributors, CI, and optional curated family fields;
 - `families`: editorial groupings with category, question, topics, and compact evidence summaries;
 - `graph`: schema-v2 nodes and deduplicated typed edges, ownership classes, metrics, summary counts, and evidence-linked insights;
-- `portfolio`: curated capability stories joined to repository facts, technology evidence, principles, and a compact Connections preview;
+- `portfolio`: curated capability stories joined to repository facts, canonical external project sites, optimized preview images, sourced metrics, technology evidence, principles, and a compact Connections preview;
 - `collaboration`: repeated observed contributors and the repositories connecting them;
 - `language_evolution`: repository start/last-push spans grouped by primary language;
 - `discoveries`: reproducibly calculated streak, busiest day/month, and concurrent-project facts;

@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-10-07
+
+- Strengthened the homepage's first-screen professional identity and Person structured data around environmental data science, scientific computing, cloud infrastructure, open source, and technical leadership.
+- Reframed My Projects as a canonical website-preview gallery driven by the shared project data model, with optimized first-party screenshots, evidence-backed metrics, technology tags, and direct project-site and GitHub actions.
+- Added distinct GA4 project-site and GitHub click events, campaign-tagged project referrals, a reproducible preview-capture utility, and guidance for independent GA4 and Search Console ownership across published project sites.
+- Added centralized, production-only GA4 support with one configurable Measurement ID, one explicit page view per canonical page load, and no tracking on local previews or redirect aliases.
+- Added privacy-conscious PDF download and categorized outbound-link events without destination paths, query strings, form values, user IDs, link text, referrers, or advertising signals.
+- Added analytics runtime tests and deployment validation, documented GA4 setup and verification, and documented both preferred DNS and optional HTML-tag Search Console verification paths without inventing a token.
+- Added complete Search Console readiness documentation with the exact Domain property and DNS record structure, sitemap submission, URL-prefix fallback, and GA4 linking steps.
+- Centralized search descriptions, filled the missing Skills metadata, added verified Person/ProfilePage JSON-LD and social-image alternatives, and expanded deployment tests for sitemap, robots, titles, descriptions, canonicals, structured data, and preview metadata.
+
+## 2026-10-06
+
+- Repaired stale external links for the ecology statistics application and three Earth Lab projects, with verified homepage overrides in the editorial data layer.
+- Normalized migrated image and video markup, removed duplicate attributes and IDs, corrected accessibility roles and semantic definition-list markup, and fixed homepage/footer copy errors.
+- Made `/home` a noindex compatibility redirect to the canonical root, removed the empty `/news` route from indexing and the sitemap, and added a minimal News heading and description.
+- Expanded deployment validation to catch duplicate IDs and attributes, missing image alternatives, invalid ARIA labeling, legacy embed markup, empty links, stale external URLs, and canonical/sitemap regressions.
+
 ## 2026-10-05
 
 - Added a new `/my-projects/` capability narrative for scientific software, data systems, research infrastructure, computational experiments, and agentic systems, using the preserved site's original typography, color, spacing, chalkboard, and full-bleed composition language.

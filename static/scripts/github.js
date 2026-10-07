@@ -42,7 +42,6 @@
     root.querySelector('[data-summary-value="releases"]').textContent = number.format(summary.releases_observed);
     const refresh = new Date(data.meta.generated_at);
     root.querySelector('[data-refreshed]').textContent = `· refreshed ${dateFormat.format(refresh)}`;
-    root.querySelector('[data-refreshed]').dateTime = data.meta.generated_at;
     root.querySelector('[data-machinery-refresh]').textContent = refresh.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
     root.querySelector('[data-refresh-mode]').textContent = data.meta.refresh_mode.replaceAll('-', ' ');
     root.querySelector('[data-activity-formula]').textContent = data.methodology.activity_score;

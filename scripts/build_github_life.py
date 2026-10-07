@@ -726,6 +726,8 @@ def build_dataset(client: GitHubClient, config: dict[str, Any], *, seed_dir: Pat
             run = {"status": latest.get("status"), "conclusion": latest.get("conclusion"), "name": latest.get("name"), "url": latest.get("html_url"), "updated_at": latest.get("updated_at")}
         semantic = repository_metadata.get(name, {})
         family_semantic = curated_by_repo.get(name) or {}
+        if "homepage" in semantic:
+            repo["homepage"] = semantic["homepage"]
         repo.update(
             {
                 "languages": languages if isinstance(languages, dict) else {},

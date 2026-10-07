@@ -45,13 +45,16 @@
       "title": "ESIIL analytics library"
     },
     "earthlab/cft": {
-      "title": "Climate Futures Toolbox"
+      "title": "Climate Futures Toolbox",
+      "homepage": "https://earthlab.github.io/cft/"
     },
     "earthlab/eddi": {
-      "title": "Evaporative Demand Drought Index"
+      "title": "Evaporative Demand Drought Index",
+      "homepage": "https://earthlab.github.io/eddi/"
     },
     "earthlab/leri": {
-      "title": "Landscape Evaporative Response Index"
+      "title": "Landscape Evaporative Response Index",
+      "homepage": "https://earthlab.github.io/leri/"
     }
   },
   "families": [
@@ -185,6 +188,14 @@
         "family": "cube-dynamics",
         "capability": "Scientific software",
         "title": "CubeDynamics",
+        "summary": "An open-source Python framework for readable, source-qualified analysis of multidimensional environmental data.",
+        "website": {"url": "https://cu-esiil.github.io/cubedynamics/", "label": "Visit CubeDynamics"},
+        "github": {"url": "https://github.com/CU-ESIIL/cubedynamics", "label": "CubeDynamics on GitHub"},
+        "screenshot": {
+          "src": "/assets/projects/sites/cubedynamics.webp",
+          "alt": "CubeDynamics project website showing its environmental data analysis interface.",
+          "captured": "2026-10-07"
+        },
         "headline": "A grammar for environmental data analysis.",
         "problem": "Environmental analyses repeatedly reconstruct similar operations across space, time, scale, and environmental context. Rerunnable code can still hide the scientific statement it executed.",
         "built": "I built a Python framework that combines source-qualified environmental data with composable verbs, explicit authored order, semantic state, provenance, and bounded quality checks.",
@@ -207,6 +218,14 @@
         "family": "spectral-bridge",
         "capability": "Data systems",
         "title": "SpectralBridge",
+        "summary": "A restartable scientific pipeline that harmonizes drone, airborne, and satellite reflectance with inspectable QA and provenance.",
+        "website": {"url": "https://earthlab.github.io/spectralbridge/", "label": "Visit SpectralBridge"},
+        "github": {"url": "https://github.com/earthlab/spectralbridge", "label": "SpectralBridge on GitHub"},
+        "screenshot": {
+          "src": "/assets/projects/sites/spectralbridge.webp",
+          "alt": "SpectralBridge project website introducing its three-stage cross-sensor pipeline.",
+          "captured": "2026-10-07"
+        },
         "headline": "Making measurements comparable across sensors and scales.",
         "problem": "Airborne imaging spectroscopy, drone observations, and satellite products measure reflectance at different resolutions and through different observing systems. Those measurements cannot simply be treated as interchangeable.",
         "built": "I helped build a restartable pipeline that corrects observations, translates spectra into target-sensor bandspaces, writes analysis-ready outputs, and preserves quality evidence and provenance at every stage.",
@@ -229,6 +248,18 @@
         "related_families": ["esiil-infrastructure", "open-life-science-hackathon"],
         "capability": "Research infrastructure",
         "title": "OASIS",
+        "summary": "Open cloud and research computing infrastructure that helps environmental synthesis teams move from shared questions to durable software, data, and websites.",
+        "website": {"url": "https://cu-esiil.github.io/home/", "label": "Visit OASIS"},
+        "github": {"url": "https://github.com/CU-ESIIL/home", "label": "OASIS on GitHub"},
+        "screenshot": {
+          "src": "/assets/projects/sites/oasis.webp",
+          "alt": "OASIS project website presenting open analysis and synthesis infrastructure for science.",
+          "captured": "2026-10-07"
+        },
+        "metrics": [
+          {"value": "100+", "label": "public project and event websites", "source": "https://cu-esiil.github.io/home/"},
+          {"value": "200+", "label": "repositories across the ecosystem", "source": "https://cu-esiil.github.io/home/"}
+        ],
         "headline": "Computational systems for science larger than one researcher.",
         "problem": "Working groups and events need shared compute, data access, reproducible environments, repository workflows, documentation, and durable public outputs without rebuilding the same foundation for every team.",
         "built": "I design and operate reusable infrastructure that connects researchers, GitHub workflows, cloud and HPC computing, shared data, containers, training, and open-science publishing.",
@@ -246,6 +277,18 @@
         "family": "fire-growth-form",
         "capability": "Computational experiments",
         "title": "Fire VASE",
+        "summary": "A reproducible computational method for reconstructing and comparing the developmental histories of wildfires.",
+        "website": {"url": "https://cu-esiil.github.io/fire_vase/", "label": "Visit Fire VASE"},
+        "github": {"url": "https://github.com/CU-ESIIL/fire_vase", "label": "Fire VASE on GitHub"},
+        "screenshot": {
+          "src": "/assets/projects/sites/fire-vase.webp",
+          "alt": "Fire VASE project website explaining developmental wildfire morphology.",
+          "captured": "2026-10-07"
+        },
+        "metrics": [
+          {"value": "278,569", "label": "FIRED events in the reanalyzed archive", "source": "https://cu-esiil.github.io/fire_vase/"},
+          {"value": "10,246", "label": "consecutive observed fire histories", "source": "https://cu-esiil.github.io/fire_vase/"}
+        ],
         "headline": "Can the shape of a wildfire reveal how its growth is changing?",
         "problem": "Final burned area and duration hide when growth occurred. I wanted a common representation that could compare the development of fires with very different sizes and lifetimes.",
         "built": "I reconstruct dated fire-growth histories, encode normalized growth allocation as developmental forms, extract morphology, and connect those representations to validation and environmental evidence.",
@@ -267,7 +310,15 @@
         "id": "agentic-systems",
         "family": "agentic-infrastructure",
         "capability": "Autonomous and agentic computing",
-        "title": "Computational systems that can do more themselves",
+        "title": "FAIR + CARE for Agentic Science",
+        "summary": "A test-first framework for making agentic scientific work understandable, reproducible, evaluable, and governed.",
+        "website": {"url": "https://cu-esiil.github.io/FAIR-and-CARE-for-AGENTS/", "label": "Visit FAIR + CARE for Agentic Science"},
+        "github": {"url": "https://github.com/CU-ESIIL/FAIR-and-CARE-for-AGENTS", "label": "FAIR + CARE on GitHub"},
+        "screenshot": {
+          "src": "/assets/projects/sites/fair-care-agents.webp",
+          "alt": "FAIR and CARE for Agentic Science project website introducing agent-ready scientific infrastructure.",
+          "captured": "2026-10-07"
+        },
         "headline": "Planning, tool use, evidence, and verification—with humans retaining authority.",
         "problem": "Giving a computational agent repository access does not give it scientific context, judgment, legitimate authority, or a reliable record of what it did.",
         "built": "I am exploring containerized scientific workspaces and repository specifications that let computational systems plan, inspect, test, and revise work while keeping provenance, evaluation, permissions, and human review explicit.",
